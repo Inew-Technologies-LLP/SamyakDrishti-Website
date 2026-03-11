@@ -1,4 +1,5 @@
 import banner from "../assets/our_team/banner.jpg";
+import { useState } from "react";
 import layer from "../assets/our_team/layer.png";
 
 import sujal from "../assets/our_team/Dr.Sujal.jpg";
@@ -23,337 +24,305 @@ import akshay from "../assets/our_team/Dr.Akshay.png";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-
 export default function OurTeam() {
   return (
-    <div className="w-full bg-white overflow-hidden">
-        <Navbar />
+    <div className="w-full pt-16 bg-white overflow-hidden">
 
-      {/* HERO BANNER */}
-      <section className="relative w-full h-[500px]">
+      <Navbar />
 
-        <img
-          src={banner}
-          className="w-full h-full object-cover object-top opacity-85"
-        />
+{/* HERO */}
+<section className="relative  w-full h-[260px] md:h-[420px]">
 
-        {/* dark overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
+<img
+src={banner}
+className="w-full h-full object-cover object-top opacity-85"
+/>
 
-        {/* title */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <h1 className="text-white text-6xl font-['Lora'] font-bold tracking-widest">
-            Our Team
-          </h1>
-          <div className="w-40 h-[4px] bg-white/80 mt-6 rounded-full"></div>
-        </div>
+<div className="absolute inset-0 bg-black/50"></div>
 
-        {/* bottom layer */}
-        <img
-          src={layer}
-          className="absolute -bottom-1 w-full"
-        />
+<div className="absolute inset-0 flex flex-col items-center justify-center">
 
-      </section>
+<h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-widest">
+Our Team
+</h1>
+
+<div className="w-24 md:w-40 h-[4px] bg-white/80 mt-6 rounded-full"></div>
+
+</div>
+
+<img src={layer} className="absolute -bottom-1 w-full"/>
+
+</section>
 
 
-     {/* DR SUJAL */}
-<section className="w-full px-20 py-20">
 
-  <div className="max-w-[1500px] mx-auto px-6">
+{/* DR SUJAL */}
 
-    {/* TITLE */}
-    <div className="w-[547px] h-10  justify-start text-black text-3xl font-bold font-['Lora'] leading-10 tracking-tight mb-3    ">Dr. Sujal Shah – Medical Director</div>
+<section className="w-full px-6 md:px-20 py-16 md:py-20">
 
-    {/* divider */}
-    <div className="w-full h-[1px] bg-gray-300 mb-10"></div>
+<div className="max-w-[1500px] mx-auto">
 
-    {/* CONTENT */}
-<div className="grid grid-cols-2  items-center">
+<div className="text-black text-2xl md:text-3xl font-bold font-['Lora'] leading-10 tracking-tight mb-3">
+Dr. Sujal Shah – Medical Director
+</div>
 
-  {/* IMAGE */}
-  <img
-    src={sujal}
-    className="w-[400px] h-[600px] object-cover rounded-[20px]"
-  />
+<div className="w-full h-[1px] bg-gray-300 mb-10"></div>
 
-  {/* TEXT */}
-  <div className="max-w-[730px]">
+<div className="grid md:grid-cols-2 gap-10 items-center">
 
-    <div className="text-black text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
+<img
+src={sujal}
+className="w-full max-w-[400px] h-[500px] md:h-[600px] object-cover rounded-[20px]"
+/>
 
-      India's leading vision correction specialist and pioneer in LASIK and SMILE procedures. 
-      Dr. Shah was the first surgeon in India to perform Wavefront-Optimized LASIK, Presbyond LASIK, and SMILE. 
-      He has performed more than 60,000 such procedures and has contributed extensively to the field through 
-      numerous published research papers. Patients trust Dr. Shah for his transparency, exceptional skill, 
-      integrity, and unwavering commitment to safety and precision in every procedure he performs.
+<div className="max-w-[730px]">
 
-      <br /><br />
+<div className="text-black text-sm md:text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
 
-      He also serves as Director of Ophthalmology at Sir H.N. Reliance Foundation Hospital, where his department 
-      operates at the forefront of eye care with advanced technology like the SMILE Pro. Learn more about 
-      Dr. Shah's work at{" "}
+India's leading vision correction specialist and pioneer in LASIK and SMILE procedures. 
+Dr. Shah was the first surgeon in India to perform Wavefront-Optimized LASIK, Presbyond LASIK, and SMILE. 
+He has performed more than 60,000 such procedures and has contributed extensively to the field through 
+numerous published research papers. Patients trust Dr. Shah for his transparency, exceptional skill, 
+integrity, and unwavering commitment to safety and precision in every procedure he performs.
 
-      <span className="underline">
-        Sir H.N. Reliance Foundation Hospital
+<br /><br />
+
+He also serves as Director of Ophthalmology at Sir H.N. Reliance Foundation Hospital, where his department 
+operates at the forefront of eye care with advanced technology like the SMILE Pro. Learn more about 
+Dr. Shah's work at{" "}
+
+<span className="underline">
+Sir H.N. Reliance Foundation Hospital
+</span>
+
+</div>
+
+
+<div className="flex flex-col gap-3 mt-10">
+
+<div className="flex items-center gap-2 text-zinc-500 text-sm font-normal font-['Inter']">
+<img src={edu} className="w-4 h-4"/>
+Education & Training
+</div>
+
+
+<div className="flex flex-wrap gap-3">
+
+<Pill icon={i1} text="Seth G.S. Medical College & K.E.M. Hospital, Mumbai"/>
+<Pill icon={i2} text="Doheny Eye Institute, University of Southern California (USC), Los Angeles"/>
+<Pill icon={i3} text="Cleveland Clinic"/>
+<Pill icon={i4} text="Sankara Nethralaya, Chennai"/>
+<Pill icon={i5} text="Jules Stein Eye Institute, University of California, Los Angeles"/>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+{/* DR MANISHA */}
+
+<section className="w-full px-6 md:px-20 py-16 md:py-20">
+
+<div className="max-w-[1500px] mx-auto">
+
+<div className="text-black text-2xl md:text-3xl font-bold font-['Lora'] leading-10 tracking-tight mb-3">
+Dr. Manisha Shah – Medical Director
+</div>
+
+<div className="w-full h-[1px] bg-gray-300 mb-10"></div>
+
+<div className="grid md:grid-cols-2 gap-10 items-center">
+
+<div className="max-w-[730px]">
+
+<div className="text-black text-sm md:text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
+
+With over 17 years of experience, Dr. Manisha Shah is a highly
+skilled ophthalmologist and LASIK specialist with expertise across
+the full spectrum of laser vision correction.
+
+Known for her emphasis on transparency, safety, and individualized
+care, Dr. Shah embodies the core values of Samyak Drishti Eye Clinic.
+
+<br /><br />
+
+For over 17 years, Dr. Shah has led free eye camps for
+underprivileged patients and monks. She actively works with the
+Jain Doctors Federation, Lions, Rotary, and other NGOs to expand
+access to quality eye care.
+
+</div>
+
+
+<div className="flex flex-col gap-3 mt-10">
+
+<div className="flex items-center gap-2 text-zinc-500 text-sm font-normal font-['Inter']">
+<img src={edu} className="w-4 h-4"/>
+Education & Training
+</div>
+
+<div className="flex gap-3 flex-wrap">
+
+<Pill icon={i6} text="MBBS – Shivaji University"/>
+<Pill icon={i7} text="DOMS – Bombay Hospital"/>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div className="flex md:justify-end">
+
+<img
+src={manisha}
+className="w-full max-w-[370px] h-[360px] md:h-[400px] object-cover object-top rounded-[20px]"
+/>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+{/* TEAM */}
+
+<section className="max-w-[1400px] mx-auto px-6 py-20 md:py-24">
+
+<h2 className="text-3xl md:text-4xl font-bold font-['Lora'] mb-16">
+Our Team of Doctors
+</h2>
+
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
+
+<DoctorCard image={ashish} name="Dr. Ashish Ahuja" role="Retina Consultant" degree="MBBS, DNB (Retina)" description="Vitreo-retina specialist with 14 years of experience, trained at Aravind Eye Hospital, and known for managing complex retinal and uveal diseases."/>
+
+<DoctorCard image={kartik} name="Dr. Kartik Panikkar" role="Glaucoma Consultant" degree="MBBS, DNB, FRCS (Edin)" description="Fellowship-trained in glaucoma at Aravind Eye Hospital, Coimbatore, practising in Mumbai at clinics such as Sir H. N. Reliance Foundation Hospital and more."/>
+
+<DoctorCard image={mitesh} name="Dr. Mitesh Jain" role="Cornea Specialist" degree="MBBS, DNB" description="Dr. Mitesh Jain is a cornea and anterior segment specialist known for performing advanced procedures including corneal transplants, refractive surgery and premium cataract surgeries."/>
+
+<DoctorCard image={rajendra} name="Mr. Rajendra Pawar" role="Ocularist & Optometrist" degree="Master of Optometry, Vision Therapist, and Specialist in Contact Lenses" description="Experienced ocularist and optometrist specialising in vision therapy, prosthetic eye fitting, and advanced contact lens solutions."/>
+
+<DoctorCard image={uppal} name="Dr. Uppal Gandhi" role="Squint & Pediatric Ophthalmology Specialist" degree="DNB, Fellowship in Pediatric Ophthalmology, Strabismus, and Neuro-Ophthalmology" description="Dr Uppal Gandhi focuses on the clinical evaluation and management of squint and paediatric eye conditions, with an emphasis on accurate diagnosis and long-term visual outcomes."/>
+
+<DoctorCard image={akshay} name="Dr. Akshay Nair" role="Cornea Specialist" degree="MBBS, DNB" description="An oculoplastic surgeon and ocular oncologist, Dr. Nair specialises in eyelid, orbit and tear-duct disorders and practices at top hospitals in Mumbai."/>
+
+</div>
+
+</section>
+
+<Footer />
+
+</div>
+);
+}
+
+
+/* PILL COMPONENT */
+
+function Pill({ icon, text }) {
+
+  return (
+
+    <div className="flex items-center gap-2 px-5 py-2 bg-[linear-gradient(to_right,#F3E7B333,#F3E7B31A)] rounded-full border border-[#F3E7B3]">
+
+      <img src={icon} className="w-5 h-5" />
+
+      <span className="text-gray-700 text-sm font-['Inter']">
+        {text}
       </span>
 
     </div>
 
-    {/* EDUCATION SECTION */}
-
-    <div className="w-[606px] h-[200px] flex flex-col gap-3 mt-10">
-
-    {/* TITLE */}
-    <div className="flex items-center gap-2 text-zinc-500 text-sm font-normal font-['Inter']">
-        <img src={edu} className="w-4 h-4" />
-        Education & Training
-    </div>
-
-
-    {/* PILLS CONTAINER */}
-<div className="relative w-[606px] h-[160px]">
-
-  {/* Pill 1 */}
-  <div className="absolute left-0 top-0 flex items-center gap-2 px-3 h-8 
-  bg-[linear-gradient(to_right,#F3E7B333,#F3E7B31A)] 
-  rounded-full border border-[#F3E7B3]">
-    <img src={i1} className="w-5 h-5" />
-    <span className="text-gray-700 text-sm font-['Inter']">
-      Seth G.S. Medical College & K.E.M. Hospital, Mumbai
-    </span>
-  </div>
-
-  {/* Pill 2 */}
-  <div className="absolute left-0 top-[42px] flex items-center gap-2 px-3 h-8 
-  bg-[linear-gradient(to_right,#F3E7B333,#F3E7B31A)] 
-  rounded-full border border-[#F3E7B3]">
-    <img src={i2} className="w-4 h-3" />
-    <span className="text-gray-700 text-sm font-['Inter']">
-      Doheny Eye Institute, University of Southern California (USC), Los Angeles
-    </span>
-  </div>
-
-  {/* Pill 3 */}
-  <div className="absolute left-0 top-[84px] flex items-center gap-2 px-3 h-8 
-  bg-[linear-gradient(to_right,#F3E7B333,#F3E7B31A)] 
-  rounded-full border border-[#F3E7B3]">
-    <img src={i3} className="w-5 h-5" />
-    <span className="text-gray-700 text-sm font-['Inter']">
-      Cleveland Clinic
-    </span>
-  </div>
-
-  {/* Pill 4 */}
-  <div className="absolute left-[158px] top-[84px] flex items-center gap-2 px-3 h-8 
-  bg-[linear-gradient(to_right,#F3E7B333,#F3E7B31A)] 
-  rounded-full border border-[#F3E7B3]">
-    <img src={i4} className="w-5 h-5" />
-    <span className="text-gray-700 text-sm font-['Inter']">
-      Sankara Nethralaya, Chennai
-    </span>
-  </div>
-
-  {/* Pill 5 */}
-  <div className="absolute left-0 top-[126px] flex items-center gap-2 px-3 h-8 
-  bg-[linear-gradient(to_right,#F3E7B333,#F3E7B31A)] 
-  rounded-full border border-[#F3E7B3]">
-    <img src={i5} className="w-5 h-5" />
-    <span className="text-gray-700 text-sm font-['Inter']">
-      Jules Stein Eye Institute, University of California, Los Angeles
-    </span>
-  </div>
-
-</div>
-
-</div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-      {/* DR MANISHA */}
-<section className="w-full px-20 py-20">
-
-  <div className="max-w-[1500px] mx-auto px-6">
-
-    {/* TITLE */}
-    <div className="w-[547px] h-10 justify-start text-black text-3xl font-bold font-['Lora'] leading-10 tracking-tight mb-3">
-      Dr. Manisha Shah – Medical Director
-    </div>
-
-    {/* divider */}
-    <div className="w-full h-[1px] bg-gray-300 mb-10"></div>
-
-    {/* CONTENT */}
-    <div className="grid grid-cols-2  items-center">
-
-      {/* TEXT LEFT */}
-      <div className="max-w-[730px]">
-
-        <div className="text-black text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
-
-          With over 17 years of experience, Dr. Manisha Shah is a highly
-          skilled ophthalmologist and LASIK specialist with expertise across
-          the full spectrum of laser vision correction.
-
-          
-
-          Known for her emphasis on transparency, safety, and individualized
-          care, Dr. Shah embodies the core values of Samyak Drishti Eye Clinic.
-
-          <br /><br />
-
-          For over 17 years, Dr. Shah has led free eye camps for
-          underprivileged patients and monks. She actively works with the
-          Jain Doctors Federation, Lions, Rotary, and other NGOs to expand
-          access to quality eye care.
-
-        </div>
-
-        {/* EDUCATION */}
-        <div className="w-[606px] flex flex-col gap-3 mt-10">
-
-          <div className="flex items-center gap-2 text-zinc-500 text-sm font-normal font-['Inter']">
-            <img src={edu} className="w-4 h-4" />
-            Education & Training
-          </div>
-
-          <div className="flex gap-3 flex-wrap">
-
-            <div className="flex items-center gap-2 px-3 h-8 bg-[linear-gradient(to_right,#F3E7B333,#F3E7B31A)] rounded-full border border-[#F3E7B3]">
-              <img src={i6} className="w-7 h-3" />
-              <span className="text-gray-700 text-sm font-['Inter']">
-                MBBS – Shivaji University
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2 px-3 h-8 bg-[linear-gradient(to_right,#F3E7B333,#F3E7B31A)] rounded-full border border-[#F3E7B3]">
-              <img src={i7} className="w-5 h-5" />
-              <span className="text-gray-700 text-sm font-['Inter']">
-                DOMS – Bombay Hospital
-              </span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* IMAGE RIGHT */}
-  <div className="flex justify-end">
-    <img
-      src={manisha}
-      className="w-[370px] h-[400px] object-cover object-top mr-10 rounded-[20px]"
-    />
-  </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-      {/* TEAM SECTION */}
-      <section className="max-w-[1400px] mx-auto px-6 py-24">
-
-        <h2 className="text-4xl font-bold font-['Lora'] mb-16">
-          Our Team of Doctors
-        </h2>
-
-        <div className="grid grid-cols-3 gap-16">
-
-          {/* CARD */}
-          <DoctorCard
-  image={ashish}
-  name="Dr. Ashish Ahuja"
-  role="Retina Consultant"
-  degree="MBBS, DNB (Retina)"
-/>
-
-<DoctorCard
-  image={kartik}
-  name="Dr. Kartik Panikkar"
-  role="Glaucoma Consultant"
-  degree="MBBS, DNB, FRCS (Edin)"
-/>
-
-<DoctorCard
-  image={mitesh}
-  name="Dr. Mitesh Jain"
-  role="Cornea Specialist"
-  degree="MBBS, DNB"
-/>
-
-<DoctorCard
-  image={rajendra}
-  name="Mr. Rajendra Pawar"
-  role="Ocularist & Optometrist"
-  degree="Master of Optometry, Vision Therapist, and Specialist in Contact Lenses"
-/>
-
-<DoctorCard
-  image={uppal}
-  name="Dr. Uppal Gandhi"
-  role="Squint & Pediatric Ophthalmology Specialist"
-  degree="DNB, Fellowship in Pediatric Ophthalmology, Strabismus, and Neuro-Ophthalmology"
-/>
-
-<DoctorCard
-  image={akshay}
-  name="Dr. Akshay Nair"
-  role="Cornea Specialist"
-  degree="MBBS, DNB"
-/>
-        </div>
-
-      </section>
-      <Footer />
-
-    </div>
   );
+
 }
 
 
-/* reusable doctor card */
 
-function DoctorCard({ image, name, role, degree }) {
-  return (
-    <div className="w-full px-10">
+/* DOCTOR CARD */
 
-      {/* IMAGE CONTAINER */}
-      <div className="h-[320px] w-[360px] bg-gradient-to-b from-white to-[#F8E0A2] flex items-end justify-center overflow-hidden">
+function DoctorCard({ image, name, role, degree, description }) {
 
-        <img
-          src={image}
-          className="max-h-full object-contain"
-        />
+const [open,setOpen]=useState(false);
 
-      </div>
+return (
 
-      {/* TEXT */}
-      <div className="mt-6 text-base font-bold font-['Open_Sans']leading-6 tracking-tight">
-        {name}
-      </div>
-      <p className="text-wrap text-black text-xs font-normal font-['Open_Sans'] leading-6 tracking-tight  mt-1">
-        {role}
-      </p>
-      
-    <p className="text-wrap  text-black text-xs font-normal font-['Open_Sans'] leading-6 tracking-tight ">
-        {degree}
-      </p>
+<div className="w-full px-4 md:px-10">
 
-      <p className="mt-4 underline cursor-pointer text-xs font-normal font-['Open_Sans']">
-        Read More
-      </p>
+<div className="h-[300px] md:h-[320px] w-full max-w-[360px] mx-auto bg-gradient-to-b from-white to-[#F8E0A2] flex items-end justify-center overflow-hidden">
 
-    </div>
-  );
+<img src={image} alt={name} className="max-h-full object-contain"/>
+
+</div>
+
+
+<div className="mt-6 text-base font-bold font-['Open_Sans'] leading-6 tracking-tight">
+{name}
+</div>
+
+<p className="text-black text-xs font-normal font-['Open_Sans'] leading-6 mt-1">
+{role}
+</p>
+
+<p className="text-black text-xs font-normal font-['Open_Sans'] leading-6">
+{degree}
+</p>
+
+
+{!open && (
+
+<p
+onClick={()=>setOpen(true)}
+className="mt-4 underline cursor-pointer text-xs font-normal font-['Open_Sans']"
+>
+
+Read More
+
+</p>
+
+)}
+
+
+{open && (
+
+<>
+
+<p className="mt-3 text-xs font-normal font-['Open_Sans'] leading-6 text-black">
+
+{description}
+
+</p>
+
+<p
+onClick={()=>setOpen(false)}
+className="mt-3 underline cursor-pointer text-xs font-normal font-['Open_Sans']"
+>
+
+Read Less
+
+</p>
+
+</>
+
+)}
+
+</div>
+
+);
+
 }

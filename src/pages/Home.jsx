@@ -1,198 +1,365 @@
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import doctors from "../assets/home/home1.jpg";
 import home2 from "../assets/home/home2.png";
 import t1 from "../assets/home/testimonial1.png";
 import t2 from "../assets/home/testimonial2.png";
 import t3 from "../assets/home/testimonial3.png";
 import t4 from "../assets/home/testimonial4.png";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function HomePage() {
 
-  return (
-    <div className="w-full overflow-x-hidden">
+const sectionRef = useRef(null);
+const imageRef = useRef(null);
+const titleRef = useRef(null);
+const circleRef = useRef(null);
+const bgRef = useRef(null);
+const visitRef = useRef(null);
+const testimonialRef = useRef(null);
 
-      <Navbar />
+const [openIndex, setOpenIndex] = useState(null);
 
-      {/* HERO */}
-      <section className="w-full h-[668px] relative bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,white_0%,#F8E0A2_100%)] overflow-hidden">
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+const faqs = [
+{
+question: "What to Bring before your appointment ?",
+answer:
+"Please bring previous prescriptions, medical reports, spectacles or contact lenses you currently use."
+},
+{
+question: "Plan your Timings",
+answer:
+"Arrive 10–15 minutes before your appointment so registration and preliminary checks can be completed."
+},
+{
+question: "If dilation is needed, please keep in mind",
+answer:
+"Dilation may blur vision temporarily. Avoid driving immediately after the appointment."
+}
+];
 
-          <h1 className="max-w-4xl text-[#1E2B50] text-6xl md:text-7xl font-semibold font-['Lora'] mb-6">
-            Clear Vision, Better Life
-          </h1>
+useEffect(() => {
 
-         <div className="flex items-start justify-between max-w-3xl gap-13">
+const ctx = gsap.context(() => {
 
-  <p className="max-w-md text-left text-[#1E2B50] font-['Open_Sans'] leading-7">
-    Compassionate, transparent care powered by specialist expertise and advanced technology.
-  </p>
+let endDistance = window.innerWidth < 768 ? "+=1000" : "+=1500";
 
-  <button className="px-8 py-3 border border-[#1E2B50] rounded-full font-['Lora'] font-bold">
-    Schedule Consultation
-  </button>
+gsap.to(imageRef.current, {
+  xPercent: -120,
+  ease: "none",
+  scrollTrigger: {
+    trigger: sectionRef.current,
+    start: "top 10%", 
+    end: endDistance,
+    scrub: true,
+    pin: true,
+  }
+});
+
+gsap.to(titleRef.current, {
+xPercent: window.innerWidth < 768 ? -110 : -172,
+ease: "none",
+scrollTrigger: {
+trigger: sectionRef.current,
+start: "top 10%",
+end: endDistance,
+scrub: true
+}
+});
+
+gsap.fromTo(
+circleRef.current,
+{
+filter: "blur(10px)",
+opacity: 0.5,
+y: 0
+},
+{
+filter: "blur(0px)",
+opacity: 1,
+y: 60,
+ease: "none",
+scrollTrigger: {
+trigger: circleRef.current,
+start: "top 100%",
+end: "top 40%",
+scrub: true
+}
+}
+);
+
+ScrollTrigger.create({
+trigger: visitRef.current,
+start: "top 60%",
+onEnter: () => {
+gsap.to(bgRef.current,{backgroundColor:"#11224A",duration:0.5});
+},
+onLeaveBack: () => {
+gsap.to(bgRef.current,{backgroundColor:"#ffffff",duration:0.5});
+}
+});
+
+ScrollTrigger.create({
+trigger: testimonialRef.current,
+start: "top 30%",
+onEnter: () => {
+gsap.to(bgRef.current,{backgroundColor:"#ffffff",duration:0.5});
+},
+onLeaveBack: () => {
+gsap.to(bgRef.current,{backgroundColor:"#11224A",duration:0.5});
+}
+});
+
+});
+
+return () => ctx.revert();
+
+}, []);
+
+return (
+
+<div ref={bgRef} className="w-full pt-16 overflow-x-hidden bg-white">
+
+<Navbar />
+
+{/* HERO */}
+<section className="w-full h-[620px] relative bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,white_0%,#F8E0A2_100%)] overflow-hidden">
+
+<div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+
+<div className="max-w-4xl w-full">
+
+<h1 className="text-[#1E2B50] text-4xl md:text-6xl lg:text-7xl font-semibold font-['Lora'] mb-8">
+Clear Vision, Better Life
+</h1>
+
+<div className="flex flex-col md:flex-row md:items-start justify-between w-full gap-6">
+
+<p className="max-w-[350px] text-[#1E2B50] font-['Open_Sans'] leading-7 font-normal">
+Compassionate, transparent care powered by specialist expertise and advanced technology.
+</p>
+
+<button className="px-5 py-2 md:mr-20 border border-[#1E2B50] rounded-full font-['Lora'] text-sm font-semibold w-fit">
+Schedule Consultation
+</button>
+
+</div>
+</div>
+</div>
+</section>
+
+<div
+  ref={circleRef}
+  className="absolute bottom-60 md:bottom-8 left-1/2 -translate-x-1/2 w-[120px] md:w-[180px] h-[120px] md:h-[180px] bg-[#A8D5BA] rounded-full"
+/>
+
+{/* ABOUT */}
+<section className="w-full pt-20 md:pt-32 pb-20">
+
+<div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+
+<div>
+
+<div className="flex gap-6 mb-6">
+<div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
+<div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
+<div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
+</div>
+
+<div className="ml-7 text-blue-950 text-3xl md:text-4xl font-bold font-['Lora']">
+About Us
+</div>
 
 </div>
 
-        </div>
-        
-      </section>
-      {/* Circle element */} <div className="absolute bottom-[-45px] left-1/2 transform -translate-x-1/2 w-[140px] h-[140px] bg-[#8FB7A2] rounded-full"></div>
+<div className="text-black text-lg font-normal font-['Open_Sans'] leading-6 md:w-[537px]">
+Founded in 2005 by Dr. Sujal Shah and Dr. Manisha Shah, Samyak Drishti has been transforming lives through exceptional eye care for over two decades.
+</div>
+
+</div>
+
+</section>
 
 
-      {/* ABOUT */}
-      <section className="w-full pt-32 pb-20">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+{/* UNIQUE SECTION */}
+<section ref={sectionRef} className="w-full py-20 md:py-24 bg-white relative overflow-hidden">
 
-          <div>
-            <div className="flex gap-6 mb-6">
-              <div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
-              <div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
-              <div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
-            </div>
+<div className="max-w-[1400px] mx-auto px-6 relative">
 
-            <div className="ml-7 text-blue-950 text-4xl font-bold font-['Lora']">
-              About Us
-            </div>
-          </div>
+<div className="absolute top-4 md:top-20 left-1/2 -translate-x-1/2 grid grid-cols-2 gap-20 md:gap-x-20 gap-y-6 md:gap-y-8 z-0">
 
-          <div className="w-[537px] text-black text-lg font-normal font-['Open_Sans'] leading-6">
-            Founded in 2005 by Dr. Sujal Shah and Dr. Manisha Shah, Samyak Drishti has been transforming lives through exceptional eye care for over two decades. We specialize in laser vision correction and advanced treatments that help you experience life without the hassle of glasses or contact lenses.
-          </div>
+{/* CARD 1 */}
+<div className="ml-[-70px] sm:ml-0 sm:ml-0 w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
 
-        </div>
-      </section>
+<h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
+Pioneer in Advanced Technology
+</h3>
+
+<p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+We don’t just use the latest technology. We help shape it.
+</p>
+
+</div>
+
+{/* CARD 2 */}
+<div className="ml-[-30px] sm:ml-0 w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+
+<h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
+Expert Eye Specialists
+</h3>
+
+<p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+Our experienced doctors provide personalized treatment.
+</p>
+
+</div>
+
+{/* CARD 3 */}
+<div className="col-span-2 flex justify-center">
+
+<div className="w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+
+<h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
+Trusted by Thousands
+</h3>
+
+<p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+Over 20 years of experience helping patients achieve clearer vision.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div ref={titleRef} className="absolute -top-10 lg:-right-145 right-[-500px] z-20">
+
+<h2 className="text-[40px] md:text-[64px] font-bold font-['Lora'] text-[#132B55] whitespace-nowrap flex gap-4">
+
+<span>WHAT</span>
+<span>MAKES US UNIQUE</span>
+
+</h2>
+
+</div>
+
+</div>
+
+<div ref={imageRef} className="relative z-10 h-[280px] md:h-[500px] w-full">
+
+<img src={doctors} alt="Doctors" className="w-full h-full object-cover"/>
+
+</div>
+
+</section>
+
+{/* VISIT GUIDE */}
+<section ref={visitRef} className="pt-20 md:pt-24 pb-24 md:pb-30">
+
+<div className="max-w-[1300px] mx-auto mb-16 md:mb-24 px-6">
+
+<div className="h-[260px] md:h-[420px] overflow-hidden relative bg-[#11224A]">
+
+<img src={home2} alt="Doctors" className="w-full h-full object-cover object-top mix-blend-luminosity"/>
+
+</div>
+
+</div>
+
+<div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-16 md:gap-32 px-6 md:px-10 items-start">
+
+<div>
+
+<div className="text-white text-2xl md:text-3xl font-bold font-['Lora'] leading-10 mb-6 max-w-md">
+Your First Visit to Samyak Drishti: A Complete Guide
+</div>
+
+<div className="text-white text-base font-['Open_Sans'] leading-6 max-w-md">
+This guide walks you through what to expect during your first appointment so you can arrive prepared and comfortable.
+</div>
+
+</div>
+
+<div className="space-y-5">
+
+{faqs.map((faq, index) => (
+
+<div key={index} className="border-b border-gray-400 pb-3">
+
+<div
+className="flex justify-between items-center cursor-pointer"
+onClick={() => setOpenIndex(openIndex === index ? null : index)}
+>
+
+<p className="text-white text-sm font-['Open_Sans']">
+{faq.question}
+</p>
+
+<span
+className={`text-white text-xl transition-transform duration-300 ${
+openIndex === index ? "rotate-180" : ""
+}`}
+>
+⌄
+</span>
+
+</div>
+
+<div
+className={`overflow-hidden transition-all duration-300 ${
+openIndex === index ? "max-h-40 mt-3" : "max-h-0"
+}`}
+>
+
+<p className="text-gray-300 text-sm font-['Open_Sans'] leading-6">
+{faq.answer}
+</p>
+
+</div>
+
+</div>
+
+))}
+
+</div>
+
+</div>
+
+</section>
 
 
-      {/* DOCTOR IMAGE + CARDS */}
-      <section className="w-full py-20 bg-white">
+{/* TESTIMONIALS */}
+<section ref={testimonialRef} className="py-24 md:py-50">
 
-        <div className="w-full px-6">
+<div className="text-center mb-16">
 
-          {/* IMAGE */}
-          <div className="mb-20 w-full h-[500px] overflow-hidden">
-            <img
-              src={doctors}
-              alt="Doctors"
-              className="w-full h-full object-top"
-            />
-          </div>
+<h2 className="text-[28px] md:text-[36px] font-['Lora'] font-semibold text-[#132B55]">
+Patient Testimonials
+</h2>
 
-          {/* CARDS */}
-          <div className="grid md:grid-cols-2 gap-20 justify-items-center">
+</div>
 
-            <div className="w-[384px] h-[208px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-10">
-              <h3 className="text-[#E6D097] text-[20px] font-bold font-['Lora'] mb-6">
-                Pioneer in Advanced Technology
-              </h3>
-              <p className="text-white text-[16px] font-['Open_Sans'] leading-6">
-                We don’t just use the latest technology. We help shape it. Every procedure we offer is refined and proven before it reaches you.
-              </p>
-            </div>
+<div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
 
-            <div className="w-[384px] h-[208px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-10">
-              <h3 className="text-[#E6D097] text-[20px] font-bold font-['Lora'] mb-6">
-                Pioneer in Advanced Technology
-              </h3>
-              <p className="text-white text-[16px] font-['Open_Sans'] leading-6">
-                We don’t just use the latest technology. We help shape it. Every procedure we offer is refined and proven before it reaches you.
-              </p>
-            </div>
+<img src={t1} alt="testimonial" className="w-full md:w-[400px] md:h-[600px]"/>
+<img src={t2} alt="testimonial" className="w-full md:w-[400px] md:h-[600px]"/>
+<img src={t3} alt="testimonial" className="w-full md:w-[400px] md:h-[600px]"/>
+<img src={t4} alt="testimonial" className="w-full md:w-[400px] md:h-[600px]"/>
 
-          </div>
+</div>
 
-          <div className="flex justify-center mt-20">
-            <div className="w-[384px] h-[208px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-10">
-              <h3 className="text-[#E6D097] text-[20px] font-bold font-['Lora'] mb-6">
-                Pioneer in Advanced Technology
-              </h3>
-              <p className="text-white text-[16px] font-['Open_Sans'] leading-6">
-                We don’t just use the latest technology. We help shape it. Every procedure we offer is refined and proven before it reaches you.
-              </p>
-            </div>
-          </div>
+</section>
 
-        </div>
-      </section>
+<Footer />
 
+</div>
 
-      {/* VISIT GUIDE */}
-      <section className="bg-[#132B55] pt-24 pb-32">
-
-        <div className="max-w-[1500px] mx-auto mb-24">
-          <div className="h-[420px] overflow-hidden">
-            <img
-              src={home2}
-              alt="Doctors"
-              className="w-full h-full object-cover object-top"
-            />
-          </div>
-        </div>
-
-        <div className="max-w-[1400px] mx-auto grid grid-cols-2 gap-32 px-10 items-start">
-
-          <div>
-            <div className="w-72 text-white text-3xl font-bold font-['Lora'] leading-10 mb-6">
-              Your First Visit to Samyak Drishti: A Complete Guide
-            </div>
-
-            <div className="w-96 text-white text-lg font-['Open_Sans'] leading-6">
-              This guide walks you through what to expect during your first appointment so you can arrive prepared and comfortable.
-            </div>
-          </div>
-
-          <div className="space-y-10">
-
-            <div className="border-b border-gray-400 pb-4 flex justify-between items-center">
-              <p className="text-white text-[18px] font-['Open_Sans']">
-                What to Bring before your appointment ?
-              </p>
-              <span className="text-white text-xl">⌄</span>
-            </div>
-
-            <div className="border-b border-gray-400 pb-4 flex justify-between items-center">
-              <p className="text-white text-[18px] font-['Open_Sans']">
-                Plan your Timings
-              </p>
-              <span className="text-white text-xl">⌄</span>
-            </div>
-
-            <div className="border-b border-gray-400 pb-4 flex justify-between items-center">
-              <p className="text-white text-[18px] font-['Open_Sans']">
-                If dilation is needed, please keep in mind
-              </p>
-              <span className="text-white text-xl">⌄</span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* TESTIMONIALS */}
-      <section className="py-24 bg-white">
-
-        <div className="text-center mb-16">
-          <h2 className="text-[36px] font-['Lora'] font-semibold text-[#132B55]">
-            Patient Testimonials
-          </h2>
-        </div>
-
-        <div className="max-w-[1000px] mx-auto grid grid-cols-2 gap-12">
-
-          <img src={t1} alt="testimonial" className="w-[400px] h-[600px]" />
-          <img src={t2} alt="testimonial" className="w-[400px] h-[600px]" />
-          <img src={t3} alt="testimonial" className="w-[400px] h-[600px]" />
-          <img src={t4} alt="testimonial" className="w-[400px] h-[600px]" />
-
-        </div>
-
-      </section>
-
-      <Footer />
-
-    </div>
-  );
+);
 }

@@ -2,153 +2,160 @@ import logo from "../assets/logo2.png";
 import gif from "../assets/gif.svg";
 import phone from "../assets/phone-call.svg";
 import mail from "../assets/mail.svg";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-40 relative">
+    <footer className="w-full mt-24 md:mt-40 relative">
 
       {/* CTA CARD */}
-      <div className="max-w-[1350px] mx-auto relative z-10">
+<div className="max-w-[1350px] mx-auto relative z-10 px-6">
 
-        <div className="bg-[#11224A] rounded-[20px] px-16 py-14 flex justify-between items-center text-white">
+  <div className="bg-[#11224A] rounded-[20px] px-6 md:px-16 py-10 md:py-14 flex justify-between items-center gap-6 text-white">
 
-          {/* LEFT TEXT */}
-          <div>
-            <h2 className="text-[40px] font-lora font-bold mb-3">
-              Your Vision Matters
-            </h2>
+    {/* LEFT TEXT */}
+    <div className="max-w-[500px]">
 
-            <p className="text-[14px] font-openSans mb-6 opacity-80">
-              Schedule a comprehensive consultation with our specialists today
-            </p>
+      <h2 className="text-[28px] md:text-[40px] font-lora font-bold mb-3">
+        Your Vision Matters
+      </h2>
 
-            <button className="bg-[#BFE3C9] text-black px-6 py-2 rounded-full text-[14px] font-semibold">
-              Schedule Consultation
-            </button>
-          </div>
+     <p className="text-[13px] md:text-[14px] font-openSans mb-6 opacity-80 max-w-[220px] md:max-w-none">
+  Schedule a comprehensive consultation with our specialists today
+</p>
 
-         {/* RIGHT GRAPHIC */}
-<div className="relative w-[120px] h-[120px] flex items-center justify-center">
+      <button className="bg-[#BFE3C9] text-black px-6 py-2 rounded-full text-[14px] font-semibold">
+        Schedule Consultation
+      </button>
 
-  {/* TOP SHAPE (ANIMATED) */}
-  <div className="absolute top-0 w-[120px] h-[60px] bg-[#E6CF97] rounded-b-full animate-circle-move"></div>
+    </div>
 
-  {/* BOTTOM SHAPE */}
-  <div className="absolute bottom-0 w-[120px] h-[60px] bg-[#E6CF97] rounded-t-full"></div>
+    {/* RIGHT GRAPHIC */}
+    <div className="relative w-[100px] h-[100px] md:w-[120px] md:h-[120px] flex items-center justify-center">
+
+      {/* TOP SHAPE */}
+      <div className="absolute top-0 w-full h-[50%] bg-[#E6CF97] rounded-b-full animate-circle-move"></div>
+
+      {/* BOTTOM SHAPE */}
+      <div className="absolute bottom-0 w-full h-[50%] bg-[#E6CF97] rounded-t-full"></div>
+
+    </div>
+
+  </div>
 
 </div>
-          
-
-        </div>
-
-      </div>
-
 
       {/* FOOTER MAIN */}
-      <div className="w-full bg-gradient-to-b from-[#F8E0A2] to-[#A8D5BA] rounded-t-[20px] pt-32 pb-3 -mt-28">
+      <div className="w-full bg-gradient-to-b from-[#F8E0A2] to-[#A8D5BA] rounded-t-[20px] pt-28 md:pt-32 pb-6 md:pb-3 -mt-20 md:-mt-28">
 
-        <div className="max-w-[1650px] mx-auto flex justify-between">
+        <div className="max-w-[1650px] mx-auto flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-0 px-6">
 
           {/* LEFT INFO */}
-          <div className="max-w-[360px] ml-20">
+          <div className="max-w-[360px] lg:ml-20">
 
-            <img src={logo} className="w-[180px] mb-6"/>
+            <img src={logo} className="w-[160px] md:w-[180px] mb-6"/>
 
-            <div className="w-56 justify-start text-black text-base font-normal font-['Open_Sans'] leading-6 mb-15">101, 1st Floor, Sukh Sagar, N S Patkar Marg, Girgaon Chowpatty, Mumbai - 400007</div>
+            <div className="text-black text-sm md:text-base font-normal font-['Open_Sans'] leading-6 mb-10 md:mb-15">
+              101, 1st Floor, Sukh Sagar, N S Patkar Marg, Girgaon Chowpatty, Mumbai - 400007
+            </div>
 
-            <div className="text-[14px] space-y-2">
+            <div className="text-[13px] md:text-[14px] space-y-3">
 
-            {/* FIRST ROW */}
-            <div className="flex items-center gap-10">
+              {/* FIRST ROW */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-10">
 
-              {/* PHONE */}
+                {/* PHONE */}
+                <div className="flex items-center gap-3">
+                  <img src={phone} className="w-4 h-4" />
+                  <a href="tel:+912223623937" className="hover:underline">
+                    +91-22-23623937
+                  </a>
+                </div>
+
+                {/* MAIL */}
+                <div className="flex items-center gap-3">
+                  <img src={mail} className="w-4 h-4" />
+                  <a href="mailto:info@samyakdrishti.com" className="hover:underline">
+                    info@samyakdrishti.com
+                  </a>
+                </div>
+
+              </div>
+
+              {/* SECOND PHONE */}
               <div className="flex items-center gap-3">
                 <img src={phone} className="w-4 h-4" />
-                <span>+91-22-23623937</span>
-              </div>
-
-              {/* MAIL */}
-              <div className="flex items-center gap-3">
-                <img src={mail} className="w-4 h-4" />
-                <span>info@samyakdrishti.com</span>
+                <a href="tel:+918433723937" className="hover:underline">
+                  +91 84337 23937
+                </a>
               </div>
 
             </div>
 
-            {/* SECOND PHONE */}
-            <div className="flex items-center gap-3">
-              <img src={phone} className="w-4 h-4" />
-              <span>+91 84337 23937</span>
-            </div>
-
-          </div>
-
           </div>
 
 
-          {/* RIGHT LINKS */}
-          <div className="flex gap-24 mr-20">
+         {/* RIGHT LINKS */}
+<div className="flex gap-12 sm:gap-20 lg:gap-24 lg:mr-20 flex-wrap">
 
-            {/* QUICK LINKS */}
-            <div>
-              <h4 className="font-semibold mb-4 text-[13px]">
-                Quick Links
-              </h4>
+  {/* QUICK LINKS */}
+  <div>
+    <h4 className="font-semibold mb-4 text-[13px]">
+      Quick Links
+    </h4>
 
-              <ul className="space-y-2 text-[12px]">
-                <li>Home</li>
-                <li>Our Team</li>
-                <li>Our Services</li>
-                <li>Our Impact</li>
-                <li>International Patients</li>
-                <li>Contact Us</li>
-              </ul>
-            </div>
+    <ul className="space-y-2 text-[12px]">
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/our-team">Our Team</Link></li>
+      <li><Link to="/services">Our Services</Link></li>
+      <li><Link to="/our-impact">Our Impact</Link></li>
+      <li><Link to="/international">International Patients</Link></li>
+      <li><Link to="/contact">Contact Us</Link></li>
+    </ul>
+  </div>
 
+  {/* SOCIAL */}
+  <div>
+    <h4 className="font-semibold mb-4 text-[13px]">
+      Social
+    </h4>
 
-            {/* SOCIAL */}
-            <div>
-              <h4 className="font-semibold mb-4 text-[13px]">
-                Social
-              </h4>
+    <ul className="space-y-2 text-[12px]">
+      <li>Facebook</li>
+      <li>Instagram</li>
+    </ul>
+  </div>
 
-              <ul className="space-y-2 text-[12px]">
-                <li>Facebook</li>
-                <li>Instagram</li>
-              </ul>
-            </div>
+  {/* SERVICES */}
+  <div>
+    <h4 className="font-semibold mb-4 text-[13px]">
+      Services
+    </h4>
 
+    <ul className="space-y-2 text-[12px]">
+      <li>LASIK</li>
+      <li>Cataract</li>
+      <li>Routine Eye Test</li>
+      <li>Dry Eye Clinic</li>
+      <li>Glaucoma Clinic</li>
+      <li>Retina and Diabetic Retinopathy</li>
+      <li>Oculoplastic Clinic</li>
+      <li>Squint Clinic</li>
+      <li>Myopia Clinic</li>
+      <li>Keratoconus Clinic</li>
+      <li>Cornea Clinic</li>
+      <li>Contact Lens and Optometry Clinic</li>
+    </ul>
+  </div>
 
-            {/* SERVICES */}
-            <div>
-              <h4 className="font-semibold mb-4 text-[13px]">
-                Services
-              </h4>
-
-              <ul className="space-y-2 text-[12px]">
-
-                <li>LASIK</li>
-                <li>Cataract</li>
-                <li>Routine Eye Test</li>
-                <li>Dry Eye Clinic</li>
-                <li>Glaucoma Clinic</li>
-                <li>Retina and Diabetic Retinopathy</li>
-                <li>Oculoplastic Clinic</li>
-                <li>Squint Clinic</li>
-                <li>Myopia Clinic</li>
-                <li>Keratoconus Clinic</li>
-                <li>Cornea Clinic</li>
-                <li>Contact Lens and Optometry Clinic</li>
-
-              </ul>
-            </div>
-
-          </div>
+</div>
 
         </div>
 
       </div>
-      <style>
+
+
+<style>
 {`
 @keyframes circleMove {
   0% {
@@ -169,4 +176,3 @@ export default function Footer() {
     </footer>
   );
 }
-

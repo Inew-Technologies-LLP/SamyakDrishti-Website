@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 // ==========================================
 // DATA: Default FAQs (Reused from other page)
@@ -20,7 +21,7 @@ const defaultFAQs = [
 // ==========================================
 const MainServiceHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[700px] flex items-center justify-center">
+    <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 
@@ -60,8 +61,19 @@ const MainServiceHero = () => {
 // 2. OUR JOURNEY SECTION
 // ==========================================
 const JourneySection = () => {
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const opacity1 = useTransform(scrollYProgress, [0.3, 0.5], [1, 0]);
+  const opacity2 = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0.3, 0.7], [1, 1.05]);
+
   return (
-    <section className="bg-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-[1500px] mx-auto">
+    <section ref={containerRef} className="bg-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-[1500px] mx-auto">
       {/* Top Header Area */}
       <div className="mb-12 md:mb-16">
         <h2 className="text-[#1b2a4e] text-3xl md:text-4xl font-serif font-[600] mb-6">
@@ -72,48 +84,55 @@ const JourneySection = () => {
         </p>
       </div>
 
-      {/* Two Column Layout: Text & Image */}
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 justify-between items-start">
-        
         {/* Left Column: Text */}
         <div className="lg:w-[530px] text-gray-700 text-[17px] leading-relaxed flex flex-col">
-          
-          {/* TOP THREE DOTS (Left-aligned) */}
           <div className="flex gap-4 mb-8">
-            <div className="w-6 h-6 rounded-full bg-[#1b2a4e]"></div>
-            <div className="w-6 h-6 rounded-full bg-[#1b2a4e]"></div>
-            <div className="w-6 h-6 rounded-full bg-[#1b2a4e]"></div>
+            {[1, 2, 3].map(i => <div key={i} className="w-6 h-6 rounded-full bg-[#1b2a4e]"></div>)}
           </div>
 
-          {/* Paragraphs */}
-          <div className="space-y-6">
+          <div className="space-y-12">
             <p>
               Laser vision correction is safe, effective, and long-lasting when the right procedure is chosen and the evaluation is thorough. <br/>Between the two of us, we have experienced both PRK and LASIK firsthand. Dr Sujal underwent PRK in 1997 and has enjoyed clear distance vision ever since. Dr Manisha chose LASIK in June 2000, at the age of 30, after years of managing glasses and contact lenses and the constant planning they required.
             </p>
             <p>
-              What stands out most for both of us is how effortless life felt after surgery. Returning to work the very next day, seeing clearly without searching for glasses or thinking about lenses, and realizing that everyday moments had simply become easier. It was not one dramatic change, but many small freedoms adding up.<br /> Our distance vision remained stable well into our forties. Today, we both use reading glasses due to presbyopia. Given the precision our work demands, we prefer balanced vision over mono-vision, and have chosen not to opt for Presbyond ourselves. That said, many of our patients do choose presbyopia correction options and are very happy with their outcomes.
+              What stands out most for both of us is how effortless life felt after surgery. Returning to work the very next day, seeing clearly without searching for glasses or thinking about lenses, and realizing that everyday moments had simply become easier. It was not one dramatic change, but many small freedoms adding up.
+            </p>
+            <p>
+               Our distance vision remained stable well into our forties. Today, we both use reading glasses due to presbyopia. Given the precision our work demands, we prefer balanced vision over mono-vision, and have chosen not to opt for Presbyond ourselves. That said, many of our patients do choose presbyopia correction options and are very happy with their outcomes.
             </p>
             <p className="font-medium pt-2 text-black">
               BY- Dr. Sujal Shah & Dr. Manisha Shah
             </p>
           </div>
 
-          {/* BOTTOM THREE DOTS (Right-aligned) */}
-          <div className="flex gap-4 mt-8 justify-end">
-            <div className="w-6 h-6 rounded-full bg-[#1b2a4e]"></div>
-            <div className="w-6 h-6 rounded-full bg-[#1b2a4e]"></div>
-            <div className="w-6 h-6 rounded-full bg-[#1b2a4e]"></div>
+          <div className="flex gap-4 mt-12 justify-end">
+            {[1, 2, 3].map(i => <div key={i} className="w-6 h-6 rounded-full bg-[#1b2a4e]"></div>)}
           </div>
-
         </div>
 
-        {/* Right Column: Image */}
-        <div className="lg:w-[45%] flex justify-center lg:justify-end">
-          <img 
-            src="/dr-shah-portrait.jpg"
-            alt="Dr. Shah Portrait" 
-            className="w-[450px] h-[650px] object-cover"
-          />
+        {/* Right Column: Animated Image Container */}
+        <div className="w-full lg:w-[45%] flex justify-center lg:justify-end lg:sticky lg:top-24">
+          <motion.div 
+            style={{ scale }}
+            className="relative w-full max-w-[450px] lg:max-w-none lg:w-[450px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
+          >
+            {/* First Image */}
+            <motion.img 
+              src="/dr-shah-portrait.jpg"
+              alt="Dr. Shah Portrait 1" 
+              style={{ opacity: opacity1 }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            
+            {/* Second Image */}
+            <motion.img 
+              src="/dr-shah-action.jpg"
+              alt="Dr. Shah Portrait 2" 
+              style={{ opacity: opacity2 }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </motion.div>
         </div>
       </div>
     </section>
@@ -131,19 +150,19 @@ const MainServicesGrid = () => {
       title: "Lasik", 
       desc: "A comprehensive assessment to determine your suitability for laser vision correction, ensuring safety and aligning the best procedure with your lifestyle.", 
       img: "/lasik-machine.jpg",
-      path: "/lasik" // 2. Add path
+      path: "/lasik" // path for Lasik
     },
     { 
       title: "Cataract", 
       desc: "Expert cataract care with safe, precise surgery to restore clear vision, with a range of lens options to suit your lifestyle.", 
       img: "/cataract-exam.jpg",
-      path: "/cataract" // 2. Add path
+      path: "/cataract" // path for Cataract
     },
     { 
       title: "Refractive Lens Exchange (RLE)", 
       desc: "Replaces the eye's natural lens with an artificial intraocular lens (IOL) to correct vision and prevent future cataract development.", 
       img: "/rle-eye.jpg",
-      path: "/rle" // 2. Add path for RLE
+      path: "/rle" //path for RLE
     }
   ];
 

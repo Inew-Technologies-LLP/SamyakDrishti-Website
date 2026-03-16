@@ -855,7 +855,7 @@ const servicesData = [
 // ==========================================
 const ServicesHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[700px] flex items-center justify-center">
+    <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
       {/* 1. Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center" 

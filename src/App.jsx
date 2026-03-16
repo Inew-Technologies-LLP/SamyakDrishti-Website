@@ -1,12 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
+
+//* Pages 
 import ServicesPage from "./pages/Services"; 
 import MainServicePage from "./pages/MainServicePage"; 
-import RLEPage from "./pages/RLEPage"; // 1. IMPORT YOUR NEW RLE PAGE HERE
+import RLEPage from "./pages/RLEPage"; 
+import CataractPage from "./pages/CataractPage";
+import LasikPage from "./pages/LasikPage";
+import ContactUsPage from "./pages/ContactUsPage";
+
 
 function App() {
   return (
     <div className="min-h-screen bg-gray-50">
+      <ScrollToTop/>
       <Routes>
         {/* ================= HOME PAGE ================= */}
         <Route
@@ -50,13 +58,45 @@ function App() {
         />
         
         {/* ================= RLE PAGE ================= */}
-        {/* 2. ADD YOUR NEW RLE ROUTE HERE */}
         <Route
           path="/rle"
           element={
             <>
               <Navbar />
               <RLEPage />
+            </>
+          }
+        />
+
+        {/* ================= CATARACT PAGE ================= */}
+        <Route
+          path="/cataract"
+          element={
+            <>
+              <Navbar />
+              <CataractPage />
+            </>
+          }
+        />
+
+        {/* ================= LASIK PAGE ================= */}
+        <Route
+          path="/lasik"
+          element={
+            <>
+              <Navbar />
+              <LasikPage />
+            </>
+          }
+        />
+
+        {/* ================= CONTACT US PAGE ================= */}
+        <Route
+          path="/contact"
+          element={
+            <>
+              <Navbar />
+              <ContactUsPage />
             </>
           }
         />

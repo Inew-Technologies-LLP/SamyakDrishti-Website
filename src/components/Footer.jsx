@@ -127,26 +127,30 @@ export default function Footer() {
   </div>
 
   {/* SERVICES */}
-  <div>
-    <h4 className="font-semibold mb-4 text-[13px]">
-      Services
-    </h4>
+<div>
+  <h4 className="font-semibold mb-4 text-[13px]">
+    Services
+  </h4>
 
-    <ul className="space-y-2 text-[12px]">
-      <li>LASIK</li>
-      <li>Cataract</li>
-      <li>Routine Eye Test</li>
-      <li>Dry Eye Clinic</li>
-      <li>Glaucoma Clinic</li>
-      <li>Retina and Diabetic Retinopathy</li>
-      <li>Oculoplastic Clinic</li>
-      <li>Squint Clinic</li>
-      <li>Myopia Clinic</li>
-      <li>Keratoconus Clinic</li>
-      <li>Cornea Clinic</li>
-      <li>Contact Lens and Optometry Clinic</li>
-    </ul>
-  </div>
+  <ul className="space-y-2 text-[12px]">
+    {/* These match your App.jsx routes */}
+    <li><Link to="/lasik" className="hover:opacity-70 transition-opacity">LASIK</Link></li>
+    <li><Link to="/cataract" className="hover:opacity-70 transition-opacity">Cataract</Link></li>
+    <li><Link to="/rle" className="hover:opacity-70 transition-opacity">Refractive Lens Exchange (RLE)</Link></li>
+    
+    {/* These currently point to the main services list */}
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Routine Eye Test</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Dry Eye Clinic</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Glaucoma Clinic</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Retina and Diabetic Retinopathy</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Oculoplastic Clinic</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Squint Clinic</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Myopia Clinic</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Keratoconus Clinic</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Cornea Clinic</Link></li>
+    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Contact Lens and Optometry Clinic</Link></li>
+  </ul>
+</div>
 
 </div>
 

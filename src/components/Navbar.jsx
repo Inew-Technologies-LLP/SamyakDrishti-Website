@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,26 +20,20 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-[#1b2a4e] text-white w-full fixed top-0 z-50">
+    <nav className="bg-[#1b2a4e] text-white w-full fixed top-0 z-40">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* Logo */}
-          <Link to="/" className="flex items-center cursor-pointer">
-            <div className="flex flex-col items-start">
-              
-              <div className="flex gap-1 mb-0.5 ml-4 md:ml-10">
-                <span className="w-1 h-1 bg-white"></span>
-                <span className="w-1 h-1 bg-white"></span>
-                <span className="w-1 h-1 bg-white"></span>
-              </div>
+           {/* Logo */}
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Samyak Drishti"
+            className="h-8 object-contain"
+          />
+        </Link>
 
-              <span className="font-serif text-2xl tracking-widest uppercase">
-                Samyak Drishti
-              </span>
-            </div>
-          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 items-center h-full">

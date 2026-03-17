@@ -1,10 +1,12 @@
 import React from 'react';
+import Footer from "../components/Footer";
+
 
 // ==========================================
 // 1. HERO SECTION
 // ==========================================
 const ContactHero = () => (
-  <section className="relative w-full h-[300px] md:h-[600px] flex items-center justify-center pt-20">
+  <section className="relative w-full h-[260px] md:h-[420px] flex items-center justify-center pt-20">
     <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/contact-hero.JPG')" }}></div>
     <div className="absolute inset-0 bg-black/30"></div> 
     
@@ -358,14 +360,16 @@ const GetDirections = () => (
 // ==========================================
 export default function ContactUsPage() {
   return (
-    <main className="w-full bg-white pb-10">
+    <main className="w-full pt-16 bg-white ">
       <ContactHero />
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6">
         <GetInTouchSection />
         <SpecialityHours />
         <ConsultationTimings />
         <GetDirections />
+        
       </div>
+      <Footer />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Footer from "../components/Footer";
 
 // ==========================================
 // DATA: Services & FAQs
@@ -1220,6 +1221,7 @@ export default function ServicesPage() {
       {!activeServiceId && <ServicesCTA />}
       
       <ServicesFAQ faqs={faqsToDisplay} />
+      <Footer />
     </main>
   );
 }

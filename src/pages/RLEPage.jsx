@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from "../components/Footer";
 
 // ==========================================
 // DATA: RLE Specific FAQs
@@ -282,7 +283,7 @@ const ServicesFAQ = ({ faqs }) => {
 
 export default function RLEPage() {
   return (
-    <main className="w-full bg-white pb-10">
+    <main className="w-full bg-white">
       <RLEHero />
       <RLETabs />
       <div className="max-w-[1500px] mx-auto px-4 md:px-8 mt-12 md:mt-16">
@@ -293,6 +294,7 @@ export default function RLEPage() {
         <RLEBenefitsRisks />
       </div>
       <ServicesFAQ faqs={rleFAQs} />
+      <Footer />
     </main>
   );
 }

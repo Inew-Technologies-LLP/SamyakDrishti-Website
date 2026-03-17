@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from "../components/Footer";
 
 // ==========================================
 // DATA: LASIK Specific FAQs
@@ -422,7 +423,7 @@ const ServicesFAQ = ({ faqs }) => {
 // ==========================================
 export default function LasikPage() {
   return (
-    <main className="w-full bg-white pb-20">
+    <main className="w-full bg-white">
       <LasikHero />
       <LasikTabs />
       
@@ -434,6 +435,7 @@ export default function LasikPage() {
       </div>
 
       <ServicesFAQ faqs={lasikFAQs} />
+      <Footer />
     </main>
   );
 }

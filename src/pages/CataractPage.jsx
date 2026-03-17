@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from "../components/Footer";
 
 // ==========================================
 // DATA: Cataract Specific FAQs
@@ -382,7 +383,7 @@ const ServicesFAQ = ({ faqs }) => {
 // ==========================================
 export default function CataractPage() {
   return (
-    <main className="w-full bg-white pb-10 md:pb-20">
+    <main className="w-full bg-white">
       <CataractHero />
       <CataractTabs />
       
@@ -394,6 +395,7 @@ export default function CataractPage() {
       </div>
  
       <ServicesFAQ faqs={cataractFAQs} />
+        <Footer />
     </main>
   );
 }

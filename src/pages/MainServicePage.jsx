@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Footer from "../components/Footer";
 
 // ==========================================
 // DATA: Default FAQs (Reused from other page)
@@ -307,6 +308,7 @@ export default function MainServicePage() {
       <MainServicesGrid />
       <ServicesCTA />
       <ServicesFAQ faqs={defaultFAQs} />
+      <Footer />
     </main>
   );
 }

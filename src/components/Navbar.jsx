@@ -6,18 +6,19 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Our Team', path: '/our-team' },
-    { 
-      name: 'Services', 
-      dropdown: [
-        { name: 'Services', path: '/services' }
-      ]
-    },
-    { name: 'Our Impact', path: '/our-impact' },
-    { name: 'International Patients', path: '/international' },
-    { name: 'Contact Us', path: '/contact' },
-  ];
+  { name: 'Home', path: '/' },
+  { name: 'Our Team', path: '/our-team' },
+  { 
+    name: 'Services', 
+    dropdown: [
+      { name: 'Services', path: '/services' },
+      { name: 'Main Service', path: '/main-service' }
+    ]
+  },
+  { name: 'Our Impact', path: '/our-impact' },
+  { name: 'International Patients', path: '/international' },
+  { name: 'Contact Us', path: '/contact' },
+];
 
   return (
     <nav className="bg-[#1b2a4e] text-white w-full fixed top-0 z-40">

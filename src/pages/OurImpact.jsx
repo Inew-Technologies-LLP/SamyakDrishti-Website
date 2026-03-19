@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import banner from "../assets/our_impact/PageBanner.png";
-import layer from "../assets/our_impact/Layer.svg";
+import layer from "../assets/our_impact/layer.svg";
 
 import icon1 from "../assets/our_impact/icon1.png";
 import icon2 from "../assets/our_impact/icon2.png";
@@ -16,7 +16,6 @@ import icon5 from "../assets/our_impact/icon5.png";
 import icon6 from "../assets/our_impact/icon6.png";
 import icon7 from "../assets/our_impact/icon7.png";
 import icon8 from "../assets/our_impact/icon8.png";
-import icon9 from "../assets/our_impact/icon9.png";
 import icon10 from "../assets/our_impact/icon10.png";
 import icon11 from "../assets/our_impact/icon11.png";
 import icon12 from "../assets/our_impact/icon12.png";

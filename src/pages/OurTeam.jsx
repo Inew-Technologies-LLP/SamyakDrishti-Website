@@ -2,7 +2,7 @@ import banner from "../assets/our_team/banner.jpg";
 import { useState } from "react";
 import layer from "../assets/our_team/layer.png";
 
-import sujal from "../assets/our_team/Dr.Sujal.jpg";
+import sujal from "../assets/our_team/Dr.Sujal.JPG";
 import edu from "../assets/our_team/education.svg";
 import i1 from "../assets/our_team/1.png";
 import i2 from "../assets/our_team/2.png";
@@ -12,7 +12,7 @@ import i5 from "../assets/our_team/5.png";
 import i6 from "../assets/our_team/6.png";
 import i7 from "../assets/our_team/7.png";
 
-import manisha from "../assets/our_team/Dr.Manisha.jpg";
+import manisha from "../assets/our_team/Dr.Manisha.JPG";
 
 import ashish from "../assets/our_team/Dr.Ashish.png";
 import kartik from "../assets/our_team/Dr.Kartik.png";

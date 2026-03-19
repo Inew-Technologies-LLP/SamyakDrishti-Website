@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Footer from "../components/Footer";
 
@@ -215,7 +215,7 @@ const MainServicesGrid = () => {
 // ==========================================
 // 4. CTA COMPONENT (Reused)
 // ==========================================
-const ServicesCTA = () => {
+const ServicesCTA = ({ onBookClick }) => {
   return (
     <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1500px] mx-auto bg-[#1b2a4e] py-24 px-4 text-center">
@@ -227,12 +227,12 @@ const ServicesCTA = () => {
           for you. We're here to guide you every step of the way.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <button className="bg-[#a8dcb6] text-[#1b2a4e] px-8 py-3 rounded-full text-sm font-semibold hover:bg-[#92ccA2] transition-colors w-full sm:w-auto">
+          <button onClick={onBookClick} className="cursor-pointer bg-[#a8dcb6] text-[#1b2a4e] px-8 py-3 rounded-full text-sm font-semibold hover:bg-[#92ccA2] transition-colors w-full sm:w-auto">
             Book Consultation
           </button>
-          <button className="bg-transparent border border-white text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-white/10 transition-colors w-full sm:w-auto">
+          <Link to="/contact" className="cursor-pointer bg-transparent border border-white text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-white/10 transition-colors w-full sm:w-auto">
             Contact Us
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -300,15 +300,14 @@ const ServicesFAQ = ({ faqs }) => {
 // ==========================================
 // 6. MAIN PAGE COMPONENT 
 // ==========================================
-export default function MainServicePage() {
+export default function MainServicePage({ onBookClick }) {
   return (
     <main className="w-full bg-white">
       <MainServiceHero />
       <JourneySection />
       <MainServicesGrid />
-      <ServicesCTA />
+      <ServicesCTA onBookClick={onBookClick} />
       <ServicesFAQ faqs={defaultFAQs} />
-      <Footer />
     </main>
   );
 }

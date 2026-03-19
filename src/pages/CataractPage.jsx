@@ -287,7 +287,7 @@ const CataractTypesList = () => {
 // ==========================================
 // 5. SURGERY GUIDE & CTA
 // ==========================================
-const CataractSurgeryGuide = () => (
+const CataractSurgeryGuide = ({ onBookClick }) => (
   <div className="mb-16 md:mb-24">
     <h2 className="text-2xl md:text-3xl font-serif text-[#1b2a4e] mb-8 md:mb-10 font-semibold">Cataract Surgery Guide</h2>
     
@@ -327,7 +327,7 @@ const CataractSurgeryGuide = () => (
 
     {/* CTA Button: Added flex justify-center for mobile */}
     <div className="mt-10 flex justify-center md:justify-start">
-      <button className="cursor-pointer bg-[#b4dfc4] text-[#1b2a4e] font-medium px-8 py-3.5 rounded-full hover:bg-[#9cccae] transition-all duration-300 flex items-center text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5">
+      <button onClick={onBookClick} className="cursor-pointer bg-[#b4dfc4] text-[#1b2a4e] font-medium px-8 py-3.5 rounded-full hover:bg-[#9cccae] transition-all duration-300 flex items-center text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5">
         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
         </svg>
@@ -381,7 +381,7 @@ const ServicesFAQ = ({ faqs }) => {
 // ==========================================
 // MAIN PAGE COMPONENT
 // ==========================================
-export default function CataractPage() {
+export default function CataractPage({ onBookClick }) {
   return (
     <main className="w-full bg-white">
       <CataractHero />
@@ -391,11 +391,11 @@ export default function CataractPage() {
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6">
         <CataractIntro />
         <CataractTypesList />
-        <CataractSurgeryGuide />
+        <CataractSurgeryGuide onBookClick={onBookClick} />
       </div>
  
       <ServicesFAQ faqs={cataractFAQs} />
-        <Footer />
+
     </main>
   );
 }

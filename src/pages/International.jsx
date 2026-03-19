@@ -306,7 +306,7 @@ export default function InternationalPatients() {
 
   {/* HOTELS */}
 
-<section className="max-w-[1400px] md:h-[320px] bg-[#F9FAFB] mx-auto px-6 pb-20 md:pb-24">
+<section className="max-w-[1400px] md:h-[380px] bg-[#F9FAFB] mx-auto px-6 py-8 pb-20 md:pb-24">
 
   <div className="text-center text-gray-900 text-2xl md:text-3xl font-semibold font-['Lora'] leading-9 tracking-tight mb-3">
     Nearby Hotels
@@ -657,7 +657,6 @@ animation: pulseDot 2s ease-in-out infinite;
 `}
 </style>
 
-       <Footer />
 
     </div>
   );

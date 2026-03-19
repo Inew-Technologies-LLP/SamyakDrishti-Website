@@ -369,7 +369,6 @@ export default function ContactUsPage() {
         <GetDirections />
         
       </div>
-      <Footer />
     </main>
   );
 }

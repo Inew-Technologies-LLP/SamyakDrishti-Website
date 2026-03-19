@@ -357,8 +357,6 @@ Patient Testimonials
 
 </section>
 
-<Footer />
-
 </div>
 
 );

@@ -225,7 +225,6 @@ Our Team of Doctors
 
 </section>
 
-<Footer />
 
 </div>
 );

@@ -1,7 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from 'react';
+// 1. IMPORT useLocation HERE
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 import ScrollTopButton from "./scrolltotopbutton";
 
 // ===== Pages =====
@@ -16,15 +19,29 @@ import RLEPage from "./pages/RLEPage";
 import CataractPage from "./pages/CataractPage";
 import LasikPage from "./pages/LasikPage";
 import ContactUsPage from "./pages/ContactUsPage";
+import BookingModal from "./components/BookingModal";
+
+// ===== Admin Pages =====
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // 2. GET THE CURRENT URL LOCATION
+  const location = useLocation();
+  
+  // 3. CREATE A RULE: Is this an admin page? (True or False)
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
     <div className="min-h-screen ">
       
       {/* Global Components */}
       <ScrollToTop />
-      <ScrollTopButton />
-      <Navbar />
+      
+      {/* 4. CONDITIONALLY RENDER: Only show if NOT an admin route */}
+      {!isAdminRoute && <ScrollTopButton />}
+      {!isAdminRoute && <Navbar />}
 
       {/* Routes */}
       <Routes>
@@ -33,14 +50,47 @@ function App() {
         <Route path="/our-team" element={<OurTeam />} />
         <Route path="/international" element={<International />} />
 
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/main-service" element={<MainServicePage />} />
-        <Route path="/rle" element={<RLEPage />} />
-        <Route path="/cataract" element={<CataractPage />} />
-        <Route path="/lasik" element={<LasikPage />} />
+        <Route 
+          path="/services" 
+          element={<ServicesPage onBookClick={() => setIsModalOpen(true)} />} 
+        />
+
+        <Route 
+          path="/main-service" 
+          element={<MainServicePage onBookClick={() => setIsModalOpen(true)} />} 
+        />
+
+        <Route 
+          path="/rle" 
+          element={<RLEPage onBookClick={() => setIsModalOpen(true)} />} 
+        />
+
+        <Route 
+          path="/cataract" 
+          element={<CataractPage onBookClick={() => setIsModalOpen(true)}/>} 
+        />
+
+        <Route 
+          path="/lasik" 
+          element={<LasikPage onBookClick={() => setIsModalOpen(true)} />} 
+        />
 
         <Route path="/contact" element={<ContactUsPage />} />
+        
+        {/* Admin Route */}
+        <Route path="/admin/dashboard" element={<AdminDashboard />} /> 
+        
       </Routes>
+
+      {/* 5. CONDITIONALLY RENDER THE FOOTER & MODAL TOO */}
+      {!isAdminRoute && <Footer onBookClick={() => setIsModalOpen(true)} />}
+
+      {!isAdminRoute && (
+        <BookingModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+        />
+      )}
 
     </div>
   );

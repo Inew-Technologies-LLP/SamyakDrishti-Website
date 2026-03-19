@@ -4,7 +4,7 @@ import phone from "../assets/phone-call.svg";
 import mail from "../assets/mail.svg";
 import { Link } from "react-router-dom";
 
-export default function Footer() {
+export default function Footer({ onBookClick }) {
   return (
     <footer className="w-full mt-24 md:mt-40 relative">
 
@@ -24,9 +24,12 @@ export default function Footer() {
   Schedule a comprehensive consultation with our specialists today
 </p>
 
-      <button className="bg-[#BFE3C9] text-black px-6 py-2 rounded-full text-[14px] font-semibold">
-        Schedule Consultation
-      </button>
+      <button 
+  onClick={onBookClick} 
+  className="cursor-pointer bg-[#BFE3C9] text-black px-6 py-2 rounded-full text-[14px] font-semibold transition-all duration-200 hover:scale-110 hover:shadow-[0_0_15px_rgba(191,227,201,0.6)]"
+>
+  Schedule Consultation
+</button>
 
     </div>
 

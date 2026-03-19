@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from "../components/Footer";
 
 // ==========================================
@@ -895,7 +896,7 @@ const ServicesHero = () => {
 // ==========================================
 // 2. SERVICE DETAIL EXPANDED COMPONENT
 // ==========================================
-const ServiceDetailView = ({ service }) => {
+const ServiceDetailView = ({ service, onBookClick }) => {
   // State to track if the "How it Works" section is expanded
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -1028,7 +1029,7 @@ const ServiceDetailView = ({ service }) => {
 
       {/* 2. Button OUTSIDE the main bordered box */}
       <div className="mt-8">
-        <button className="cursor-pointer bg-[#b4dfc4] text-[#1b2a4e] font-medium px-8 py-3.5 rounded-full hover:bg-[#9cccae] transition-all duration-300 flex items-center font-normal text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+        <button onClick={onBookClick} className="cursor-pointer bg-[#b4dfc4] text-[#1b2a4e] font-medium px-8 py-3.5 rounded-full hover:bg-[#9cccae] transition-all duration-300 flex items-center font-normal text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5">
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
           </svg>
@@ -1044,7 +1045,7 @@ const ServiceDetailView = ({ service }) => {
 // ==========================================
 // 3. SERVICES GRID COMPONENT
 // ==========================================
-const ServicesGrid = ({ activeServiceId, onSelectService }) => {
+const ServicesGrid = ({ activeServiceId, onSelectService, onBookClick }) => {
   const detailRef = useRef(null);
 
 // Auto-scroll to details when a service is selected (with Navbar offset)
@@ -1100,7 +1101,7 @@ const ServicesGrid = ({ activeServiceId, onSelectService }) => {
 
         {/* The Expanded Detail Box Container */}
         <div ref={detailRef}>
-          <ServiceDetailView service={activeServiceData} />
+          <ServiceDetailView service={activeServiceData} onBookClick={onBookClick} />
         </div>
 
       </div>
@@ -1112,7 +1113,7 @@ const ServicesGrid = ({ activeServiceId, onSelectService }) => {
 // ==========================================
 // 3.5 CALL TO ACTION (CTA) COMPONENT
 // ==========================================
-const ServicesCTA = () => {
+const ServicesCTA = ({ onBookClick }) => {
   return (
     // Outer section is now white with vertical padding for the gap
     <section className="bg-[#1b2a4e] py-28 px-4 text-center">
@@ -1125,12 +1126,12 @@ const ServicesCTA = () => {
           for you. We're here to guide you every step of the way.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <button className="bg-[#a8dcb6] text-[#1b2a4e] px-8 py-3 rounded-full text-sm font-semibold hover:bg-[#92ccA2] transition-colors w-full sm:w-auto">
+          <button onClick={onBookClick} className="cursor-pointer bg-[#a8dcb6] text-[#1b2a4e] px-8 py-3 rounded-full text-sm font-semibold hover:bg-[#92ccA2] transition-colors w-full sm:w-auto">
             Book Consultation
           </button>
-          <button className="bg-transparent border border-white text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-white/10 transition-colors w-full sm:w-auto">
+          <Link to="/contact" className="cursor-pointer bg-transparent border border-white text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-white/10 transition-colors w-full sm:w-auto">
             Contact Us
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -1201,7 +1202,7 @@ const ServicesFAQ = ({ faqs }) => {
 // ==========================================
 // 5. MAIN PAGE COMPONENT (State Manager)
 // ==========================================
-export default function ServicesPage() {
+export default function ServicesPage({ onBookClick }) {
   // 1. State to track which service is clicked
   const [activeServiceId, setActiveServiceId] = useState(null);
 
@@ -1215,13 +1216,13 @@ export default function ServicesPage() {
       <ServicesGrid 
         activeServiceId={activeServiceId} 
         onSelectService={setActiveServiceId} 
+        onBookClick={onBookClick}
       />
       
       {/* Conditionally render the CTA ONLY if no service is selected */}
-      {!activeServiceId && <ServicesCTA />}
+      {!activeServiceId && <ServicesCTA onBookClick={onBookClick} />}
       
       <ServicesFAQ faqs={faqsToDisplay} />
-      <Footer />
     </main>
   );
 }

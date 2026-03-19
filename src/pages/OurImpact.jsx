@@ -583,9 +583,6 @@ Dr. Sujal Shah has been honoured by the Chief Minister of Maharashtra and severa
 </section>
 
 
-
-<Footer />
-
 </div>
 );
 }

@@ -11,8 +11,8 @@ const Navbar = () => {
   { 
     name: 'Services', 
     dropdown: [
-      { name: 'Services', path: '/services' },
-      { name: 'Main Service', path: '/main-service' }
+      { name: 'Comprehensive Eye Care', path: '/services' },
+      { name: 'Vision Correction', path: '/main-service' }
     ]
   },
   { name: 'Our Impact', path: '/our-impact' },

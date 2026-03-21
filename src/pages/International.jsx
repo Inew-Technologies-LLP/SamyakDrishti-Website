@@ -1,4 +1,4 @@
-import banner from "../assets/international/banner.jpg";
+import banner from "../assets/international/banner.JPG";
 import layer from "../assets/our_team/layer.png";
 import globe from "../assets/international/globe.svg";
 

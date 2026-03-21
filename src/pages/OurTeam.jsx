@@ -1,4 +1,4 @@
-import banner from "../assets/our_team/banner.jpg";
+import banner from "../assets/our_team/banner.JPG";
 import { useState } from "react";
 import layer from "../assets/our_team/layer.png";
 

@@ -10,7 +10,6 @@ import t3 from "../assets/home/testimonial3.png";
 import t4 from "../assets/home/testimonial4.png";
 
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,24 +73,22 @@ scrub: true
 });
 
 gsap.fromTo(
-circleRef.current,
-{
-filter: "blur(10px)",
-opacity: 0.5,
-y: 0
-},
-{
-filter: "blur(0px)",
-opacity: 1,
-y: 60,
-ease: "none",
-scrollTrigger: {
-trigger: circleRef.current,
-start: "top 100%",
-end: "top 40%",
-scrub: true
-}
-}
+  circleRef.current,
+  {
+    filter: "blur(10px)",
+    opacity: 0.5
+  },
+  {
+    filter: "blur(0px)",
+    opacity: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: circleRef.current,
+      start: "top 100%",
+      end: "top 40%",
+      scrub: true
+    }
+  }
 );
 
 ScrollTrigger.create({
@@ -128,114 +125,119 @@ return (
 
 <Navbar />
 
-{/* HERO */}
-<section className="w-full h-[620px] relative bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,white_0%,#F8E0A2_100%)] overflow-hidden">
+<div className="relative">
 
-<div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+      {/* HERO */}
+      <section className="w-full h-[620px] relative bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,white_0%,#F8E0A2_100%)] overflow-hidden">
 
-<div className="max-w-4xl w-full">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
 
-<h1 className="text-[#1E2B50] text-4xl md:text-6xl lg:text-7xl font-semibold font-['Lora'] mb-8">
-Clear Vision, Better Life
-</h1>
+          <div className="max-w-4xl w-full">
 
-<div className="flex flex-col md:flex-row md:items-start justify-between w-full gap-6">
+            <h1 className="text-[#1E2B50] text-4xl md:text-6xl lg:text-7xl font-semibold font-['Lora'] mb-8">
+              Clear Vision, Better Life
+            </h1>
 
-<p className="max-w-[350px] text-[#1E2B50] font-['Open_Sans'] leading-7 font-normal">
-Compassionate, transparent care powered by specialist expertise and advanced technology.
-</p>
+            <div className="flex flex-col md:flex-row md:items-start justify-between w-full gap-6">
 
-<button className="px-5 py-2 md:mr-20 border border-[#1E2B50] rounded-full font-['Lora'] text-sm font-semibold w-fit">
-Schedule Consultation
-</button>
+              <p className="max-w-[350px] text-[#1E2B50] font-['Open_Sans'] leading-7 font-normal">
+                Compassionate, transparent care powered by specialist expertise and advanced technology.
+              </p>
 
-</div>
-</div>
-</div>
-</section>
+              <button className="px-5 py-2 md:mr-20 border border-[#1E2B50] rounded-full font-['Lora'] text-sm font-semibold w-fit">
+                Schedule Consultation
+              </button>
 
-<div
-  ref={circleRef}
-  className="absolute bottom-60 md:bottom-8 left-1/2 -translate-x-1/2 w-[120px] md:w-[180px] h-[120px] md:h-[180px] bg-[#A8D5BA] rounded-full"
-/>
+            </div>
 
-{/* ABOUT */}
-<section className="w-full pt-20 md:pt-32 pb-20">
+          </div>
 
-<div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+        </div>
 
-<div>
+      </section>
 
-<div className="flex gap-6 mb-6">
-<div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
-<div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
-<div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
-</div>
+      {/* ✅ PERFECTLY POSITIONED CIRCLE */}
+      <div
+        ref={circleRef}
+        className="absolute left-1/2 -translate-x-1/2 
+                   top-[620px] -translate-y-[45%]  lg:-translate-y-[55%]
+                   w-[120px] md:w-[180px] h-[120px] md:h-[180px] 
+                   bg-[#A8D5BA] rounded-full z-10"
+      />
 
-<div className="ml-7 text-blue-950 text-3xl md:text-4xl font-bold font-['Lora']">
-About Us
-</div>
+      {/* ABOUT */}
+      <section className="w-full pt-20 md:pt-32 pb-20">
 
-</div>
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
 
-<div className="text-black text-lg font-normal font-['Open_Sans'] leading-6 md:w-[537px]">
-Founded in 2005 by Dr. Sujal Shah and Dr. Manisha Shah, Samyak Drishti has been transforming lives through exceptional eye care for over two decades.
-</div>
+          <div>
 
-</div>
+            <div className="flex gap-6 mb-6">
+              <div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
+              <div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
+              <div className="w-10 h-10 bg-[#1E2B50] rounded-full"></div>
+            </div>
 
-</section>
+            <div className="ml-7 text-blue-950 text-3xl md:text-4xl font-bold font-['Lora']">
+              About Us
+            </div>
 
+          </div>
+
+          <div className="text-black text-lg font-normal font-['Open_Sans'] leading-6 md:w-[537px]">
+            Founded in 2005 by Dr. Sujal Shah and Dr. Manisha Shah, Samyak Drishti has been transforming lives through exceptional eye care for over two decades.
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
 
 {/* UNIQUE SECTION */}
 <section ref={sectionRef} className="w-full py-20 md:py-24 bg-white relative overflow-hidden">
 
 <div className="max-w-[1400px] mx-auto px-6 relative">
 
-<div className="absolute top-4 md:top-20 left-1/2 -translate-x-1/2 grid grid-cols-2 gap-20 md:gap-x-20 gap-y-6 md:gap-y-8 z-0">
+<div className="absolute top-4 md:top-20 left-1/2 -translate-x-1/2 
+                grid grid-cols-2 
+                gap-x-20 gap-y-6 
+                sm:gap-x-25 sm:gap-y-6 
+                md:gap-x-30 md:gap-y-8 
+                lg:gap-x-20 lg:gap-y-10 
+                z-0">
 
-{/* CARD 1 */}
-<div className="ml-[-70px] sm:ml-0 sm:ml-0 w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+  {/* CARD 1 */}
+  <div className="ml-[-70px] md:ml-[-140px] sm:ml-0 w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+    <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
+      Pioneer in Advanced Technology
+    </h3>
+    <p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+      We don’t just use the latest technology. We help shape it.
+    </p>
+  </div>
 
-<h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-Pioneer in Advanced Technology
-</h3>
+  {/* CARD 2 */}
+  <div className="ml-[-30px] md:mr-[-140px] sm:ml-0 w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+    <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
+      Pioneer in Advanced Technology
+    </h3>
+    <p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+      We don’t just use the latest technology. We help shape it.
+    </p>
+  </div>
 
-<p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-We don’t just use the latest technology. We help shape it.
-</p>
-
-</div>
-
-{/* CARD 2 */}
-<div className="ml-[-30px] sm:ml-0 w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
-
-<h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-Expert Eye Specialists
-</h3>
-
-<p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-Our experienced doctors provide personalized treatment.
-</p>
-
-</div>
-
-{/* CARD 3 */}
-<div className="col-span-2 flex justify-center">
-
-<div className="w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
-
-<h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-Trusted by Thousands
-</h3>
-
-<p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-Over 20 years of experience helping patients achieve clearer vision.
-</p>
-
-</div>
-
-</div>
+  {/* CARD 3 */}
+  <div className="col-span-2 flex justify-center">
+    <div className="w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+      <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
+        Pioneer in Advanced Technology
+      </h3>
+      <p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+        We don’t just use the latest technology. We help shape it.
+      </p>
+    </div>
+  </div>
 
 </div>
 

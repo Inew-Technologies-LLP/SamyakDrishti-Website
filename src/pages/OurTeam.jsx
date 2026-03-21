@@ -22,7 +22,6 @@ import uppal from "../assets/our_team/Dr.Uppal.png";
 import akshay from "../assets/our_team/Dr.Akshay.png";
 
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function OurTeam() {
   return (

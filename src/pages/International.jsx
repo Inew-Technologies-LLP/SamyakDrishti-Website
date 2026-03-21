@@ -12,7 +12,6 @@ import icon from "../assets/international/7.svg";
 import worldmap from "../assets/international/worldmap.png";
 
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function InternationalPatients() {
   return (

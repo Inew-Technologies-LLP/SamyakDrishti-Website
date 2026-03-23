@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // 1. IMPORT useLocation HERE
 import { Routes, Route, useLocation } from "react-router-dom";
+import { Analytics } from '@vercel/analytics/react';
 
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
@@ -38,6 +39,7 @@ function App() {
       
       {/* Global Components */}
       <ScrollToTop />
+      <Analytics />
       
       {/* 4. CONDITIONALLY RENDER: Only show if NOT an admin route */}
       {!isAdminRoute && <ScrollTopButton />}

@@ -13,7 +13,7 @@ import Navbar from "../components/Navbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HomePage() {
+export default function HomePage({ onBookClick }) {
 
 const sectionRef = useRef(null);
 const imageRef = useRef(null);
@@ -22,17 +22,18 @@ const circleRef = useRef(null);
 const bgRef = useRef(null);
 const visitRef = useRef(null);
 const testimonialRef = useRef(null);
+const cardsRef = useRef([]);
 
 const [openIndex, setOpenIndex] = useState(null);
 
 const faqs = [
 {
-question: "What to Bring before your appointment ?",
+question: "What to bring before your appointment ?",
 answer:
 "Please bring previous prescriptions, medical reports, spectacles or contact lenses you currently use."
 },
 {
-question: "Plan your Timings",
+question: "Plan your timings",
 answer:
 "Arrive 10–15 minutes before your appointment so registration and preliminary checks can be completed."
 },
@@ -92,14 +93,35 @@ gsap.fromTo(
 );
 
 ScrollTrigger.create({
-trigger: visitRef.current,
-start: "top 60%",
-onEnter: () => {
-gsap.to(bgRef.current,{backgroundColor:"#11224A",duration:0.5});
-},
-onLeaveBack: () => {
-gsap.to(bgRef.current,{backgroundColor:"#ffffff",duration:0.5});
-}
+  trigger: visitRef.current,
+  start: "top 60%",
+  onEnter: () => {
+    gsap.to(bgRef.current, {
+      backgroundColor: "#11224A",
+      duration: 0.6
+    });
+
+    gsap.to(cardsRef.current, {
+      backgroundColor: "#ffffff",
+      color: "#000000",
+      duration: 0.6,
+      stagger: 0.1
+    });
+  },
+
+  onLeaveBack: () => {
+    gsap.to(bgRef.current, {
+      backgroundColor: "#ffffff",
+      duration: 0.6
+    });
+
+    gsap.to(cardsRef.current, {
+      backgroundColor: "#162B55",
+      color: "#ffffff",
+      duration: 0.6,
+      stagger: 0.1
+    });
+  }
 });
 
 ScrollTrigger.create({
@@ -127,46 +149,50 @@ return (
 
 <div className="relative">
 
-      {/* HERO */}
-      <section className="w-full h-[620px] relative bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,white_0%,#F8E0A2_100%)] overflow-hidden">
+     <section className="w-full h-[620px] relative bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,white_0%,#F8E0A2_100%)] overflow-hidden">
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+  <div className="absolute inset-0 flex items-center justify-center px-6">
 
-          <div className="max-w-4xl w-full">
+    {/* Centered Container */}
+    <div className=" mx-auto text-center">
 
-            <h1 className="text-[#1E2B50] text-4xl md:text-6xl lg:text-7xl font-semibold font-['Lora'] mb-8">
-              Clear Vision, Better Life
-            </h1>
+      {/* Heading */}
+      <h1 className="text-[#1E2B50] text-4xl md:text-6xl lg:text-9xl font-semibold font-['Lora'] mb-8">
+        Clear Vision, Better Life
+      </h1>
 
-            <div className="flex flex-col md:flex-row md:items-start justify-between w-full gap-6">
+      {/* Content Row */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-30 lg:gap-160">
 
-              <p className="max-w-[350px] text-[#1E2B50] font-['Open_Sans'] leading-7 font-normal">
-                Compassionate, transparent care powered by specialist expertise and advanced technology.
-              </p>
+        {/* Text */}
+        <p className="max-w-[350px] text-[#1E2B50] font-['Open_Sans'] leading-7 font-normal">
+          Compassionate, transparent care powered by specialist expertise and advanced technology.
+        </p>
 
-              <button className="px-5 py-2 md:mr-20 border border-[#1E2B50] rounded-full font-['Lora'] text-sm font-semibold w-fit">
-                Schedule Consultation
-              </button>
+        {/* Button */}
+        <button onClick={onBookClick} className="px-5 py-2 border border-[#1E2B50] rounded-full font-['Lora'] text-sm font-semibold w-fit">
+          Schedule Consultation
+        </button>
 
-            </div>
+      </div>
 
-          </div>
+    </div>
 
-        </div>
+  </div>
 
-      </section>
+</section>
 
       {/* ✅ PERFECTLY POSITIONED CIRCLE */}
       <div
         ref={circleRef}
         className="absolute left-1/2 -translate-x-1/2 
-                   top-[620px] -translate-y-[45%]  lg:-translate-y-[55%]
-                   w-[120px] md:w-[180px] h-[120px] md:h-[180px] 
+                   top-[620px] -translate-y-[50%]  lg:-translate-y-[55%]
+                   w-[140px] md:w-[250px] h-[140px] md:h-[250px] 
                    bg-[#A8D5BA] rounded-full z-10"
       />
 
       {/* ABOUT */}
-      <section className="w-full pt-20 md:pt-32 pb-20">
+      <section className="w-full pt-40 md:pt-45 pb-20">
 
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
 
@@ -195,7 +221,7 @@ return (
     </div>
 
 {/* UNIQUE SECTION */}
-<section ref={sectionRef} className="w-full py-20 md:py-24 bg-white relative overflow-hidden">
+<section ref={sectionRef} className="w-full py-20 md:py-24  relative overflow-hidden">
 
 <div className="max-w-[1400px] mx-auto px-6 relative">
 
@@ -208,33 +234,35 @@ return (
                 z-0">
 
   {/* CARD 1 */}
-  <div className="ml-[-70px] md:ml-[-140px] sm:ml-0 w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+  <div ref={(el) => (cardsRef.current[0] = el)} className="text-white bg-[#162B55] ml-[-70px] md:ml-[-140px] sm:ml-0 w-[180px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px]  rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
     <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
       Pioneer in Advanced Technology
     </h3>
-    <p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-      We don’t just use the latest technology. We help shape it.
+    <p className="text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+      We don’t just use the latest technology. We help shape it. 
     </p>
   </div>
 
   {/* CARD 2 */}
-  <div className="ml-[-30px] md:mr-[-140px] sm:ml-0 w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+   <div ref={(el) => (cardsRef.current[1] = el)} className="text-white bg-[#162B55] ml-[-30px] md:mr-[-140px] sm:ml-0 w-[180px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px]  rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
     <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-      Pioneer in Advanced Technology
+      Personalised Precision Care
     </h3>
-    <p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-      We don’t just use the latest technology. We help shape it.
+    <p className="text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+      No two eyes are alike. We use advanced diagnostics. 
     </p>
   </div>
 
+  
+
   {/* CARD 3 */}
-  <div className="col-span-2 flex justify-center">
-    <div className="w-[170px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px] bg-[#162B55] rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
+  <div  className="col-span-2 flex justify-center">
+    <div ref={(el) => (cardsRef.current[2] = el)} className="text-white bg-[#162B55] w-[185px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px]  rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl">
       <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-        Pioneer in Advanced Technology
+        Trusted by Experts
       </h3>
-      <p className="text-white text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-        We don’t just use the latest technology. We help shape it.
+      <p className="  text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
+         More than 100 doctors have chosen Samyak Drishti for their own LASIK. 
       </p>
     </div>
   </div>
@@ -256,7 +284,7 @@ return (
 
 <div ref={imageRef} className="relative z-10 h-[280px] md:h-[500px] w-full">
 
-<img src={doctors} alt="Doctors" className="w-full h-full object-cover"/>
+<img src={doctors} alt="Doctors" className="w-full h-full object-cover object-top"/>
 
 </div>
 
@@ -269,7 +297,11 @@ return (
 
 <div className="h-[260px] md:h-[420px] overflow-hidden relative bg-[#11224A]">
 
-<img src={home2} alt="Doctors" className="w-full h-full object-cover object-top mix-blend-luminosity"/>
+<img 
+  src={home2} 
+  alt="Doctors" 
+  className="w-full h-full object-cover object-right md:object-center grayscale"
+/>
 
 </div>
 
@@ -280,7 +312,7 @@ return (
 <div>
 
 <div className="text-white text-2xl md:text-3xl font-bold font-['Lora'] leading-10 mb-6 max-w-md">
-Your First Visit to Samyak Drishti: A Complete Guide
+Your First Visit To Samyak Drishti: A Complete Guide
 </div>
 
 <div className="text-white text-base font-['Open_Sans'] leading-6 max-w-md">

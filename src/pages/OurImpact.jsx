@@ -4,8 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Navbar from "../components/Navbar";
 
-import banner from "../assets/our_impact/PageBanner.png";
-import layer from "../assets/our_impact/layer.svg";
+import banner from "../assets/our_impact/banner.jpg";
 
 import icon1 from "../assets/our_impact/icon1.png";
 import icon2 from "../assets/our_impact/icon2.png";
@@ -21,11 +20,11 @@ import icon12 from "../assets/our_impact/icon12.png";
 
 import dots from "../assets/our_impact/dots.gif";
 
-import img1 from "../assets/our_impact/1.png";
-import img2 from "../assets/our_impact/2.png";
-import img3 from "../assets/our_impact/3.png";
+import img1 from "../assets/our_impact/1.jpg";
+import img2 from "../assets/our_impact/2.jpg";
+import img3 from "../assets/our_impact/3.jpg";
 import img4 from "../assets/our_impact/4.png";
-import img5 from "../assets/our_impact/5.png";
+import img5 from "../assets/our_impact/5.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,14 +108,15 @@ return (
 
 {/* HERO */}
 
-<section className="relative bg-white h-[260px] sm:h-[340px] md:h-[420px]">
+<section className="relative bg-white h-[400px]  md:h-[550px]">
 
 <img src={banner} className="w-full h-full object-cover"/>
 
-<img
-src={layer}
-className="absolute -bottom-1 left-0 w-full pointer-events-none"
-/>
+<div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-[50px] md:h-[100px] lg:h-[120px]" preserveAspectRatio="none">
+        <path className="fill-white" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+      </svg>
+    </div>
 
 <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
 
@@ -181,7 +181,7 @@ Committed to serving diverse communities through innovative healthcare programs 
 <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[145px]">
 
 {/* CARD 1 */}
-<div className="w-full max-w-[380px] h-60 md:w-96 md:h-72 px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-emerald-200 flex flex-col">
+<div className="w-full max-w-[380px] h-60 md:w-96 md:h-72 px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-[#A8D5BA] flex flex-col">
 
 <div className="flex gap-4">
 
@@ -209,10 +209,12 @@ Conceptualised and serves as a Permanent Trustee of Shraman Arogyam, which provi
 
 
 {/* IMAGE */}
-<img
-src={img1}
-className="w-full lg:w-[820px] lg:h-[365px] object-cover rounded-xl"
-/>
+<div className="perspective-[1000px]">
+  <img
+    src={img1}
+    className="w-full lg:w-[820px] lg:h-[365px] object-cover rounded-xl transition-transform duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(40px)]"
+  />
+</div>
 
 </div>
 
@@ -222,13 +224,15 @@ className="w-full lg:w-[820px] lg:h-[365px] object-cover rounded-xl"
 <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[145px]">
 
 {/* IMAGE */}
-<img
-src={img2}
-className="order-2 lg:order-1 w-full lg:w-[802px] lg:h-[391px] object-cover rounded-xl"
-/>
+<div className="perspective-[1000px]">
+  <img
+    src={img2}
+    className="order-2 lg:order-1 w-full lg:w-[802px] lg:h-[391px] object-cover rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(60px)_rotateX(3deg)_rotateY(-3deg)] hover:shadow-2xl"
+  />
+</div>
 
 {/* CARD 2 */}
-<div className="order-1 lg:order-2 w-full max-w-[380px] h-60 md:w-96 md:h-72 px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-emerald-200 flex flex-col">
+<div className="order-1 lg:order-2 w-full max-w-[380px] h-60 md:w-96 md:h-72 px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-[#A8D5BA] flex flex-col">
 
 <div className="flex gap-4">
 
@@ -262,7 +266,7 @@ As Director, Dr. Sujal Shah conceptualized and led this health insurance initiat
 <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[145px]">
 
 {/* CARD 3 */}
-<div className="w-full max-w-[380px] h-70 md:w-96 md:h-[340px] px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-emerald-200 flex flex-col">
+<div className="w-full max-w-[380px] h-70 md:w-96 md:h-[340px] px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-[#A8D5BA] flex flex-col">
 
 <div className="flex gap-4">
 
@@ -294,10 +298,12 @@ As Medical Advisor, Dr. Sujal Shah has coordinated medical care for Chauvihar Ch
 
 
 {/* IMAGE */}
-<img
-src={img3}
-className="w-full lg:w-[735px] lg:h-[344px] object-cover rounded-xl"
-/>
+<div className="perspective-[1000px]">
+  <img
+    src={img3}
+    className="w-full lg:w-[820px] lg:h-[365px] object-cover rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(60px)_rotateX(3deg)_rotateY(-3deg)] hover:shadow-2xl"
+  />
+</div>
 
 </div>
 
@@ -360,7 +366,7 @@ className="max-w-[1200px] mx-auto pt-24 md:pt-40 px-6 pb-20 md:pb-0">
 
       {/* CARD 1 */}
 
-      <div className="p-5 bg-white rounded-[10px] outline outline-[3px] outline-orange-200 flex gap-4 min-h-[190px]">
+      <div className="p-5 bg-white rounded-[10px] outline outline-[3px] outline-[#F8E0A2] flex gap-4 min-h-[190px]">
 
         <img src={icon10} className="w-10 h-10" />
 
@@ -386,7 +392,7 @@ className="max-w-[1200px] mx-auto pt-24 md:pt-40 px-6 pb-20 md:pb-0">
 
       {/* CARD 2 */}
 
-      <div className="p-5 bg-white rounded-[10px] outline outline-[3px] outline-orange-200 flex gap-4 min-h-[190px]">
+      <div className="p-5 bg-white rounded-[10px] outline outline-[3px] outline-[#F8E0A2] flex gap-4 min-h-[190px]">
 
         <img src={icon8} className="w-10 h-10" />
 
@@ -412,7 +418,7 @@ className="max-w-[1200px] mx-auto pt-24 md:pt-40 px-6 pb-20 md:pb-0">
 
       {/* CARD 3 */}
 
-      <div className="p-5 bg-white rounded-[10px] outline outline-[3px] outline-orange-200 flex gap-4 min-h-[190px]">
+      <div className="p-5 bg-white rounded-[10px] outline outline-[3px] outline-[#F8E0A2] flex gap-4 min-h-[190px]">
 
         <img src={icon10} className="w-10 h-10" />
 
@@ -438,7 +444,7 @@ className="max-w-[1200px] mx-auto pt-24 md:pt-40 px-6 pb-20 md:pb-0">
 
       {/* CARD 4 */}
 
-      <div className="p-5 bg-white rounded-[10px] outline outline-[3px] outline-orange-200 flex gap-4 min-h-[190px]">
+      <div className="p-5 bg-white rounded-[10px] outline outline-[3px] outline-[#F8E0A2] flex gap-4 min-h-[190px]">
 
         <img src={icon11} className="w-10 h-10" />
 

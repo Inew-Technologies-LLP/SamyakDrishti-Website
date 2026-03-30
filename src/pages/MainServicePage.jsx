@@ -14,7 +14,7 @@ const defaultFAQs = [
   { question: "What symptoms should I not ignore?", answer: "Sudden vision loss, flashes of light, persistent pain, redness, and floaters should be evaluated immediately." },
   { question: "Do you treat children as well as adults?", answer: "Yes. We provide complete eye care for children, adults, and seniors." },
   { question: "Can I get a same-day appointment in an emergency?", answer: "Yes. For urgent symptoms, we accommodate same-day visits whenever possible." },
-  { question: "Do you offer second opinions?", answer: "Yes. If you have been advised LASIK, cataract surgery, or another treatment elsewhere, you can visit us for a clear and unbiased second opinion." }
+  { question: "Do you offer second opinions?", answer: "Yes. If you have been advised Lasik, cataract surgery, or another treatment elsewhere, you can visit us for a clear and unbiased second opinion." }
 ];
 
 // ==========================================
@@ -25,19 +25,22 @@ const MainServiceHero = () => {
     <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('/Services-main.JPG')" }}
+        className="absolute inset-0 bg-cover"
+        style={{ 
+          backgroundImage: "url('/Services-main.JPG')",
+          backgroundPosition: "center 75%"
+        }} 
       ></div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40"></div> 
+      <div className="absolute inset-0 bg-black/30"></div> 
 
       {/* Text Content */}
       <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
         <h1 className="text-white drop-shadow-md text-5xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-wide mb-6">
-          Services
+          Vision Correction
         </h1>
-        <div className="h-[1px] w-1/2 max-w-sm mx-auto bg-white/50"></div>
+        <div className="h-[2px] w-1/2 max-w-2xl mx-auto bg-white"></div>
       </div>
 
       {/* The SVG Wave Divider (Fills to White) */}
@@ -94,7 +97,7 @@ const JourneySection = () => {
 
           <div className="space-y-12">
             <p>
-              Laser vision correction is safe, effective, and long-lasting when the right procedure is chosen and the evaluation is thorough. <br/>Between the two of us, we have experienced both PRK and LASIK firsthand. Dr Sujal underwent PRK in 1997 and has enjoyed clear distance vision ever since. Dr Manisha chose LASIK in June 2000, at the age of 30, after years of managing glasses and contact lenses and the constant planning they required.
+              Laser vision correction is safe, effective, and long-lasting when the right procedure is chosen and the evaluation is thorough. <br/>Between the two of us, we have experienced both PRK and Lasik firsthand. Dr Sujal underwent PRK in 1997 and has enjoyed clear distance vision ever since. Dr Manisha chose Lasik in June 2000, at the age of 30, after years of managing glasses and contact lenses and the constant planning they required.
             </p>
             <p>
               What stands out most for both of us is how effortless life felt after surgery. Returning to work the very next day, seeing clearly without searching for glasses or thinking about lenses, and realizing that everyday moments had simply become easier. It was not one dramatic change, but many small freedoms adding up.

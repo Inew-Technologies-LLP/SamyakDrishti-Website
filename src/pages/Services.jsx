@@ -36,7 +36,7 @@ const defaultFAQs = [
   },
   { 
     question: "Do you offer second opinions?", 
-    answer: "Yes. If you have been advised LASIK, cataract surgery, or another treatment elsewhere, you can visit us for a clear and unbiased second opinion." 
+    answer: "Yes. If you have been advised Lasik, cataract surgery, or another treatment elsewhere, you can visit us for a clear and unbiased second opinion." 
   }
 ];
 
@@ -236,7 +236,7 @@ const servicesData = [
               <li>We use advanced corneal imaging for precise diagnosis and monitoring.</li>
               <li><strong>Corneal Topography:</strong> This studies the shape of the front surface of the cornea.</li>
               <li><strong>Tomography:</strong> This is an important test. It creates a detailed 3D map of your corneal surface, thickness, and shape, revealing even subtle irregularities.</li>
-              <li><strong>Corneal biomechanics:</strong> This studies the biomechanical strength of the cornea and is a vital test for suitability for LASIK. It combines the information from the tomography and biomechanics to determine longterm safety and stability after LASIK. This test is available only at select premium LASIK centres. It helps in detecting early and very subtle changes of keratoconus, before topography and tomography can detect them.</li>
+              <li><strong>Corneal biomechanics:</strong> This studies the biomechanical strength of the cornea and is a vital test for suitability for Lasik. It combines the information from the tomography and biomechanics to determine longterm safety and stability after Lasik. This test is available only at select premium Lasik centres. It helps in detecting early and very subtle changes of keratoconus, before topography and tomography can detect them.</li>
             </ol>
           </>
         ) 
@@ -308,7 +308,7 @@ const servicesData = [
       howItWorks: [
         "We examine the cornea under high magnification (slit lamp), use special stains (like fluorescein, lissamine green, and rose bengal) to highlight dryness, erosions, or infection, and scan the cornea with OCT (Optical Coherence Tomography) to get detailed cross-sectional images of corneal thickness and shape. We also perform corneal pachymetry, corneal topography, corneal tomography and corneal biomechanics. These comprehensive tests help us diagnose infections (bacterial, viral, or fungal), scars from injury or surgery, corneal dystrophies (inherited conditions), corneal ectasia and surface disease problems.",
         
-        "Treatment may include medicated eye drops (antibiotics for infection, antivirals for herpes keratitis, anti-inflammatory drops), protective contact lenses to shield the cornea and promote healing, minor procedures like corneal debridement to remove damaged tissue, bandage contact lenses for recurrent erosions, or in advanced cases, corneal transplantation. For post-surgical complications such as irregular astigmatism after cataract or LASIK surgery, we offer specialised solutions. The aim is to clear the cornea, restore comfort, improve vision, and prevent complications like scarring or neovascularisation that could permanently damage sight. Our comprehensive approach addresses both the acute problem and prevents long term vision loss."
+        "Treatment may include medicated eye drops (antibiotics for infection, antivirals for herpes keratitis, anti-inflammatory drops), protective contact lenses to shield the cornea and promote healing, minor procedures like corneal debridement to remove damaged tissue, bandage contact lenses for recurrent erosions, or in advanced cases, corneal transplantation. For post-surgical complications such as irregular astigmatism after cataract or Lasik surgery, we offer specialised solutions. The aim is to clear the cornea, restore comfort, improve vision, and prevent complications like scarring or neovascularisation that could permanently damage sight. Our comprehensive approach addresses both the acute problem and prevents long term vision loss."
       ]
     },
     faqs: [
@@ -860,19 +860,22 @@ const ServicesHero = () => {
     <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
       {/* 1. Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center" 
-        style={{ backgroundImage: "url('/Services-main.JPG')" }} 
+        className="absolute inset-0 bg-cover"
+        style={{ 
+          backgroundImage: "url('/Services-main.JPG')",
+          backgroundPosition: "center 75%"
+        }} 
       ></div>
 
       {/* 2. Dark Overlay for Text Readability */}
-      <div className="absolute inset-0 bg-black/40"></div> 
+      <div className="absolute inset-0 bg-black/30"></div> 
 
       {/* 3. Text Content */}
       <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
         <h1 className="text-white drop-shadow-md text-4xl md:text-5xl lg:text-6xl font-serif font-semibold tracking-wide mb-6">
           Comprehensive Eye Care Services
         </h1>
-        <div className="h-[1px] w-3/4 max-w-2xl mx-auto bg-white/50"></div>
+        <div className="h-[2px] w-3/4 max-w-2xl mx-auto bg-white"></div>
       </div>
 
       {/* 4. The SVG Wave Divider */}
@@ -884,7 +887,7 @@ const ServicesHero = () => {
           preserveAspectRatio="none"
         >
           <path 
-            className="fill-gray-50" 
+            className="fill-white" 
             d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
           ></path>
         </svg>
@@ -934,7 +937,7 @@ const ServiceDetailView = ({ service, onBookClick }) => {
           <div className="lg:w-[65%] flex flex-col justify-start pt-2 max-w-[600px]">
             
             {/* Title Pill Badge */}
-            <div className="self-start inline-block bg-[#cce5d6] text-[#1b2a4e] px-5 py-2 rounded-full text-sm font-normal mb-6">
+            <div className="self-start inline-block bg-[#cce5d6] text-[#11224A] px-5 py-2 rounded-full text-[16px] font-normal mb-6">
               {service.title}
             </div>
             
@@ -943,32 +946,27 @@ const ServiceDetailView = ({ service, onBookClick }) => {
               {service.desc}
             </p>
 
-            <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose This Service:</h4>
-            
-            {/* List with GUARANTEED Vertical Connecting Line */}
-            <div className="mb-8">
-              <ul className="flex flex-col">
-                {service.detail.whyChoose.map((item, idx) => (
-                  <li key={idx} className="relative flex items-start pb-6 last:pb-0">
-                    
-                    {/* The connecting line - strictly uses standard Tailwind classes now */}
-                    {idx !== service.detail.whyChoose.length - 1 && (
-                      <div className="absolute left-[11px] top-6 bottom-0 w-[2px] bg-[#9cccae]"></div>
-                    )}
+            {/* Why Choose This Service */}
+            <div className="mb-8 border-l-4 border-[#9cccae] pl-5">
+              <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose This Service:</h4>
 
-                    {/* The Custom Bullet Matching Figma */}
-                    <div className="relative flex items-center justify-center w-6 h-6 rounded-full bg-[#cce5d6] shrink-0 mr-4">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#2c7a51]"></div>
+              <ul className="flex flex-col gap-4">
+                {service.detail.whyChoose.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    
+                    {/* Bullet: outer ring + inner filled dot */}
+                    <div className="flex items-center justify-center w-5 h-5 rounded-full border-2 border-[#2c7a51] bg-[#A8D5BA] shrink-0 mt-[2px]">
+                      <div className="w-2 h-2 rounded-full bg-[#11224A]"></div>
                     </div>
 
-                    <span className="text-gray-700 leading-relaxed pt-[1px]">{item}</span>
+                    <span className="text-gray-700 leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Best For Box (Yellow Background) */}
-            <div className="bg-[#fcebb6] rounded-[1rem] p-6 mb-2">
+            <div className="bg-[#F8E0A2] rounded-[1rem] p-6 mb-2">
               <h4 className="font-serif font-normal text-[#1b2a4e] mb-2">Best For:</h4>
               <p className="text-gray-800 text-sm leading-relaxed">{service.detail.bestFor}</p>
             </div>
@@ -1068,8 +1066,8 @@ const ServicesGrid = ({ activeServiceId, onSelectService, onBookClick }) => {
   const activeServiceData = servicesData.find(s => s.id === activeServiceId);
 
   return (
-    <section className="bg-gray-50 py-16 md:py-24">
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-24">
+      <div className="max-w-[1450px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* The Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1150,8 +1148,8 @@ const ServicesFAQ = ({ faqs }) => {
   };
 
   return (
-    <section className="bg-gray-50 py-6 px-4 pt-20 pb-24">
-      <div className="max-w-[1500px] mx-auto bg-[#1b2a4e] p-10 md:p-16 shadow-lg">
+    <section className=" py-6 px-4 pt-20 pb-24">
+      <div className="max-w-[1450px] mx-auto bg-[#1b2a4e] p-10 md:p-16 shadow-lg">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           
           <div className="lg:col-span-4 text-white">
@@ -1203,10 +1201,8 @@ const ServicesFAQ = ({ faqs }) => {
 // 5. MAIN PAGE COMPONENT (State Manager)
 // ==========================================
 export default function ServicesPage({ onBookClick }) {
-  // 1. State to track which service is clicked
   const [activeServiceId, setActiveServiceId] = useState(null);
 
-  // 2. Logic to determine which FAQs to show
   const activeServiceData = servicesData.find(s => s.id === activeServiceId);
   const faqsToDisplay = activeServiceData ? activeServiceData.faqs : defaultFAQs;
 

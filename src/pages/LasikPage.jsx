@@ -77,13 +77,19 @@ const lasikFAQs = [
 // ==========================================
 const LasikHero = () => (
   <section className="relative w-full h-[350px] md:h-[600px] flex items-center justify-center pt-10 md:pt-20">
-    <div className="absolute inset-0 bg-cover" style={{ backgroundImage: "url('/lasik-hero-bg.JPG')", backgroundPosition: "top center" }}></div>
-    <div className="absolute inset-0 bg-black/40"></div> 
+    <div 
+      className="absolute inset-0 bg-cover" 
+      style={{ 
+        backgroundImage: "url('/lasik-hero-bg.JPG')", 
+        backgroundPosition: "top center" }}>
+    </div>
+    <div className="absolute inset-0 bg-black/30"></div> 
     
     <div className="relative z-10 text-center px-4 w-full mx-auto pb-10 md:pb-16">
-      <h1 className="text-white drop-shadow-md text-4xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-wide">
+      <h1 className="text-white drop-shadow-md text-4xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-wide mb-6">
         Lasik
       </h1>
+      <div className="h-[2px] w-3/4 max-w-[300px] mx-auto bg-white"></div>
     </div>
 
     <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
@@ -100,7 +106,7 @@ const LasikHero = () => (
 const LasikTabs = () => (
   <div className="w-full border-b border-gray-200 overflow-x-auto scrollbar-hide">
     <div className="max-w-[1400px] mx-auto flex gap-8 md:gap-12 px-6 whitespace-nowrap">
-      <div className="py-4 md:py-6 text-[#1b2a4e] border-t-2 border-[#1b2a4e] font-semibold -mt-[2px] text-sm md:text-base">LASIK</div>
+      <div className="py-4 md:py-6 text-[#1b2a4e] border-t-2 border-[#1b2a4e] font-semibold -mt-[2px] text-sm md:text-base">Lasik</div>
       <Link to="/cataract" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">Cataract</Link>
       <Link to="/rle" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">RLE</Link>
     </div>
@@ -117,17 +123,17 @@ const LasikIntro = () => {
     <div className="mb-24 mt-16">
       <div className="flex flex-col lg:flex-row gap-12 items-center mb-10">
         <div className="w-full lg:w-[45%]">
-          <img src="/lasik-machine.jpg" alt="LASIK Procedure" className="w-full rounded-2xl shadow-lg object-cover" />
+          <img src="/lasik-machine.jpg" alt="Lasik Procedure" className="w-full rounded-2xl shadow-lg object-cover" />
         </div>
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           <div className="inline-block bg-[#cce5d6] text-[#1b2a4e] px-4 py-1.5 rounded-full text-sm font-base self-start mb-6">
-            LASIK
+            Lasik
           </div>
           <p className="text-gray-700 font-opensans text-medium leading-relaxed mb-8">
             A group of advanced, personalised procedures that reshape the cornea to reduce or eliminate dependence on glasses or contact lenses.
           </p>
           
-          <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose LASIK Evaluation:</h4>
+          <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose Lasik Evaluation:</h4>
           <ul className="space-y-4 mb-8">
             {[
               "Corrects nearsightedness, farsightedness, astigmatism, and age-related vision changes.", 
@@ -227,7 +233,7 @@ const LasikTypesList = () => {
     },
     {
       id: 2,
-      title: "Standard LASIK",
+      title: "Standard Lasik",
       what: "A trusted, time-tested laser procedure that reshapes the cornea to correct nearsightedness, farsightedness, and astigmatism with fast recovery.",
       why: "Offers quick functional recovery and long lasting results with over 20 years of proven safety.",
       bestFor: "Most patients with suitable corneas looking to reduce or eliminate dependence on glasses.",
@@ -255,7 +261,7 @@ const LasikTypesList = () => {
       title: "SMILE (Small Incision Lenticule Extraction)",
       what: "A flapless, minimally invasive laser vision correction where a lenticule is created within the cornea and removed through a small incision.",
       why: "Promotes faster healing, maintains stronger corneal biomechanics, and presents a significantly lower risk of dry eye compared to flap-based procedures.",
-      bestFor: "Appropriate cases of myopia (with or without astigmatism). Ideal for patients with active lifestyles or where the dry eye profile suggests a benefit over LASIK. Not everyone is a candidate.",
+      bestFor: "Appropriate cases of myopia (with or without astigmatism). Ideal for patients with active lifestyles or where the dry eye profile suggests a benefit over Lasik. Not everyone is a candidate.",
       highlight: "SMILE Pro is offered by Dr Sujal Shah at Sir H.N. Reliance Foundation Hospital, where he leads the Ophthalmology Department.",
       readMoreContent: (
         <>
@@ -328,7 +334,7 @@ const LasikTypesList = () => {
 // ==========================================
 const LasikSurgeryGuide = ({ onBookClick }) => (
   <div className="mb-24">
-    <h2 className="text-3xl font-serif text-[#1b2a4e] mb-10">LASIK / SMILE Surgery Guide</h2>
+    <h2 className="text-3xl font-serif text-[#1b2a4e] mb-10">Lasik / SMILE Surgery Guide</h2>
     
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
       

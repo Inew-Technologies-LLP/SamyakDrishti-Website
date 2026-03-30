@@ -6,8 +6,11 @@ import Footer from "../components/Footer";
 // 1. HERO SECTION
 // ==========================================
 const ContactHero = () => (
-  <section className="relative w-full h-[260px] md:h-[420px] flex items-center justify-center pt-20">
-    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/contact-hero.JPG')" }}></div>
+  <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
+    <div 
+      className="absolute inset-0 bg-cover bg-center" 
+      style={{ backgroundImage: "url('/contact-hero.JPG')" }}>
+    </div>
     <div className="absolute inset-0 bg-black/30"></div> 
     
     <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
@@ -131,7 +134,7 @@ const GetInTouchSection = () => {
               <input type="date" className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13.5px] focus:outline-none focus:border-[#1b2a4e] focus:ring-1 focus:ring-[#1b2a4e] font-opensans text-gray-500 transition-colors" />
             </div>
             <div className="space-y-3">
-              {radioGroup("Service Used", ["LASIK", "Cataract", "General Eye Check", "Diagnostics", "Other"])}
+              {radioGroup("Service Used", ["Lasik", "Cataract", "General Eye Check", "Diagnostics", "Other"])}
               {radioGroup("Overall Experience", ["Excellent", "Good", "Fair", "Poor"])}
               {radioGroup("Waiting Time", ["Excellent", "Good", "Fair", "Poor"])}
               {radioGroup("Staff Interaction", ["Excellent", "Good", "Fair", "Poor"])}
@@ -162,7 +165,7 @@ const SpecialityHours = () => {
       role: "Retina Consultant",
       qual: "MBBS, DNB (Retina)", 
       time: "Monday, 4:00 PM – 6:00 PM",
-      icon: "/retina-icon.png" // Path to your exported Figma icon
+      icon: "/retina-icon.png" 
     },
     { 
       name: "Dr. Kartik Panikar", 
@@ -208,9 +211,8 @@ const SpecialityHours = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-18 gap-y-10">
         {doctors.map((doc, idx) => (
           <div key={idx} className="border border-gray-200 rounded-2xl p-7 bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex gap-4 h-full">
-            {/* The circular container now holds your specific Figma image */}
             <div className="w-10 h-10 rounded-full bg-[#A8D5BA] flex items-center justify-center shrink-0">
-              <img src={doc.icon} alt={doc.role} className="w-5 h-5 object-contain" />
+              <img src={doc.icon} alt={doc.role} className="w-6 h-6 object-contain" />
             </div>
 
             <div className="flex flex-col h-full">
@@ -265,7 +267,7 @@ const ConsultationTimings = () => (
           <svg className="w-5 h-5 text-[#A8D5BA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
-          <h3 className="text-[19px] font-serif font-semibold text-[#4A5565]">Charity Eye Clinic Timings</h3>
+          <h3 className="text-[19px] font-serif font-semibold text-[#1b2a4e]">Charity Eye Clinic Timings</h3>
         </div>
         
         {/* Row 2: Description and Times aligned to the icon above */}
@@ -360,7 +362,7 @@ const GetDirections = () => (
 // ==========================================
 export default function ContactUsPage() {
   return (
-    <main className="w-full pt-16 bg-white ">
+    <main className="w-full bg-white ">
       <ContactHero />
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6">
         <GetInTouchSection />

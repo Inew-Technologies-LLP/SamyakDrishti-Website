@@ -78,18 +78,22 @@ const cataractFAQs = [
 // 1. HERO SECTION
 // ==========================================
 const CataractHero = () => (
-  // Adjusted pt-20 to pt-10 md:pt-20 for mobile header
   <section className="relative w-full h-[350px] md:h-[600px] flex items-center justify-center pt-10 md:pt-20">
-    {/* Replace with your actual cataract hero background image */}
-    <div className="absolute inset-0 bg-cover" style={{ backgroundImage: "url('/cataract-hero-bg.JPG')", backgroundPosition: "center center" }}></div>
-    <div className="absolute inset-0 bg-black/40"></div> 
+
+    <div 
+      className="absolute inset-0 bg-cover"
+      style={{ 
+        backgroundImage: "url('/cataract-hero-bg.JPG')", 
+        backgroundPosition: "center 25%" }}>
+        
+    </div>
+    <div className="absolute inset-0 bg-black/30"></div> 
     
-    {/* Adjusted pb-16 to pb-10 md:pb-16 for mobile */}
     <div className="relative z-10 text-center px-4 w-full mx-auto pb-10 md:pb-16">
-      {/* Scaled text-5xl to text-4xl on mobile */}
-      <h1 className="text-white drop-shadow-md text-4xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-wide">
+      <h1 className="text-white drop-shadow-md text-4xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-wide mb-6">
         Cataract
       </h1>
+      <div className="h-[2px] w-3/4 max-w-[350px] mx-auto bg-white"></div>
     </div>
 
     {/* The SVG Wave Divider */}
@@ -108,7 +112,7 @@ const CataractTabs = () => (
   // Added overflow-x-auto to make tabs scrollable on small devices
   <div className="w-full border-b border-gray-200 overflow-x-auto scrollbar-hide">
     <div className="max-w-[1400px] mx-auto flex gap-8 md:gap-12 px-6 whitespace-nowrap">
-      <Link to="/lasik" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">LASIK</Link>
+      <Link to="/lasik" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">Lasik</Link>
       <div className="py-4 md:py-6 text-[#1b2a4e] border-t-2 border-[#1b2a4e] font-semibold -mt-[2px] text-sm md:text-base">Cataract</div>
       <Link to="/rle" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">RLE</Link>
     </div>

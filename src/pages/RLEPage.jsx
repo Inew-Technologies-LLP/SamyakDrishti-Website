@@ -24,15 +24,23 @@ const rleFAQs = [
 // ==========================================
 // 1. HERO SECTION
 // ==========================================
-const RLEHero = () => (
+const RLEHero = () => ( 
   <section className="relative w-full h-[350px] md:h-[600px] flex items-center justify-center pt-10 md:pt-20">
-    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/rle-hero-bg.JPG')" }}></div>
-    <div className="absolute inset-0 bg-black/40"></div> 
+    <div 
+      className="absolute inset-0 bg-cover" 
+      style={{ 
+        backgroundImage: "url('/rle-hero-bg.JPG')", 
+        backgroundPosition: "center 20%"}}>
+    </div>
+    <div className="absolute inset-0 bg-black/30"></div> 
     
     <div className="relative z-10 text-center px-4 w-full mx-auto pb-10 md:pb-16">
-      <h1 className="text-white drop-shadow-md text-3xl md:text-5xl lg:text-6xl font-serif font-semibold tracking-wide leading-tight">
+      <h1 className="text-white drop-shadow-md text-3xl md:text-5xl lg:text-6xl font-serif font-semibold tracking-wide leading-tight mb-6">
         Lens Implant & Refractive <br className="hidden md:block"/>Lens Exchange (RLE)
       </h1>
+      
+      <div className="h-[2px] w-1/2 max-w-2xl mx-auto bg-white"></div>
+      
     </div>
 
     <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
@@ -49,7 +57,7 @@ const RLEHero = () => (
 const RLETabs = () => (
   <div className="w-full border-b border-gray-200 overflow-x-auto scrollbar-hide">
     <div className="max-w-[1400px] mx-auto flex gap-8 md:gap-12 px-6 whitespace-nowrap">
-      <Link to="/lasik" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">LASIK</Link>
+      <Link to="/lasik" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">Lasik</Link>
       <Link to="/cataract" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">Cataract</Link>
       <div className="py-4 md:py-6 text-[#1b2a4e] border-t-2 border-[#1b2a4e] font-semibold -mt-[2px] text-sm md:text-base">RLE</div>
     </div>

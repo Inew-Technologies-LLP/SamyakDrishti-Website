@@ -1,6 +1,5 @@
-import banner from "../assets/our_team/banner.jpg";
+import banner from "../assets/our_team/banner.JPG";
 import { useState } from "react";
-import layer from "../assets/our_team/layer.png";
 
 import sujal from "../assets/our_team/Dr.Sujal.JPG";
 import edu from "../assets/our_team/education.svg";
@@ -22,7 +21,6 @@ import uppal from "../assets/our_team/Dr.Uppal.png";
 import akshay from "../assets/our_team/Dr.Akshay.png";
 
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function OurTeam() {
   return (
@@ -31,7 +29,7 @@ export default function OurTeam() {
       <Navbar />
 
 {/* HERO */}
-<section className="relative  w-full h-[260px] md:h-[420px]">
+<section className="relative  w-full h-[400px] md:h-[600px]">
 
 <img
 src={banner}
@@ -50,7 +48,11 @@ Our Team
 
 </div>
 
-<img src={layer} className="absolute -bottom-1 w-full"/>
+<div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-[50px] md:h-[100px] lg:h-[100px]" preserveAspectRatio="none">
+        <path className="fill-white" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+      </svg>
+    </div>
 
 </section>
 

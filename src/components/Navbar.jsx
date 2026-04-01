@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,80 +23,79 @@ const Navbar = () => {
   return (
     <nav className="bg-[#1b2a4e] text-white w-full fixed top-0 z-40">
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          
-           {/* Logo */}
-        <Link to="/">
-          <img
-            src={logo}
-            alt="Samyak Drishti"
-            className="h-8 object-contain"
-          />
-        </Link>
+      <div className="max-w-7xl mx-auto ">
+       <div className="flex items-center h-20 w-full ">
+  
+  {/* Logo */}
+  <Link to="/">
+    <img
+      src={logo}
+      alt="Samyak Drishti"
+      className="h-55 object-contain"  
+    />
+  </Link>
 
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 items-center h-full">
-            {navLinks.map((link, index) => (
-              <div key={index} className="relative group h-full flex items-center">
-                
-                {link.dropdown ? (
-                  <div className="cursor-pointer text-sm font-light hover:text-gray-300 flex items-center">
-                    {link.name}
-                    <svg className="w-4 h-4 ml-1 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                ) : (
-                  <Link
-                    to={link.path}
-                    className="text-sm font-light hover:text-gray-300"
-                  >
-                    {link.name}
-                  </Link>
-                )}
-
-                {/* Dropdown */}
-                {link.dropdown && (
-                  <div className="absolute top-[80px] left-0 w-60 bg-white text-[#1b2a4e] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-[#b4dfc4]">
-                    <div className="py-2">
-                      {link.dropdown.map((subLink, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          to={subLink.path}
-                          className="block px-6 py-3 text-sm font-medium hover:bg-gray-50"
-                        >
-                          {subLink.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-              </div>
-            ))}
+  {/* Desktop Menu */}
+  <div className="hidden md:flex space-x-8 items-center h-full ml-auto"> {/* ✅ ADDED ml-auto */}
+    {navLinks.map((link, index) => (
+      <div key={index} className="relative group h-full flex items-center">
+        
+        {link.dropdown ? (
+          <div className="cursor-pointer text-sm font-light hover:text-gray-300 flex items-center">
+            {link.name}
+            <svg className="w-4 h-4 ml-1 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </div>
+        ) : (
+          <Link
+            to={link.path}
+            className="text-sm font-light hover:text-gray-300"
+          >
+            {link.name}
+          </Link>
+        )}
 
-          {/* Mobile Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2"
-            >
-              {isOpen ? (
-                <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
+        {/* Dropdown */}
+        {link.dropdown && (
+          <div className="absolute top-[80px] left-0 w-60 bg-white text-[#1b2a4e] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-[#b4dfc4]">
+            <div className="py-2">
+              {link.dropdown.map((subLink, subIndex) => (
+                <Link
+                  key={subIndex}
+                  to={subLink.path}
+                  className="block px-6 py-3 text-sm font-medium hover:bg-gray-50"
+                >
+                  {subLink.name}
+                </Link>
+              ))}
+            </div>
           </div>
+        )}
 
-        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* Mobile Button */}
+  <div className="md:hidden ml-auto"> {/* ✅ ADDED ml-auto */}
+    <button
+      onClick={() => setIsOpen(!isOpen)}
+      className="p-2"
+    >
+      {isOpen ? (
+        <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      ) : (
+        <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      )}
+    </button>
+  </div>
+
+</div>
       </div>
 
       {/* Mobile Menu */}

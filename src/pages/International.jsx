@@ -1,5 +1,4 @@
-import banner from "../assets/international/banner.jpg";
-import layer from "../assets/our_team/layer.png";
+import banner from "../assets/international/banner.JPG";
 import globe from "../assets/international/globe.svg";
 
 import loc from "../assets/international/2.svg";
@@ -12,7 +11,6 @@ import icon from "../assets/international/7.svg";
 import worldmap from "../assets/international/worldmap.png";
 
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function InternationalPatients() {
   return (
@@ -20,7 +18,7 @@ export default function InternationalPatients() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative h-[260px] sm:h-[340px] md:h-[420px] w-full">
+      <section className="relative h-[400px]  md:h-[550px] w-full">
 
         <img
           src={banner}
@@ -37,10 +35,11 @@ export default function InternationalPatients() {
 
         </div>
 
-        <img
-          src={layer}
-          className="absolute -bottom-1 w-full"
-        />
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-[50px] md:h-[100px] lg:h-[120px]" preserveAspectRatio="none">
+        <path className="fill-white" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+      </svg>
+    </div>
 
       </section>
 
@@ -66,11 +65,11 @@ export default function InternationalPatients() {
 
             </div>
 
-            <div className="w-full lg:w-[580px] text-neutral-950 text-2xl sm:text-3xl md:text-4xl font-bold font-['Lora'] leading-[38px] md:leading-[48px] tracking-tight mb-4">
+            <div className="w-full lg:w-[506px] text-neutral-950 text-2xl sm:text-3xl md:text-4xl font-bold font-['Lora'] leading-[38px] md:leading-[48px] tracking-tight mb-4">
               Your Journey to Better Vision Starts Here
             </div>
 
-            <div className="w-full lg:w-[482px] text-gray-600 text-base sm:text-lg md:text-xl font-normal font-['Open_Sans'] leading-7">
+            <div className="w-full lg:w-[450px] text-gray-600 text-sm sm:text-lg md:text-base font-normal font-['Open_Sans'] leading-7">
               World-class eye care in the heart of Mumbai with personalized support for international patients
             </div>
 
@@ -81,8 +80,8 @@ export default function InternationalPatients() {
           <div className="flex items-start pt-4 lg:pt-15 gap-6">
 
             {/* ITEM 1 */}
-            <div className="flex flex-col items-center w-24 gap-1">
-              <h3 className="text-xl md:text-2xl font-normal text-neutral-950 font-['Inter']">
+            <div className="flex flex-col items-center w-25 gap-1">
+              <h3 className="text-xl md:text-2xl font-semibold text-neutral-950 ">
                 15+
               </h3>
               <p className="text-sm text-gray-600 font-['Inter']">
@@ -94,7 +93,7 @@ export default function InternationalPatients() {
 
             {/* ITEM 2 */}
             <div className="flex flex-col items-center w-24 gap-1">
-              <h3 className="text-xl md:text-2xl font-normal text-neutral-950 font-['Inter']">
+              <h3 className="text-xl md:text-2xl font-semibold text-neutral-950 ">
                 10,000+
               </h3>
               <p className="text-sm text-gray-600 font-['Inter']">
@@ -106,7 +105,7 @@ export default function InternationalPatients() {
 
             {/* ITEM 3 */}
             <div className="flex flex-col items-center w-20 gap-1">
-              <h3 className="text-xl md:text-2xl font-normal text-neutral-950 font-['Inter']">
+              <h3 className="text-xl md:text-2xl font-semibold text-neutral-950 ">
                 40+
               </h3>
               <p className="text-sm text-gray-600 font-['Inter']">
@@ -125,27 +124,70 @@ export default function InternationalPatients() {
 
   <div className="relative min-w-[1200px] md:min-w-0 flex justify-start md:justify-center">
 
-    <img
-      src={worldmap}
-      className="w-[1200px] md:w-full max-w-none md:max-w-[1200px] opacity-70"
-    />
+  <img
+    src={worldmap}
+    className="w-[1200px] md:w-full max-w-none md:max-w-[1200px] opacity-70"
+  />
 
-    {/* USA */}
-    <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[170px] left-[20%]" />
+  {/* INDIA */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[400px] left-[65%]" />
 
-    {/* UK */}
-    <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[130px] left-[37%]" />
+  {/* UAE REGION */}
+<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[380px] left-[58%]" /> {/* Dubai */}
+<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[375px] left-[58.5%]" /> {/* Abu Dhabi */}
+<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[385px] left-[59%]" /> {/* Sharjah */}
+<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[375px] left-[59.5%]" /> {/* Qatar */}
+<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[365px] left-[58.5%]" /> {/* Bahrain */}
+<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[388px] left-[60%]" /> {/* Oman */}
+<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[383px] left-[57%]" /> {/* Saudi Arabia */}
+<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[356px] left-[58%]" /> {/* Kuwait */}
 
-    {/* UAE */}
-    <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[220px] left-[43%]" />
+  {/* ASIA */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[385px] left-[73%]" /> {/* Hongkong */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[380px] left-[76.5%]" /> {/* Taiwan */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[395px] left-[71%]" /> {/* Thailand */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[440px] left-[71.5%]" /> {/* Singapore */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[447px] left-[74%]" /> {/* Indonesia */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[427px] left-[66%]" /> {/* Sri Lanka */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[373px] left-[66%]" /> {/* Nepal */}
 
-    {/* INDIA */}
-    <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[230px] left-[50%]" />
+  {/* EUROPE */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[295px] left-[48%]" /> {/* Belgium */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[280px] left-[45.5%]" /> {/* United Kingdom */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[333px] left-[45%]" /> {/* Portugal */}
 
-    {/* AUSTRALIA */}
-    <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[350px] left-[65%]" />
+  {/* AFRICA */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[420px] left-[52%]" /> {/* Nigeria */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[460px] left-[55%]" /> {/* Kenya */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[56%]" /> {/* Tanzania */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[54%]" /> {/* Zambia */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[520px] left-[55%]" /> {/* Zimbabwe */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[470px] left-[53%]" /> {/* Uganda */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[440px] left-[54%]" /> {/* Ethiopia */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[52%]" /> {/* Malawi */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[52%]" /> {/* Mozambique */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[530px] left-[57%]" /> {/* South Africa */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[510px] left-[58%]" /> {/* Mauritius */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[490px] left-[57%]" /> {/* Zanzibar */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[430px] left-[50%]" /> {/* Senegal */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[450px] left-[51%]" /> {/* Burundi */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[420px] left-[55%]" /> {/* Libya */}
 
-  </div>
+  {/* AMERICAS */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[310px] left-[25%]" /> {/* USA */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[220px] left-[18%]" /> {/* Canada */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[32%]" /> {/* Bolivia */}
+
+  {/* OCEANIA */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[85%]" /> {/* Australia */}
+
+  {/* MIDDLE EAST EXTRA */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[350px] left-[64%]" /> {/* Iraq */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[340px] left-[63%]" /> {/* Israel */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[345px] left-[66%]" /> {/* Syria */}
+  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[360px] left-[67%]" /> {/* Yemen */}
+
+</div>
 
 </div>
 

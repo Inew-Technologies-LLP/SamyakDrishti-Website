@@ -1,4 +1,4 @@
-import logo from "../assets/logo2.png";
+import logo from "../assets/logo2.svg";
 import phone from "../assets/phone-call.svg";
 import mail from "../assets/mail.svg";
 import { Link } from "react-router-dom";
@@ -53,9 +53,9 @@ export default function Footer({ onBookClick }) {
         <div className="max-w-[1650px] mx-auto flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-0 px-6">
 
           {/* LEFT INFO */}
-          <div className="max-w-[360px] lg:ml-20">
+          <div className="max-w-[380px] lg:ml-20">
 
-            <img src={logo} className="w-[160px] md:w-[180px] mb-6"/>
+            <img src={logo} className="w-[100px] md:w-[180px] mb-6"/>
 
             <div className="text-black text-sm md:text-base font-normal font-['Open_Sans'] leading-6 mb-10 md:mb-15">
               101, 1st Floor, Sukh Sagar, N S Patkar Marg, Girgaon Chowpatty, Mumbai - 400007

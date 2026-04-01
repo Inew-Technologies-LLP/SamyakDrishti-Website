@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Footer from "../components/Footer";
 
 // ==========================================
@@ -857,7 +857,7 @@ const servicesData = [
 // ==========================================
 const ServicesHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
+    <section className="relative w-full h-[400px] md:h-[700px] flex items-center justify-center">
       {/* 1. Background Image */}
       <div 
         className="absolute inset-0 bg-cover"
@@ -1202,6 +1202,18 @@ const ServicesFAQ = ({ faqs }) => {
 // ==========================================
 export default function ServicesPage({ onBookClick }) {
   const [activeServiceId, setActiveServiceId] = useState(null);
+  const location = useLocation(); // <--- 1. Get the current route location
+
+  // <--- 2. Add this useEffect to listen for incoming state --->
+  useEffect(() => {
+    // If the user clicked a link in the footer that passed an activeId, set it!
+    if (location.state && location.state.activeId) {
+      setActiveServiceId(location.state.activeId);
+      
+      // Optional: Clear the state so it doesn't get stuck if they refresh
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   const activeServiceData = servicesData.find(s => s.id === activeServiceId);
   const faqsToDisplay = activeServiceData ? activeServiceData.faqs : defaultFAQs;

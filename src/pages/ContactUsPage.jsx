@@ -127,7 +127,7 @@ const GetInTouchSection = () => {
       {/* Right Column: Feedback Form pinned to the right side */}
       <div className="lg:col-span-6 flex justify-end">
         <div className="bg-white rounded-[20px] p-6 lg:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#E5E7EB] w-full max-w-[450px] h-max">
-          <h3 className="text-[20px] font-serif text-[#16213e] font-semibold mb-5">Patient Feedback Form</h3>
+          <h3 className="text-[24px] font-serif text-[#16213e] font-medium mb-5">Patient Feedback Form</h3>
           <form className="space-y-4">
             <div>
               <label className="block text-[#1b2a4e] font-semibold text-[13.5px] mb-1.5 font-opensans">Date of Visit:</label>
@@ -250,7 +250,7 @@ const ConsultationTimings = () => (
           <svg className="w-5 h-5 text-[#A8D5BA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
-          <h3 className="text-[19px] font-serif font-semibold text-[#1b2a4e]">Regular Consultation Hours</h3>
+          <h3 className="text-[24px] font-serif font-normal text-[#1b2a4e]">Regular Consultation Hours</h3>
         </div>
         
         {/* Row 2: Content starts from the same left-point as the symbol above */}
@@ -267,7 +267,7 @@ const ConsultationTimings = () => (
           <svg className="w-5 h-5 text-[#A8D5BA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
-          <h3 className="text-[19px] font-serif font-semibold text-[#1b2a4e]">Charity Eye Clinic Timings</h3>
+          <h3 className="text-[24px] font-serif font-normal text-[#1b2a4e]">Charity Eye Clinic Timings</h3>
         </div>
         
         {/* Row 2: Description and Times aligned to the icon above */}

@@ -128,29 +128,29 @@ export default function Footer({ onBookClick }) {
     </ul>
   </div>
 
-  {/* SERVICES */}
+{/* SERVICES */}
 <div>
   <h4 className="font-semibold mb-4 text-[13px]">
     Services
   </h4>
 
   <ul className="space-y-2 text-[12px]">
-    {/* These match your App.jsx routes */}
+    {/* Standalone Pages */}
     <li><Link to="/lasik" className="hover:opacity-70 transition-opacity">LASIK</Link></li>
     <li><Link to="/cataract" className="hover:opacity-70 transition-opacity">Cataract</Link></li>
     <li><Link to="/rle" className="hover:opacity-70 transition-opacity">Refractive Lens Exchange (RLE)</Link></li>
     
-    {/* These currently point to the main services list */}
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Routine Eye Test</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Dry Eye Clinic</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Glaucoma Clinic</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Retina and Diabetic Retinopathy</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Oculoplastic Clinic</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Squint Clinic</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Myopia Clinic</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Keratoconus Clinic</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Cornea Clinic</Link></li>
-    <li><Link to="/services" className="hover:opacity-70 transition-opacity">Contact Lens and Optometry Clinic</Link></li>
+    {/* Links that pass the activeId state to the Services page */}
+    <li><Link to="/services" state={{ activeId: "routine-eye-test" }} className="hover:opacity-70 transition-opacity">Routine Eye Test</Link></li>
+    <li><Link to="/services" state={{ activeId: "dry-eye-clinic" }} className="hover:opacity-70 transition-opacity">Dry Eye Clinic</Link></li>
+    <li><Link to="/services" state={{ activeId: "glaucoma-clinic" }} className="hover:opacity-70 transition-opacity">Glaucoma Clinic</Link></li>
+    <li><Link to="/services" state={{ activeId: "retina-diabetic-retinopathy" }} className="hover:opacity-70 transition-opacity">Retina and Diabetic Retinopathy</Link></li>
+    <li><Link to="/services" state={{ activeId: "oculoplastic-clinic" }} className="hover:opacity-70 transition-opacity">Oculoplastic Clinic</Link></li>
+    <li><Link to="/services" state={{ activeId: "squint-clinic" }} className="hover:opacity-70 transition-opacity">Squint Clinic</Link></li>
+    <li><Link to="/services" state={{ activeId: "myopia-clinic" }} className="hover:opacity-70 transition-opacity">Myopia Clinic</Link></li>
+    <li><Link to="/services" state={{ activeId: "keratoconus-clinic" }} className="hover:opacity-70 transition-opacity">Keratoconus Clinic</Link></li>
+    <li><Link to="/services" state={{ activeId: "cornea-clinic" }} className="hover:opacity-70 transition-opacity">Cornea Clinic</Link></li>
+    <li><Link to="/services" state={{ activeId: "contact-lens-optometry" }} className="hover:opacity-70 transition-opacity">Contact Lens and Optometry Clinic</Link></li>
   </ul>
 </div>
 

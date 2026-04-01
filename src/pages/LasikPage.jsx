@@ -76,7 +76,7 @@ const lasikFAQs = [
 // 1. HERO SECTION (Updated to match Cataract sizing exactly)
 // ==========================================
 const LasikHero = () => (
-  <section className="relative w-full h-[350px] md:h-[600px] flex items-center justify-center pt-10 md:pt-20">
+  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20">
     <div 
       className="absolute inset-0 bg-cover" 
       style={{ 
@@ -87,7 +87,7 @@ const LasikHero = () => (
     
     <div className="relative z-10 text-center px-4 w-full mx-auto pb-10 md:pb-16">
       <h1 className="text-white drop-shadow-md text-4xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-wide mb-6">
-        Lasik
+        LASIK
       </h1>
       <div className="h-[2px] w-3/4 max-w-[300px] mx-auto bg-white"></div>
     </div>
@@ -106,7 +106,7 @@ const LasikHero = () => (
 const LasikTabs = () => (
   <div className="w-full border-b border-gray-200 overflow-x-auto scrollbar-hide">
     <div className="max-w-[1400px] mx-auto flex gap-8 md:gap-12 px-6 whitespace-nowrap">
-      <div className="py-4 md:py-6 text-[#1b2a4e] border-t-2 border-[#1b2a4e] font-semibold -mt-[2px] text-sm md:text-base">Lasik</div>
+      <div className="py-4 md:py-6 text-[#1b2a4e] border-t-2 border-[#1b2a4e] font-semibold -mt-[2px] text-sm md:text-base">LASIK</div>
       <Link to="/cataract" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">Cataract</Link>
       <Link to="/rle" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">RLE</Link>
     </div>
@@ -127,13 +127,13 @@ const LasikIntro = () => {
         </div>
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           <div className="inline-block bg-[#cce5d6] text-[#1b2a4e] px-4 py-1.5 rounded-full text-sm font-base self-start mb-6">
-            Lasik
+            LASIK
           </div>
           <p className="text-gray-700 font-opensans text-medium leading-relaxed mb-8">
             A group of advanced, personalised procedures that reshape the cornea to reduce or eliminate dependence on glasses or contact lenses.
           </p>
           
-          <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose Lasik Evaluation:</h4>
+          <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose LASIK Evaluation:</h4>
           <ul className="space-y-4 mb-8">
             {[
               "Corrects nearsightedness, farsightedness, astigmatism, and age-related vision changes.", 

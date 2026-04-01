@@ -22,7 +22,7 @@ const defaultFAQs = [
 // ==========================================
 const MainServiceHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
+    <section className="relative w-full h-[400px] md:h-[700px] flex items-center justify-center">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover"
@@ -151,7 +151,7 @@ const MainServicesGrid = () => {
 
   const cards = [
     { 
-      title: "Lasik", 
+      title: "LASIK", 
       desc: "A comprehensive assessment to determine your suitability for laser vision correction, ensuring safety and aligning the best procedure with your lifestyle.", 
       img: "/lasik-machine.jpg",
       path: "/lasik" // path for Lasik

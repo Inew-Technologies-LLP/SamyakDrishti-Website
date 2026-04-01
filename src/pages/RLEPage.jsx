@@ -25,7 +25,7 @@ const rleFAQs = [
 // 1. HERO SECTION
 // ==========================================
 const RLEHero = () => ( 
-  <section className="relative w-full h-[350px] md:h-[600px] flex items-center justify-center pt-10 md:pt-20">
+  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20">
     <div 
       className="absolute inset-0 bg-cover" 
       style={{ 
@@ -57,7 +57,7 @@ const RLEHero = () => (
 const RLETabs = () => (
   <div className="w-full border-b border-gray-200 overflow-x-auto scrollbar-hide">
     <div className="max-w-[1400px] mx-auto flex gap-8 md:gap-12 px-6 whitespace-nowrap">
-      <Link to="/lasik" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">Lasik</Link>
+      <Link to="/lasik" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">LASIK</Link>
       <Link to="/cataract" className="py-4 md:py-6 text-gray-500 hover:text-[#1b2a4e] transition-colors font-medium text-sm md:text-base">Cataract</Link>
       <div className="py-4 md:py-6 text-[#1b2a4e] border-t-2 border-[#1b2a4e] font-semibold -mt-[2px] text-sm md:text-base">RLE</div>
     </div>

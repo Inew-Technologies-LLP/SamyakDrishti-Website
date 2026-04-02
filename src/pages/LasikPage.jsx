@@ -76,13 +76,13 @@ const lasikFAQs = [
 // 1. HERO SECTION (Updated to match Cataract sizing exactly)
 // ==========================================
 const LasikHero = () => (
-  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20">
+  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20 mt-20">
+    
     <div 
-      className="absolute inset-0 bg-cover" 
-      style={{ 
-        backgroundImage: "url('/lasik-hero-bg.JPG')", 
-        backgroundPosition: "top center" }}>
+      className="absolute inset-0 bg-cover bg-[80%_top] md:bg-[center_top]" 
+      style={{ backgroundImage: "url('/lasik-hero-bg.JPG')" }}>
     </div>
+    
     <div className="absolute inset-0 bg-black/30"></div> 
     
     <div className="relative z-10 text-center px-4 w-full mx-auto pb-10 md:pb-16">

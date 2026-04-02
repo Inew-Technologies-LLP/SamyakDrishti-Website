@@ -78,7 +78,7 @@ const cataractFAQs = [
 // 1. HERO SECTION
 // ==========================================
 const CataractHero = () => (
-  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20">
+  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20 mt-20">
 
     <div 
       className="absolute inset-0 bg-cover"

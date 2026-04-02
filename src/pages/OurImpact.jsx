@@ -108,11 +108,11 @@ return (
 
 {/* HERO */}
 
-<section className="relative bg-white h-[400px]  md:h-[550px]">
+<section className="relative bg-white h-[300px]  md:h-[550px]">
 
 <img src={banner} className="w-full h-full object-cover"/>
 
-<div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+<div className="absolute -bottom-1 left-0 w-full overflow-hidden leading-none z-20">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-[50px] md:h-[100px] lg:h-[120px]" preserveAspectRatio="none">
         <path className="fill-white" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
       </svg>
@@ -176,12 +176,11 @@ Committed to serving diverse communities through innovative healthcare programs 
 
 <div className="flex flex-col gap-20 md:gap-16">
 
-
 {/* ROW 1 */}
 <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[145px]">
 
 {/* CARD 1 */}
-<div className="w-full max-w-[380px] h-60 md:w-96 md:h-72 px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-[#A8D5BA] flex flex-col">
+<div className="order-1 lg:order-1 w-full max-w-[380px] h-60 md:w-96 md:h-72 px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-[#A8D5BA] flex flex-col">
 
 <div className="flex gap-4">
 
@@ -207,9 +206,8 @@ Conceptualised and serves as a Permanent Trustee of Shraman Arogyam, which provi
 
 </div>
 
-
 {/* IMAGE */}
-<div className="perspective-[1000px]">
+<div className="order-2 lg:order-2 perspective-[1000px]">
   <img
     src={img1}
     className="w-full lg:w-[820px] lg:h-[365px] object-cover rounded-xl transition-transform duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(40px)]"
@@ -219,17 +217,8 @@ Conceptualised and serves as a Permanent Trustee of Shraman Arogyam, which provi
 </div>
 
 
-
 {/* ROW 2 */}
 <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[145px]">
-
-{/* IMAGE */}
-<div className="perspective-[1000px]">
-  <img
-    src={img2}
-    className="order-2 lg:order-1 w-full lg:w-[802px] lg:h-[391px] object-cover rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(60px)_rotateX(3deg)_rotateY(-3deg)] hover:shadow-2xl"
-  />
-</div>
 
 {/* CARD 2 */}
 <div className="order-1 lg:order-2 w-full max-w-[380px] h-60 md:w-96 md:h-72 px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-[#A8D5BA] flex flex-col">
@@ -258,47 +247,63 @@ As Director, Dr. Sujal Shah conceptualized and led this health insurance initiat
 
 </div>
 
+{/* IMAGE */}
+<div className="order-2 lg:order-1 perspective-[1000px]">
+  <img
+    src={img2}
+    className="w-full lg:w-[802px] lg:h-[391px] object-cover rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(60px)_rotateX(3deg)_rotateY(-3deg)] hover:shadow-2xl"
+  />
 </div>
 
+</div>
 
 
 {/* ROW 3 */}
 <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[145px]">
 
 {/* CARD 3 */}
-<div className="w-full max-w-[380px] h-70 md:w-96 md:h-[340px] px-6 pt-6 pb-px bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-t-[6px] border-[#A8D5BA] flex flex-col">
+<div className="order-1 lg:order-1
+  w-full max-w-[380px] 
+  h-auto md:h-[340px] 
+  px-4 sm:px-5 md:px-6 
+  pt-5 md:pt-6 pb-3 
+  bg-white 
+  rounded-[10px] 
+  shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
+  border-t-[6px] border-[#A8D5BA] 
+  flex flex-col
+">
 
-<div className="flex gap-4">
+  <div className="flex gap-3 sm:gap-4">
 
-<img src={icon7} className="w-10 h-10"/>
+    <img src={icon7} className="w-8 h-8 sm:w-10 sm:h-10 shrink-0"/>
 
-<div>
+    <div className="flex flex-col">
 
-<div className="text-blue-950 text-base font-medium font-['Lora'] mb-1">
-Medical Coordination
+      <div className="text-blue-950 text-sm sm:text-base font-medium font-['Lora'] mb-1">
+        Medical Coordination
+      </div>
+
+      <div className="text-blue-950 text-[11px] sm:text-xs font-normal font-['Open_Sans'] opacity-80 mb-2 sm:mb-3">
+        Samkit Group, Mumbai
+      </div>
+
+      <div className="text-gray-600 text-sm sm:text-base font-normal font-['Open_Sans'] leading-5 sm:leading-6 mb-3">
+        As Medical Advisor, Dr. Sujal Shah has coordinated medical care for Chauvihar Chhat and Saat Jatra at Palitana and organized large community medical camps at pilgrimage centres.
+      </div>
+
+      <div className="w-fit px-3 py-1 bg-blue-950/5 rounded-full text-blue-950 text-[11px] sm:text-xs font-['Open_Sans']">
+        10+ Years
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
-
-<div className="text-blue-950 text-xs font-normal font-['Open_Sans'] opacity-80 mb-3">
-Samkit Group, Mumbai
-</div>
-
-<div className="text-gray-600 text-base font-normal font-['Open_Sans'] leading-6 mb-3">
-As Medical Advisor, Dr. Sujal Shah has coordinated medical care for Chauvihar Chhat and Saat Jatra at Palitana and organized large community medical camps at pilgrimage centres.
-</div>
-
-<div className="w-fit px-3 py-1 bg-blue-950/5 rounded-full text-blue-950 text-xs font-['Open_Sans']">
-10+ Years
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 
 {/* IMAGE */}
-<div className="perspective-[1000px]">
+<div className="order-2 lg:order-2 perspective-[1000px]">
   <img
     src={img3}
     className="w-full lg:w-[820px] lg:h-[365px] object-cover rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(60px)_rotateX(3deg)_rotateY(-3deg)] hover:shadow-2xl"
@@ -559,7 +564,7 @@ As Medical Director, Dr. Sujal Shah has led free rural eye camps in Shahpur, Par
 
 {/* RECOGNITION */}
 
-<div className="max-w-[400px] md:max-w-[1200px] mx-auto px-6 bg-[#11224A] rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center py-12">
+<div className="max-w-[350px] md:max-w-[1200px] mx-auto px-6 bg-[#11224A] rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center py-12">
 <img
 src={icon12}
 className="w-14 md:w-16 h-14 md:h-16 opacity-90 mb-6"

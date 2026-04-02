@@ -35,7 +35,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Samyak Drishti"
-              className="h-12 md:h-14 object-contain" // Adjusted for better sizing
+              className="h-55 object-contain" // Adjusted for better sizing
             />
           </Link>
 

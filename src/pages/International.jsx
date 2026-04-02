@@ -18,7 +18,7 @@ export default function InternationalPatients() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative h-[400px]  md:h-[550px] w-full">
+      <section className="relative h-[300px]  md:h-[550px] w-full">
 
         <img
           src={banner}
@@ -35,7 +35,7 @@ export default function InternationalPatients() {
 
         </div>
 
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+        <div className="absolute -bottom-1 left-0 w-full overflow-hidden leading-none z-20">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-[50px] md:h-[100px] lg:h-[120px]" preserveAspectRatio="none">
         <path className="fill-white" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
       </svg>

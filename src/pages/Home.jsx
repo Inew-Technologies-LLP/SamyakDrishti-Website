@@ -9,7 +9,6 @@ import t2 from "../assets/home/testimonial2.png";
 import t3 from "../assets/home/testimonial3.png";
 import t4 from "../assets/home/testimonial4.png";
 
-import Navbar from "../components/Navbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -145,7 +144,6 @@ return (
 
 <div ref={bgRef} className="w-full pt-16 overflow-x-hidden bg-white">
 
-<Navbar />
 
 <div className="relative">
 

@@ -2,8 +2,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Navbar from "../components/Navbar";
-
 import banner from "../assets/our_impact/banner.jpg";
 
 import icon1 from "../assets/our_impact/icon1.png";
@@ -103,8 +101,6 @@ const stats = [
 
 return (
 <div className="pt-16">
-
-<Navbar/>
 
 {/* HERO */}
 

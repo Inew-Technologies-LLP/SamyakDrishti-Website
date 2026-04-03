@@ -10,12 +10,10 @@ import calendar2 from "../assets/international/9.svg";
 import icon from "../assets/international/7.svg";
 import worldmap from "../assets/international/worldmap.png";
 
-import Navbar from "../components/Navbar";
 
 export default function InternationalPatients() {
   return (
     <div className="w-full pt-16 overflow-hidden">
-      <Navbar />
 
       {/* HERO */}
       <section className="relative h-[300px]  md:h-[550px] w-full">

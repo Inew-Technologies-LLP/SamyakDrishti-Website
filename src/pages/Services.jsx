@@ -857,7 +857,7 @@ const servicesData = [
 // ==========================================
 const ServicesHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[700px] flex items-center justify-center mt-20">
+    <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center mt-20">
       {/* 1. Background Image */}
       <div 
         className="absolute inset-0 bg-cover"
@@ -872,10 +872,11 @@ const ServicesHero = () => {
 
       {/* 3. Text Content */}
       <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
-        <h1 className="text-white drop-shadow-md text-4xl md:text-5xl lg:text-6xl font-serif font-semibold tracking-wide mb-6">
+        <h1 className="text-white text-3xl md:text-6xl font-['Lora'] font-bold tracking-widest">
           Comprehensive Eye Care Services
         </h1>
-        <div className="h-[2px] w-3/4 max-w-2xl mx-auto bg-white"></div>
+        
+        <div className="h-[4px] w-3/4 max-w-2xl mx-auto bg-white/80 mt-6 rounded-full"></div>
       </div>
 
       {/* 4. The SVG Wave Divider */}

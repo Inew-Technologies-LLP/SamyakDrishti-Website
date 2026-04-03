@@ -193,7 +193,9 @@ const SpecialityHours = () => {
       role: "Squint & Pediatric Ophthalmology Specialist",
       qual: "DNB, Fellowship in Pediatric Ophthalmology, Strabismus, and Neuro-Ophthalmology", 
       time: "Thursday & Saturday, 3:00 PM – 5:00 PM",
-      icon: "/squint-icon.png"
+      icon: "/squint-icon.png",
+      //Added a specific scale class just for this icon to bypass the image padding
+      iconClass: "scale-140" 
     },
     { 
       name: "Mr. Rajendra Pawar", 
@@ -211,10 +213,18 @@ const SpecialityHours = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-18 gap-y-10">
         {doctors.map((doc, idx) => (
           <div key={idx} className="border border-gray-200 rounded-2xl p-7 bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex gap-4 h-full">
-            <div className="w-10 h-10 rounded-full bg-[#A8D5BA] flex items-center justify-center shrink-0">
-              <img src={doc.icon} alt={doc.role} className="w-6 h-6 object-contain" />
+            
+            {/* The Icon Container */}
+            <div className="w-10 h-10 rounded-full bg-[#A8D5BA] flex items-center justify-center shrink-0 overflow-hidden">
+              {/* ✅ Applied the optional iconClass here */}
+              <img 
+                src={doc.icon} 
+                alt={doc.role} 
+                className={`w-6 h-6 object-contain ${doc.iconClass || ""}`} 
+              />
             </div>
 
+            {/* The Text Content */}
             <div className="flex flex-col h-full">
               <h4 className="font-bold text-[#1b2a4e] text-xl mb-0.5">{doc.name}</h4>
               <p className="text-[#A8D5BA] text-sm font-medium font-opensans mb-1">{doc.role}</p>
@@ -228,6 +238,7 @@ const SpecialityHours = () => {
                 {doc.time}
               </div>
             </div>
+            
           </div>
         ))}
       </div>

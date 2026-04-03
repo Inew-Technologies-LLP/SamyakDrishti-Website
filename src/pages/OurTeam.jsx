@@ -20,13 +20,9 @@ import rajendra from "../assets/our_team/Dr.Rajendra.png";
 import uppal from "../assets/our_team/Dr.Uppal.png";
 import akshay from "../assets/our_team/Dr.Akshay.png";
 
-import Navbar from "../components/Navbar";
-
 export default function OurTeam() {
   return (
     <div className="w-full pt-16 bg-white overflow-hidden">
-
-      <Navbar />
 
 {/* HERO */}
 <section className="relative  w-full h-[300px] md:h-[600px]">

@@ -22,7 +22,7 @@ const defaultFAQs = [
 // ==========================================
 const MainServiceHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[700px] flex items-center justify-center mt-20">
+    <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center mt-20">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover"
@@ -37,10 +37,11 @@ const MainServiceHero = () => {
 
       {/* Text Content */}
       <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
-        <h1 className="text-white drop-shadow-md text-5xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-wide mb-6">
+        <h1 className="text-white drop-shadow-md text-3xl md:text-6xl font-['Lora'] font-bold tracking-widest mb-6">
           Vision Correction
         </h1>
-        <div className="h-[2px] w-1/2 max-w-2xl mx-auto bg-white"></div>
+
+        <div className="h-[4px] w-3/4 max-w-xl mx-auto bg-white/80 mt-6 rounded-full"></div>
       </div>
 
       {/* The SVG Wave Divider (Fills to White) */}

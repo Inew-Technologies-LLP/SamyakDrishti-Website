@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom'; // ✅ ADDED useLocation
+import { Link, useLocation } from 'react-router-dom';
 import logo from "../assets/logo.svg";
 
-const Navbar = () => {
+const Navbar = ({ onBookClick }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // ✅ GET CURRENT URL PATH
+  const location = useLocation();
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -21,13 +21,12 @@ const Navbar = () => {
     { name: 'Contact Us', path: '/contact' },
   ];
 
-  // ✅ HELPER FUNCTIONS TO CHECK IF LINK IS ACTIVE
   const isActive = (path) => location.pathname === path;
   const isDropdownActive = (dropdown) => dropdown.some(subLink => location.pathname === subLink.path);
 
   return (
     <nav className="bg-[#1b2a4e] text-white w-full fixed top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> {/* Added standard padding container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 w-full">
           
           {/* Logo */}
@@ -47,7 +46,7 @@ const Navbar = () => {
                 {link.dropdown ? (
                   <div className={`cursor-pointer text-sm hover:text-gray-300 flex items-center relative py-1 ${
                     isDropdownActive(link.dropdown) 
-                      ? 'font-medium after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#b4dfc4]' // ✅ ACTIVE DROPDOWN UNDERLINE
+                      ? 'font-medium after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#b4dfc4]' 
                       : 'font-light'
                   }`}>
                     {link.name}
@@ -60,7 +59,7 @@ const Navbar = () => {
                     to={link.path}
                     className={`text-sm hover:text-gray-300 relative py-1 ${
                       isActive(link.path) 
-                        ? 'font-medium after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#b4dfc4]' // ✅ ACTIVE LINK UNDERLINE
+                        ? 'font-medium after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#b4dfc4]' 
                         : 'font-light'
                     }`}
                   >
@@ -87,13 +86,21 @@ const Navbar = () => {
 
               </div>
             ))}
+            
+            {/* BOOK CONSULTATION BUTTON (DESKTOP) */}
+            <button 
+              onClick={onBookClick} 
+              className="ml-4 bg-[#b4dfc4] text-[#1b2a4e] px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#9cccae] transition-colors shadow-sm cursor-pointer"
+            >
+              Book Consultation
+            </button>
           </div>
 
           {/* Mobile Button */}
           <div className="md:hidden ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2"
+              className="p-2 cursor-pointer"
             >
               {isOpen ? (
                 <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,8 +118,8 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden bg-[#1b2a4e] transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-[500px] border-t border-white/10' : 'max-h-0'}`}>
-        <div className="px-4 pt-4 pb-8 space-y-2">
+      <div className={`md:hidden bg-[#1b2a4e] transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-[600px] border-t border-white/10' : 'max-h-0'}`}>
+        <div className="px-4 pt-4 pb-6 space-y-2">
           {navLinks.map((link, index) => (
             <div key={index}>
               
@@ -145,6 +152,20 @@ const Navbar = () => {
 
             </div>
           ))}
+
+          {/* BOOK CONSULTATION BUTTON (MOBILE) */}
+          <div className="pt-4 mt-2 border-t border-white/10">
+            <button 
+              onClick={() => {
+                setIsOpen(false);
+                if (onBookClick) onBookClick(); 
+              }} 
+              className="w-full bg-[#b4dfc4] text-[#1b2a4e] px-4 py-3 rounded-md text-base font-bold hover:bg-[#9cccae] transition-colors shadow-sm cursor-pointer"
+            >
+              Book Consultation
+            </button>
+          </div>
+          
         </div>
       </div>
     </nav>

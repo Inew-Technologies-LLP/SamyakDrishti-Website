@@ -564,7 +564,7 @@ As Medical Director, Dr. Sujal Shah has led free rural eye camps in Shahpur, Par
 
 {/* RECOGNITION */}
 
-<div className="max-w-[350px] md:max-w-[1200px] mx-auto px-6 bg-[#11224A] rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center py-12">
+<div className="max-w-[350px] md:max-w-[1235px] mx-auto px-6 bg-[#11224A] rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center py-12">
 <img
 src={icon12}
 className="w-14 md:w-16 h-14 md:h-16 opacity-90 mb-6"
@@ -582,7 +582,7 @@ Dr. Sujal Shah has been honoured by the Chief Minister of Maharashtra and severa
 
 
 
-<section className="max-w-[1250px] mx-auto pt-16 md:pt-20 px-6">
+<section className="max-w-[1275px] mx-auto pt-16 md:pt-20 px-6">
 
   <img
     src={img5}

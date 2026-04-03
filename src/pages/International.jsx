@@ -78,12 +78,12 @@ export default function InternationalPatients() {
           <div className="flex items-start pt-4 lg:pt-15 gap-6">
 
             {/* ITEM 1 */}
-            <div className="flex flex-col items-center w-25 gap-1">
+            <div className="flex flex-col items-center w-29 gap-1">
               <h3 className="text-xl md:text-2xl font-semibold text-neutral-950 ">
                 15+
               </h3>
               <p className="text-sm text-gray-600 font-['Inter']">
-                Years Experience
+                Years of Experience
               </p>
             </div>
 

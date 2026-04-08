@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 // 1. HERO SECTION
 // ==========================================
 const ContactHero = () => (
-  <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center">
+  <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center mt-20">
     <div 
       className="absolute inset-0 bg-cover bg-center" 
       style={{ backgroundImage: "url('/contact-hero.JPG')" }}>
@@ -14,10 +14,10 @@ const ContactHero = () => (
     <div className="absolute inset-0 bg-black/30"></div> 
     
     <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
-      <h1 className="text-white drop-shadow-md text-5xl md:text-6xl lg:text-7xl font-serif font-medium tracking-wide">
+      <h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-widest">
         Contact Us
       </h1>
-      <div className="h-[2px] w-1/2 max-w-sm mx-auto bg-white"></div>
+      <div className="h-[4px] w-1/2 max-w-sm mx-auto bg-white mt-6"></div>
     </div>
 
     <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
@@ -195,7 +195,7 @@ const SpecialityHours = () => {
       time: "Thursday & Saturday, 3:00 PM – 5:00 PM",
       icon: "/squint-icon.png",
       //Added a specific scale class just for this icon to bypass the image padding
-      iconClass: "scale-140" 
+      iconClass: "scale-160" 
     },
     { 
       name: "Mr. Rajendra Pawar", 

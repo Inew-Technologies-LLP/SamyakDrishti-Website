@@ -123,7 +123,6 @@ export default function Footer({ onBookClick }) {
     </h4>
 
     <ul className="space-y-2 text-[12px]">
-      <li>Facebook</li>
       <li>
        <a href="https://www.instagram.com/samyakdrishti/" target="_blank" rel="noopener noreferrer">
           Instagram

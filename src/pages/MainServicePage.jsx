@@ -22,7 +22,7 @@ const defaultFAQs = [
 // ==========================================
 const MainServiceHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center mt-20">
+    <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center mt-20">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover"
@@ -37,11 +37,11 @@ const MainServiceHero = () => {
 
       {/* Text Content */}
       <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
-        <h1 className="text-white drop-shadow-md text-3xl md:text-6xl font-['Lora'] font-bold tracking-widest mb-6">
+        <h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-widest">
           Vision Correction
         </h1>
 
-        <div className="h-[4px] w-3/4 max-w-xl mx-auto bg-white/80 mt-6 rounded-full"></div>
+        <div className="h-[4px] w-2/4 max-w-xl mx-auto bg-white/80 mt-6 rounded-full"></div>
       </div>
 
       {/* The SVG Wave Divider (Fills to White) */}
@@ -66,16 +66,30 @@ const MainServiceHero = () => {
 // 2. OUR JOURNEY SECTION
 // ==========================================
 const JourneySection = () => {
+  // 1. We keep the desktop ref tied to the whole container
   const containerRef = useRef(null);
   
-  const { scrollYProgress } = useScroll({
+  // 2. We add a new ref strictly for the mobile image
+  const mobileImgRef = useRef(null);
+  
+  // --- DESKTOP ANIMATION LOGIC (Untouched) ---
+  const { scrollYProgress: desktopProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
   });
+  const opacity1 = useTransform(desktopProgress, [0.3, 0.5], [1, 0]);
+  const opacity2 = useTransform(desktopProgress, [0.4, 0.6], [0, 1]);
+  const scale = useTransform(desktopProgress, [0.3, 0.7], [1, 1.05]);
 
-  const opacity1 = useTransform(scrollYProgress, [0.3, 0.5], [1, 0]);
-  const opacity2 = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0.3, 0.7], [1, 1.05]);
+  // --- MOBILE ANIMATION LOGIC (New) ---
+  const { scrollYProgress: mobileProgress } = useScroll({
+    target: mobileImgRef,
+    // Animation starts when the image enters the screen, and ends when it reaches the middle
+    offset: ["start 45%", "center center"] 
+  });
+  const mOpacity1 = useTransform(mobileProgress, [0.4, 0.7], [1, 0]);
+  const mOpacity2 = useTransform(mobileProgress, [0.3, 0.8], [0, 1]);
+  const mScale = useTransform(mobileProgress, [0.1, 0.9], [1, 1.05]);
 
   return (
     <section ref={containerRef} className="bg-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-[1500px] mx-auto">
@@ -116,21 +130,18 @@ const JourneySection = () => {
           </div>
         </div>
 
-        {/* Right Column: Animated Image Container */}
-        <div className="w-full lg:w-[45%] flex justify-center lg:justify-end lg:sticky lg:top-24">
+        {/* Right Column: DESKTOP Animated Image (Hidden on Mobile) */}
+        <div className="hidden lg:flex lg:w-[45%] justify-end sticky top-24">
           <motion.div 
             style={{ scale }}
-            className="relative w-full max-w-[450px] lg:max-w-none lg:w-[450px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
+            className="relative w-[450px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
           >
-            {/* First Image */}
             <motion.img 
               src="/dr-shah-portrait.jpg"
               alt="Dr. Shah Portrait 1" 
               style={{ opacity: opacity1 }}
               className="absolute inset-0 w-full h-full object-cover"
             />
-            
-            {/* Second Image */}
             <motion.img 
               src="/dr-shah-action.jpg"
               alt="Dr. Shah Portrait 2" 
@@ -139,6 +150,28 @@ const JourneySection = () => {
             />
           </motion.div>
         </div>
+
+        {/* Right Column: MOBILE Animated Image (Hidden on Desktop) */}
+        <div ref={mobileImgRef} className="flex lg:hidden w-full justify-center mt-4">
+          <motion.div 
+            style={{ scale: mScale }}
+            className="relative w-full max-w-[450px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
+          >
+            <motion.img 
+              src="/dr-shah-portrait.jpg"
+              alt="Dr. Shah Portrait 1 Mobile" 
+              style={{ opacity: mOpacity1 }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <motion.img 
+              src="/dr-shah-action.jpg"
+              alt="Dr. Shah Portrait 2 Mobile" 
+              style={{ opacity: mOpacity2 }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );

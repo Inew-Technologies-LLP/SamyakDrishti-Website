@@ -78,7 +78,7 @@ const cataractFAQs = [
 // 1. HERO SECTION
 // ==========================================
 const CataractHero = () => (
-  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20 mt-20">
+  <section className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center pt-10 md:pt-20 mt-20">
 
     <div 
       className="absolute inset-0 bg-cover"
@@ -120,7 +120,7 @@ const CataractTabs = () => (
 );
 
 // ==========================================
-// 3. SPLIT DETAIL SECTION (Intro)
+// CATARACT INTRO SECTION
 // ==========================================
 const CataractIntro = () => {
   // 1. Add state to track if the text is expanded or collapsed
@@ -142,15 +142,27 @@ const CataractIntro = () => {
             Expert cataract care with safe, precise surgery to restore clear vision, with a range of lens options to suit your lifestyle.
           </p>
           
-          <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose This Service:</h4>
-          <ul className="space-y-3 md:space-y-4 mb-8">
-            {["Quick, day-care procedure with fast recovery", "Proven success rate with experienced surgeons"].map((text, i) => (
-              <li key={i} className="flex items-start">
-                <svg className="w-5 h-5 md:w-6 md:h-6 text-[#2c7a51] mr-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-                <span className="text-gray-700 font-opensans text-sm md:text-base pt-[2px]">{text}</span>
-              </li>
-            ))}
-          </ul>
+          {/* ✅ UPDATED: Added the left border line and custom dots here */}
+          <div className="mb-8 border-l-4 border-[#9cccae] pl-5">
+            <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose This Service:</h4>
+            
+            <ul className="flex flex-col gap-4">
+              {[
+                "Quick, day-care procedure with fast recovery", 
+                "Proven success rate with experienced surgeons"
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  
+                  {/* Custom Bullet: outer ring + inner filled dot */}
+                  <div className="flex items-center justify-center w-5 h-5 rounded-full border-2 border-[#2c7a51] bg-[#A8D5BA] shrink-0 mt-[2px]">
+                    <div className="w-2 h-2 rounded-full bg-[#11224A]"></div>
+                  </div>
+
+                  <span className="text-gray-700 font-opensans text-sm md:text-base leading-relaxed">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="bg-[#fcebb6] rounded-xl p-5 md:p-6">
             <h4 className="font-serif font-medium text-[#1b2a4e] mb-1 md:mb-2">Best For:</h4>
@@ -201,7 +213,6 @@ const CataractIntro = () => {
     </div>
   );
 };
-
 // ==========================================
 // 4. TREATMENT TYPES (Detailed List)
 // ==========================================

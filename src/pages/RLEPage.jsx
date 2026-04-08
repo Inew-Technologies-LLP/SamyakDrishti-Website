@@ -25,7 +25,7 @@ const rleFAQs = [
 // 1. HERO SECTION
 // ==========================================
 const RLEHero = () => ( 
-  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20 mt-20">
+  <section className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center pt-10 md:pt-20 mt-20">
     <div 
       className="absolute inset-0 bg-cover" 
       style={{ 
@@ -76,23 +76,35 @@ const RLEIntro = () => (
       <div className="inline-block bg-[#cce5d6] text-[#1b2a4e] px-4 py-1.5 rounded-full text-xs md:text-sm font-base self-start mb-6">
         Lens Implant & RLE
       </div>
-      <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+      <p className="text-gray-700 font-opensans text-sm md:text-base leading-relaxed mb-6">
         Replaces the eye's natural lens with an artificial intraocular lens (IOL) to correct vision and prevent future cataract development. The surgical technique is modern and performed before cataracts form.
       </p>
       
-      <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose This Service:</h4>
-      <ul className="space-y-3 mb-8">
-        {["Quick outpatient procedure with fast recovery.", "Eliminates the risk of future cataracts."].map((text, i) => (
-          <li key={i} className="flex items-start">
-            <svg className="w-5 h-5 text-[#2c7a51] mr-3 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-            <span className="text-gray-700 text-sm md:text-base">{text}</span>
-          </li>
-        ))}
-      </ul>
+      {/* ✅ UPDATED: Added the left border line and custom dots here */}
+      <div className="mb-8 border-l-4 border-[#9cccae] pl-5">
+        <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose This Service:</h4>
+        
+        <ul className="flex flex-col gap-4">
+          {[
+            "Quick outpatient procedure with fast recovery.", 
+            "Eliminates the risk of future cataracts."
+          ].map((text, i) => (
+            <li key={i} className="flex items-start gap-3">
+              
+              {/* Custom Bullet: outer ring + inner filled dot */}
+              <div className="flex items-center justify-center w-5 h-5 rounded-full border-2 border-[#2c7a51] bg-[#A8D5BA] shrink-0 mt-[2px]">
+                <div className="w-2 h-2 rounded-full bg-[#11224A]"></div>
+              </div>
+
+              <span className="text-gray-700 font-opensans text-sm md:text-base leading-relaxed">{text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="bg-[#fcebb6] rounded-xl p-5 md:p-6">
         <h4 className="font-serif font-medium text-[#1b2a4e] mb-1">Best For:</h4>
-        <p className="text-gray-800 text-xs md:text-sm">Patients with high refractive errors, thin corneas, or presbyopia.</p>
+        <p className="text-gray-800 font-opensans text-xs md:text-sm">Patients with high refractive errors, thin corneas, or presbyopia.</p>
       </div>
     </div>
   </div>

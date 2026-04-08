@@ -4,6 +4,8 @@ import logo from "../assets/logo.svg";
 
 const Navbar = ({ onBookClick }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // ✅ ADDED: State to track which mobile dropdown is open
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(""); 
   const location = useLocation();
 
   const navLinks = [
@@ -24,6 +26,12 @@ const Navbar = ({ onBookClick }) => {
   const isActive = (path) => location.pathname === path;
   const isDropdownActive = (dropdown) => dropdown.some(subLink => location.pathname === subLink.path);
 
+  // Helper to toggle main mobile menu and reset dropdowns
+  const toggleMobileMenu = () => {
+    setIsOpen(!isOpen);
+    setMobileDropdownOpen(""); // Close dropdowns when closing main menu
+  };
+
   return (
     <nav className="bg-[#1b2a4e] text-white w-full fixed top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +42,7 @@ const Navbar = ({ onBookClick }) => {
             <img
               src={logo}
               alt="Samyak Drishti"
-              className="h-55 object-contain" // Adjusted for better sizing
+              className="h-55 object-contain" // Standardized sizing
             />
           </Link>
 
@@ -99,7 +107,7 @@ const Navbar = ({ onBookClick }) => {
           {/* Mobile Button */}
           <div className="md:hidden ml-auto">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={toggleMobileMenu}
               className="p-2 cursor-pointer"
             >
               {isOpen ? (
@@ -119,26 +127,45 @@ const Navbar = ({ onBookClick }) => {
 
       {/* Mobile Menu */}
       <div className={`md:hidden bg-[#1b2a4e] transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-[600px] border-t border-white/10' : 'max-h-0'}`}>
-        <div className="px-4 pt-4 pb-6 space-y-2">
+        <div className="px-4 pt-4 pb-6 space-y-1">
           {navLinks.map((link, index) => (
             <div key={index}>
               
               {link.dropdown ? (
-                <div className="space-y-2">
-                  <div className={`text-xs uppercase px-3 py-2 ${isDropdownActive(link.dropdown) ? 'text-[#b4dfc4] font-bold' : 'text-gray-400'}`}>
+                <div className="space-y-1">
+                  
+                  {/* ✅ FIX: Made the category name an interactive button with identical styling to normal links */}
+                  <button 
+                    onClick={() => setMobileDropdownOpen(mobileDropdownOpen === link.name ? "" : link.name)}
+                    className={`w-full flex justify-between items-center px-3 py-2 rounded-md text-base hover:bg-[#25365e] transition-colors ${
+                      isDropdownActive(link.dropdown) ? 'text-[#b4dfc4] font-semibold bg-[#25365e]' : 'text-white'
+                    }`}
+                  >
                     {link.name}
+                    <svg 
+                      className={`w-4 h-4 transition-transform duration-300 ${mobileDropdownOpen === link.name ? 'rotate-180' : ''}`} 
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {/* ✅ FIX: The smoothly expanding sub-menu */}
+                  <div className={`overflow-hidden transition-all duration-300 ${mobileDropdownOpen === link.name ? 'max-h-40' : 'max-h-0'}`}>
+                    <div className="pl-6 pr-3 py-1 mb-2 space-y-1 border-l-2 border-[#b4dfc4]/30 ml-4">
+                      {link.dropdown.map((subLink, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          to={subLink.path}
+                          onClick={() => setIsOpen(false)}
+                          className={`block px-3 py-2 rounded-md text-sm hover:bg-[#25365e] ${isActive(subLink.path) ? 'text-[#b4dfc4] font-semibold' : 'text-gray-300'}`}
+                        >
+                          {subLink.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
 
-                  {link.dropdown.map((subLink, subIndex) => (
-                    <Link
-                      key={subIndex}
-                      to={subLink.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`block px-3 py-2 rounded-md text-base hover:bg-[#25365e] ${isActive(subLink.path) ? 'text-[#b4dfc4] font-semibold bg-[#25365e]' : ''}`}
-                    >
-                      {subLink.name}
-                    </Link>
-                  ))}
                 </div>
               ) : (
                 <Link

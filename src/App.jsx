@@ -40,7 +40,7 @@ function App() {
       {!isAdminRoute && <Navbar onBookClick={() => setIsModalOpen(true)} />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home onBookClick={() => setIsModalOpen(true)} />} />
         <Route path="/our-impact" element={<OurImpact />} />
         <Route path="/our-team" element={<OurTeam />} />
         <Route path="/international" element={<International />} />

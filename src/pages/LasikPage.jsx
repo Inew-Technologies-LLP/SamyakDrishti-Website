@@ -76,7 +76,7 @@ const lasikFAQs = [
 // 1. HERO SECTION (Updated to match Cataract sizing exactly)
 // ==========================================
 const LasikHero = () => (
-  <section className="relative w-full h-[350px] md:h-[700px] flex items-center justify-center pt-10 md:pt-20 mt-20">
+  <section className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center pt-10 md:pt-20 mt-20">
     
     <div 
       className="absolute inset-0 bg-cover bg-[80%_top] md:bg-[center_top]" 
@@ -133,18 +133,27 @@ const LasikIntro = () => {
             A group of advanced, personalised procedures that reshape the cornea to reduce or eliminate dependence on glasses or contact lenses.
           </p>
           
-          <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose LASIK Evaluation:</h4>
-          <ul className="space-y-4 mb-8">
-            {[
-              "Corrects nearsightedness, farsightedness, astigmatism, and age-related vision changes.", 
-              "Offers long-term visual freedom using precise, computer-guided laser technology."
-            ].map((text, i) => (
-              <li key={i} className="flex items-start">
-                <svg className="w-6 h-6 text-[#2c7a51] mr-3 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-                <span className="text-gray-700 font-opensans pt-[2px]">{text}</span>
-              </li>
-            ))}
-          </ul>
+          {/* ✅ UPDATED: Added the left border line and custom dots here */}
+          <div className="mb-8 border-l-4 border-[#9cccae] pl-5">
+            <h4 className="font-serif font-medium text-[#1b2a4e] text-lg mb-4">Why Choose LASIK Evaluation:</h4>
+            
+            <ul className="flex flex-col gap-4">
+              {[
+                "Corrects nearsightedness, farsightedness, astigmatism, and age-related vision changes.", 
+                "Offers long-term visual freedom using precise, computer-guided laser technology."
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  
+                  {/* Custom Bullet: outer ring + inner filled dot */}
+                  <div className="flex items-center justify-center w-5 h-5 rounded-full border-2 border-[#2c7a51] bg-[#A8D5BA] shrink-0 mt-[2px]">
+                    <div className="w-2 h-2 rounded-full bg-[#11224A]"></div>
+                  </div>
+
+                  <span className="text-gray-700 font-opensans leading-relaxed">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div className="bg-[#fcebb6] rounded-xl p-6">
             <h4 className="font-serif font-medium text-[#1b2a4e] mb-2">Best For:</h4>
@@ -164,7 +173,6 @@ const LasikIntro = () => {
     </div>
   );
 };
-
 // ==========================================
 // 4. TREATMENT TYPES (Detailed List)
 // ==========================================
@@ -226,14 +234,14 @@ const LasikTypesList = () => {
   const treatments = [
     {
       id: 1,
-      title: "Lasik Evaluation",
+      title: "LASIK Evaluation",
       what: "A comprehensive assessment to determine your suitability for laser vision correction, ensuring safety and selecting the best procedure for your eyes and lifestyle.",
       why: "A detailed evaluation determines whether laser vision correction is safe for your eyes, using advanced diagnostics to assess corneal structure, tear film, and retinal health, and to match the most suitable procedure to your visual goals and lifestyle.",
       bestFor: "Adults considering laser vision correction who want a safe, personalised treatment plan before surgery.",
     },
     {
       id: 2,
-      title: "Standard Lasik",
+      title: "Standard LASIK",
       what: "A trusted, time-tested laser procedure that reshapes the cornea to correct nearsightedness, farsightedness, and astigmatism with fast recovery.",
       why: "Offers quick functional recovery and long lasting results with over 20 years of proven safety.",
       bestFor: "Most patients with suitable corneas looking to reduce or eliminate dependence on glasses.",
@@ -261,7 +269,7 @@ const LasikTypesList = () => {
       title: "SMILE (Small Incision Lenticule Extraction)",
       what: "A flapless, minimally invasive laser vision correction where a lenticule is created within the cornea and removed through a small incision.",
       why: "Promotes faster healing, maintains stronger corneal biomechanics, and presents a significantly lower risk of dry eye compared to flap-based procedures.",
-      bestFor: "Appropriate cases of myopia (with or without astigmatism). Ideal for patients with active lifestyles or where the dry eye profile suggests a benefit over Lasik. Not everyone is a candidate.",
+      bestFor: "Appropriate cases of myopia (with or without astigmatism). Ideal for patients with active lifestyles or where the dry eye profile suggests a benefit over LASIK. Not everyone is a candidate.",
       highlight: "SMILE Pro is offered by Dr Sujal Shah at Sir H.N. Reliance Foundation Hospital, where he leads the Ophthalmology Department.",
       readMoreContent: (
         <>
@@ -334,7 +342,7 @@ const LasikTypesList = () => {
 // ==========================================
 const LasikSurgeryGuide = ({ onBookClick }) => (
   <div className="mb-24">
-    <h2 className="text-3xl font-serif text-[#1b2a4e] mb-10">Lasik / SMILE Surgery Guide</h2>
+    <h2 className="text-3xl font-serif text-[#1b2a4e] mb-10">LASIK / SMILE Surgery Guide</h2>
     
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
       

@@ -13,7 +13,7 @@ export default function Footer({ onBookClick }) {
   <div className="bg-[#11224A] rounded-[20px] px-6 md:px-16 py-10 md:py-14 flex justify-between items-center gap-6 text-white">
 
     {/* LEFT TEXT */}
-    <div className="max-w-[500px]">
+    <div className="max-w-[200px] md:max-w-[500px]">
 
       <h2 className="text-[28px] md:text-[40px] font-lora font-bold mb-3">
         Your Vision Matters
@@ -55,7 +55,7 @@ export default function Footer({ onBookClick }) {
           {/* LEFT INFO */}
           <div className="max-w-[380px] lg:ml-20">
 
-            <img src={logo} className="w-[100px] md:w-[180px] mb-6"/>
+            <img src={logo} className="w-[200px] md:w-[180px] mb-6"/>
 
             <div className="text-black text-sm md:text-base font-normal font-['Open_Sans'] leading-6 mb-10 md:mb-15">
               101, 1st Floor, Sukh Sagar, N S Patkar Marg, Girgaon Chowpatty, Mumbai - 400007
@@ -123,6 +123,7 @@ export default function Footer({ onBookClick }) {
     </h4>
 
     <ul className="space-y-2 text-[12px]">
+      
       <li>
        <a href="https://www.instagram.com/samyakdrishti/" target="_blank" rel="noopener noreferrer">
           Instagram

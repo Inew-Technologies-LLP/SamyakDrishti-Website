@@ -155,7 +155,7 @@ return (
     <div className=" mx-auto text-center">
 
       {/* Heading */}
-      <h1 className="text-[#1E2B50] text-4xl md:text-6xl lg:text-9xl font-semibold font-['Lora'] mb-8">
+      <h1 className="text-[#1E2B50] text-4xl md:text-6xl lg:text-[7rem] font-semibold font-['Lora'] mb-8">
         Clear Vision, Better Life
       </h1>
 
@@ -293,12 +293,12 @@ return (
 
 <div className="max-w-[1300px] mx-auto mb-16 md:mb-24 px-6">
 
-<div className="h-[260px] md:h-[420px] overflow-hidden relative bg-[#11224A]">
+<div className="h-[200px] md:h-[420px] overflow-hidden relative bg-[#11224A]">
 
 <img 
   src={home2} 
   alt="Doctors" 
-  className="w-full h-full object-cover object-right md:object-center grayscale"
+className="w-full h-full object-cover object-[60%_center] md:object-center grayscale"
 />
 
 </div>

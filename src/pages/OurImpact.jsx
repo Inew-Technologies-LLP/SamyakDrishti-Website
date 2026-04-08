@@ -206,7 +206,7 @@ Conceptualised and serves as a Permanent Trustee of Shraman Arogyam, which provi
 <div className="order-2 lg:order-2 perspective-[1000px]">
   <img
     src={img1}
-    className="w-full lg:w-[820px] lg:h-[365px] object-cover rounded-xl transition-transform duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(40px)]"
+    className="w-full lg:w-[805px] lg:h-[365px] object-cover rounded-xl transition-transform duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(40px)]"
   />
 </div>
 
@@ -276,15 +276,15 @@ As Director, Dr. Sujal Shah conceptualized and led this health insurance initiat
 
     <div className="flex flex-col">
 
-      <div className="text-blue-950 text-sm sm:text-base font-medium font-['Lora'] mb-1">
+      <div className="text-blue-950 text-base sm:text-base font-medium font-['Lora'] mb-1">
         Medical Coordination
       </div>
 
-      <div className="text-blue-950 text-[11px] sm:text-xs font-normal font-['Open_Sans'] opacity-80 mb-2 sm:mb-3">
+      <div className="text-blue-950 text-xs font-normal font-['Open_Sans'] opacity-80 mb-2 sm:mb-3">
         Samkit Group, Mumbai
       </div>
 
-      <div className="text-gray-600 text-sm sm:text-base font-normal font-['Open_Sans'] leading-5 sm:leading-6 mb-3">
+      <div className="text-gray-600 text-base font-normal font-['Open_Sans'] leading-5 sm:leading-6 mb-3">
         As Medical Advisor, Dr. Sujal Shah has coordinated medical care for Chauvihar Chhat and Saat Jatra at Palitana and organized large community medical camps at pilgrimage centres.
       </div>
 
@@ -302,7 +302,7 @@ As Director, Dr. Sujal Shah conceptualized and led this health insurance initiat
 <div className="order-2 lg:order-2 perspective-[1000px]">
   <img
     src={img3}
-    className="w-full lg:w-[820px] lg:h-[365px] object-cover rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(60px)_rotateX(3deg)_rotateY(-3deg)] hover:shadow-2xl"
+    className="w-full lg:w-[805px] lg:h-[365px] object-cover rounded-xl transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:[transform:translateZ(60px)_rotateX(3deg)_rotateY(-3deg)] hover:shadow-2xl"
   />
 </div>
 
@@ -496,7 +496,7 @@ Bringing quality eye care to underserved communities through dedicated camps and
 
 {/* CARD 1 */}
 
-<div className="flex-1 px-6 pt-6 pb-4 bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-l-[6px] border-orange-200 flex gap-4">
+<div className="flex-1 px-6 pt-6 pb-4 bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-l-[6px] border-[#F8E0A2] flex gap-4">
 
 <img src={icon8} className="w-10 h-10"/>
 
@@ -526,7 +526,7 @@ Conducting urban outreach eye camps for monks in Palitana and other pilgrimage c
 
 {/* CARD 2 */}
 
-<div className="flex-1 px-6 pt-6 pb-4 bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-l-[6px] border-orange-200 flex gap-4">
+<div className="flex-1 px-6 pt-6 pb-4 bg-white rounded-[10px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-l-[6px] border-[#F8E0A2] flex gap-4">
 
 <img src={icon8} className="w-10 h-10"/>
 
@@ -560,8 +560,8 @@ As Medical Director, Dr. Sujal Shah has led free rural eye camps in Shahpur, Par
 
 {/* RECOGNITION */}
 
-<div className="max-w-[350px] md:max-w-[1235px] mx-auto px-6 bg-[#11224A] rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center py-12">
-<img
+<div className="max-w-[380px] md:max-w-[1235px] mx-auto px-6 bg-gradient-to-r from-[#11224A] to-[#1A3666] rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center py-10">
+  <img
 src={icon12}
 className="w-14 md:w-16 h-14 md:h-16 opacity-90 mb-6"
 />
@@ -570,7 +570,7 @@ className="w-14 md:w-16 h-14 md:h-16 opacity-90 mb-6"
 Recognition
 </div>
 
-<div className="max-w-[618px] text-white text-sm md:text-base font-normal font-['Open_Sans'] leading-8 opacity-90">
+<div className="max-w-[630px] text-white text-sm md:text-base font-normal font-['Open_Sans'] leading-8 opacity-90">
 Dr. Sujal Shah has been honoured by the Chief Minister of Maharashtra and several organizations for his sustained volunteer work and social service.
 </div>
 

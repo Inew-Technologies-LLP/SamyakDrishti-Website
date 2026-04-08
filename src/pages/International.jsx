@@ -202,7 +202,7 @@ export default function InternationalPatients() {
     </h3>
 
     {/* CARDS */}
-    <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-50">
+    <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-45">
 
       {/* CARD 1 */}
       <div className="w-full md:w-[510px] h-auto md:h-[140px] bg-white rounded-2xl border border-blue-950 border-l-4 p-6 flex gap-4">

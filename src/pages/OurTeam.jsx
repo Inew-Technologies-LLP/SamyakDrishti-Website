@@ -75,7 +75,7 @@ className="w-full max-w-[400px] h-[500px] md:h-[600px] object-cover rounded-[20p
 
 <div className="max-w-[730px]">
 
-<div className="text-black text-sm md:text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
+<div className="text-black text-justify text-sm md:text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
 
 India's leading vision correction specialist and pioneer in LASIK and SMILE procedures. 
 Dr. Shah was the first surgeon in India to perform Wavefront-Optimized LASIK, Presbyond LASIK, and SMILE. 
@@ -140,9 +140,9 @@ Dr. Manisha Shah – Medical Director
 
 <div className="grid md:grid-cols-2 gap-10 items-center">
 
-<div className="max-w-[730px]">
+<div className="max-w-[650px]">
 
-<div className="text-black text-sm md:text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
+<div className="text-black text-justify text-sm md:text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
 
 With over 17 years of experience, Dr. Manisha Shah is a highly
 skilled ophthalmologist and LASIK specialist with expertise across
@@ -261,7 +261,7 @@ return (
 
 <div className="w-full px-4 md:px-10">
 
-<div className="h-[300px] md:h-[320px] w-full max-w-[360px] mx-auto bg-gradient-to-b from-white to-[#F8E0A2] flex items-end justify-center overflow-hidden">
+<div className="h-[300px] md:h-[320px] w-full max-w-[360px]  bg-gradient-to-b from-white to-[#F8E0A2] flex items-end justify-center overflow-hidden">
 
 <img src={image} alt={name} className="max-h-full object-contain"/>
 

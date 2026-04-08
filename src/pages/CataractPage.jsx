@@ -351,7 +351,6 @@ const CataractSurgeryGuide = ({ onBookClick }) => (
     </div>
   </div>
 );
-
 // ==========================================
 // 6. REUSED FAQ COMPONENT
 // ==========================================
@@ -360,15 +359,19 @@ const ServicesFAQ = ({ faqs }) => {
   const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section className="bg-white py-12 md:py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-[1500px] mx-auto bg-[#1b2a4e] rounded-md p-6 md:p-16 shadow-lg">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+    // 1. Added bg-[#1b2a4e] and w-full to make the background span the whole screen
+    <section className="bg-[#1b2a4e] w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      
+      {/* 2. Removed bg-[#1b2a4e], shadow-lg, rounded-md, and p-8/p-16 from this wrapper */}
+      <div className="max-w-[1500px] mx-auto">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           
           <div className="lg:col-span-4 text-white">
-            <h2 className="text-[#e2d5ad] text-2xl md:text-4xl font-serif mb-4 leading-tight">
-              Frequently asked<br className="hidden md:block" />Questions
+            <h2 className="text-[#e2d5ad] text-3xl md:text-4xl font-serif mb-4">
+              Frequently asked<br />Questions
             </h2>
-            <p className="text-gray-300 font-opensans text-xs md:text-sm leading-relaxed max-w-sm">
+            <p className="text-gray-300 font-opensans text-sm leading-relaxed max-w-sm">
               Quick answers to common concerns about eye procedures, safety, and recovery.
             </p>
           </div>
@@ -376,12 +379,12 @@ const ServicesFAQ = ({ faqs }) => {
           <div className="lg:col-span-8 space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="border-b border-white/20 pb-4">
-                <button onClick={() => toggleFAQ(index)} className="w-full flex justify-between items-center text-left text-white focus:outline-none py-2">
-                  <span className="text-sm md:text-lg pr-4 font-opensans">{faq.question}</span>
-                  <svg className={`w-4 h-4 md:w-5 md:h-5 text-white transition-transform duration-300 shrink-0 ${openIndex === index ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                <button onClick={() => toggleFAQ(index)} className="w-full flex justify-between items-center text-left text-white focus:outline-none">
+                  <span className="text-base md:text-lg pr-4 font-opensans">{faq.question}</span>
+                  <svg className={`w-5 h-5 text-white transition-transform duration-300 shrink-0 ${openIndex === index ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-[800px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-                  <div className="text-gray-300 font-opensans text-xs md:text-sm mt-2 leading-relaxed">{faq.answer}</div>
+                <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
+                  <div className="text-gray-300 font-opensans text-sm mt-4 leading-relaxed">{faq.answer}</div>
                 </div>
               </div>
             ))}

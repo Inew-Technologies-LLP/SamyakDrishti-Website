@@ -254,8 +254,10 @@ const MainServicesGrid = () => {
 // ==========================================
 const ServicesCTA = ({ onBookClick }) => {
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-[1500px] mx-auto bg-[#1b2a4e] py-24 px-4 text-center">
+    // Moved the blue background to the outer section to make it full-width
+    <section className="bg-[#1b2a4e] py-20 md:py-28 px-4 text-center w-full">
+      {/* Removed the blue background from this inner container */}
+      <div className="max-w-[1500px] mx-auto">
         <h2 className="text-[#e2d5ad] text-3xl md:text-4xl font-serif mb-4">
           Ready to Start Your Vision Journey?
         </h2>
@@ -287,8 +289,11 @@ const ServicesFAQ = ({ faqs }) => {
   };
 
   return (
-    <section className="bg-white py-6 px-4 pt-20 pb-24">
-      <div className="max-w-[1500px] mx-auto bg-[#1b2a4e] p-10 md:p-16 shadow-lg">
+    // Added bg-[#1b2a4e] and w-full for full width. 
+    // The mt-16 md:mt-24 creates the white gap between this and the CTA!
+    <section className="bg-[#1b2a4e] w-full mt-16 md:mt-24 py-16 md:py-24 px-4">
+      {/* Removed background, inner padding, and shadow so it aligns smoothly */}
+      <div className="max-w-[1500px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           
           <div className="lg:col-span-4 text-white">

@@ -399,8 +399,12 @@ const ServicesFAQ = ({ faqs }) => {
   const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-[1500px] mx-auto bg-[#1b2a4e] rounded-md p-8 md:p-16 shadow-lg">
+    // 1. Added bg-[#1b2a4e] and w-full to make the background span the whole screen
+    <section className="bg-[#1b2a4e] w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      
+      {/* 2. Removed bg-[#1b2a4e], shadow-lg, rounded-md, and p-8/p-16 from this wrapper */}
+      <div className="max-w-[1500px] mx-auto">
+        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           
           <div className="lg:col-span-4 text-white">
@@ -431,7 +435,6 @@ const ServicesFAQ = ({ faqs }) => {
     </section>
   );
 };
-
 // ==========================================
 // MAIN PAGE COMPONENT
 // ==========================================

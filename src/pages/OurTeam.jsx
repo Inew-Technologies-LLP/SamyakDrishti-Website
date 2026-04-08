@@ -25,7 +25,7 @@ export default function OurTeam() {
     <div className="w-full pt-16 bg-white overflow-hidden">
 
 {/* HERO */}
-<section className="relative  w-full h-[300px] md:h-[600px]">
+<section className="relative  w-full h-[300px] md:h-[520px]">
 
 <img
 src={banner}

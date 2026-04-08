@@ -16,7 +16,7 @@ export default function InternationalPatients() {
     <div className="w-full pt-16 overflow-hidden">
 
       {/* HERO */}
-      <section className="relative h-[300px]  md:h-[550px] w-full">
+      <section className="relative h-[300px]  md:h-[520px] w-full">
 
         <img
           src={banner}

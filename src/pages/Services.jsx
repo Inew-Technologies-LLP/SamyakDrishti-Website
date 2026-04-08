@@ -1114,8 +1114,8 @@ const ServicesGrid = ({ activeServiceId, onSelectService, onBookClick }) => {
 // ==========================================
 const ServicesCTA = ({ onBookClick }) => {
   return (
-    // Outer section is now white with vertical padding for the gap
-    <section className="bg-[#1b2a4e] py-28 px-4 text-center">
+    // Standard padding here for the CTA
+    <section className="bg-[#1b2a4e] py-20 md:py-28 px-4 text-center w-full">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-[#e2d5ad] text-3xl md:text-4xl font-serif mb-4">
           Ready to Start Your Vision Journey?
@@ -1137,7 +1137,6 @@ const ServicesCTA = ({ onBookClick }) => {
   );
 };
 
-
 // ==========================================
 // 4. FAQ COMPONENT (Dynamic)
 // ==========================================
@@ -1149,8 +1148,11 @@ const ServicesFAQ = ({ faqs }) => {
   };
 
   return (
-    <section className=" py-6 px-4 pt-20 pb-24">
-      <div className="max-w-[1450px] mx-auto bg-[#1b2a4e] p-10 md:p-16 shadow-lg">
+    // w-full makes it span the whole page
+    // mt-16 md:mt-24 creates the white gap above it!
+    <section className="bg-[#1b2a4e] w-full mt-16 md:mt-24 py-16 md:py-24 px-4">
+      {/* Inner container stays max-width so the text aligns nicely */}
+      <div className="max-w-[1450px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           
           <div className="lg:col-span-4 text-white">
@@ -1170,7 +1172,6 @@ const ServicesFAQ = ({ faqs }) => {
                     onClick={() => toggleFAQ(index)}
                     className="w-full flex justify-between items-center text-left text-white focus:outline-none"
                   >
-                    {/* Changed from {question} to {faq.question} */}
                     <span className="text-base md:text-lg pr-4">{faq.question}</span>
                     <svg 
                       className={`w-5 h-5 text-white transition-transform duration-300 shrink-0 ${openIndex === index ? 'rotate-180' : ''}`} 
@@ -1182,7 +1183,6 @@ const ServicesFAQ = ({ faqs }) => {
                     </svg>
                   </button>
                   <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
-                    {/* Renders the actual answer content (including bullets if present) */}
                     <div className="text-gray-300 text-sm mt-4 leading-relaxed">
                       {faq.answer}
                     </div>

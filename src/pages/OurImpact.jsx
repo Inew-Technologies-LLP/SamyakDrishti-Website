@@ -104,7 +104,7 @@ return (
 
 {/* HERO */}
 
-<section className="relative bg-white h-[300px]  md:h-[550px]">
+<section className="relative bg-white h-[300px]  md:h-[520px]">
 
 <img src={banner} className="w-full h-full object-cover"/>
 

@@ -275,19 +275,28 @@ const ServicesFAQ = ({ faqs }) => {
   const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section className="bg-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-[1500px] mx-auto bg-[#1b2a4e] rounded-xl p-6 md:p-16 shadow-lg">
+    // 1. Added bg-[#1b2a4e] and w-full to make the background span the whole screen
+    <section className="bg-[#1b2a4e] w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      
+      {/* 2. Removed bg-[#1b2a4e], shadow-lg, rounded-xl, and p-6/p-16 from this wrapper */}
+      <div className="max-w-[1500px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+          
           <div className="lg:col-span-4 text-white">
-            <h2 className="text-[#e2d5ad] text-2xl md:text-4xl font-serif mb-4 leading-tight">Frequently asked<br className="hidden md:block"/>Questions</h2>
-            <p className="text-gray-300 text-xs md:text-sm leading-relaxed max-w-sm">Quick answers to common concerns about lens procedures and safety.</p>
+            <h2 className="text-[#e2d5ad] text-2xl md:text-4xl font-serif mb-4 leading-tight">
+              Frequently asked<br className="hidden md:block"/>Questions
+            </h2>
+            <p className="text-gray-300 text-xs md:text-sm leading-relaxed max-w-sm">
+              Quick answers to common concerns about lens procedures and safety.
+            </p>
           </div>
+          
           <div className="lg:col-span-8 space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="border-b border-white/20 pb-4">
-                <button onClick={() => toggleFAQ(index)} className="w-full flex justify-between items-center text-left text-white py-2">
+                <button onClick={() => toggleFAQ(index)} className="w-full flex justify-between items-center text-left text-white py-2 focus:outline-none">
                   <span className="text-sm md:text-lg pr-4 font-opensans">{faq.question}</span>
-                  <svg className={`w-4 h-4 text-white transition-transform duration-300 shrink-0 ${openIndex === index ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  <svg className={`w-5 h-5 text-white transition-transform duration-300 shrink-0 ${openIndex === index ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
                   <div className="text-gray-300 text-xs md:text-sm leading-relaxed font-opensans">{faq.answer}</div>
@@ -295,12 +304,12 @@ const ServicesFAQ = ({ faqs }) => {
               </div>
             ))}
           </div>
+          
         </div>
       </div>
     </section>
   );
 };
-
 export default function RLEPage({ onBookClick }) {
   return (
     <main className="w-full bg-white">

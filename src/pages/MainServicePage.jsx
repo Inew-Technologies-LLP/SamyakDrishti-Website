@@ -22,7 +22,7 @@ const defaultFAQs = [
 // ==========================================
 const MainServiceHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center mt-20">
+    <section className="relative w-full h-[400px] md:h-[500px] lg:h-[550px] flex items-center mt-20">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover"
@@ -32,16 +32,12 @@ const MainServiceHero = () => {
         }} 
       ></div>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div> 
-
-      {/* Text Content */}
-      <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
-        <h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-widest">
+      {/* Text Content - Solid Blue Box */}
+      {/* Decreased padding overall, and added mt-32 for mobile only to push it down */}
+      <div className="relative z-10 bg-[#1b2a4e] w-[80%] md:w-auto max-w-xl p-5 md:p-8 lg:p-10 ml-4 md:ml-12 lg:ml-24 mt-32 md:mt-40 lg:mt-48 shadow-2xl">
+        <h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-wide text-center md:text-left">
           Vision Correction
         </h1>
-
-        <div className="h-[4px] w-2/4 max-w-xl mx-auto bg-white/80 mt-6 rounded-full"></div>
       </div>
 
       {/* The SVG Wave Divider (Fills to White) */}

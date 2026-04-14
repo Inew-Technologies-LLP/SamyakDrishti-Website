@@ -853,12 +853,12 @@ const servicesData = [
 
 
 // ==========================================
-// 1. HERO SECTION COMPONENT
+// 1. HERO SECTION COMPONENT 
 // ==========================================
 const ServicesHero = () => {
   return (
-    <section className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center mt-20">
-      {/* 1. Background Image */}
+    <section className="relative w-full h-[400px] md:h-[500px] lg:h-[550px] flex items-center mt-20">
+      {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover"
         style={{ 
@@ -867,19 +867,14 @@ const ServicesHero = () => {
         }} 
       ></div>
 
-      {/* 2. Dark Overlay for Text Readability */}
-      <div className="absolute inset-0 bg-black/30"></div> 
-
-      {/* 3. Text Content */}
-      <div className="relative z-10 text-center px-4 w-full mx-auto pb-16">
-        <h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-widest">
+      {/* Text Content - Solid Blue Box */}
+      <div className="relative z-10 bg-[#1b2a4e] w-[80%] md:w-auto max-w-xl p-5 md:p-8 lg:p-10 ml-4 md:ml-12 lg:ml-24 mt-32 md:mt-40 lg:mt-48 shadow-2xl">
+        <h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-wide text-center md:text-left leading-tight">
           Comprehensive Eye Care Services
         </h1>
-        
-        <div className="h-[4px] w-3/4 max-w-2xl mx-auto bg-white/80 mt-6 rounded-full"></div>
       </div>
 
-      {/* 4. The SVG Wave Divider */}
+      {/* The SVG Wave Divider (Fills to White) */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 

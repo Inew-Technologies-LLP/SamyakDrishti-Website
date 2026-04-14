@@ -100,29 +100,41 @@ const stats = [
 ];
 
 return (
-<div className="pt-16">
+<div>
 
 {/* HERO */}
 
-<section className="relative bg-white h-[300px]  md:h-[520px]">
+<section className="relative w-full h-[400px] md:h-[500px] lg:h-[550px] flex items-center mt-20">
+      
+  {/* Background Image */}
+  <div 
+    className="absolute inset-0 bg-cover bg-[position:center_center] sm:bg-[position:center_35%]"
+    style={{ 
+      backgroundImage: `url(${banner})` 
+    }} 
+  ></div>
 
-<img src={banner} className="w-full h-full object-cover"/>
+  {/* Text Content - Solid Blue Box */}
+  <div className="relative z-10 bg-[#1b2a4e] w-[80%] md:w-auto max-w-xl p-5 md:p-8 lg:p-10 ml-4 md:ml-12 lg:ml-24 mt-32 md:mt-40 lg:mt-48 shadow-2xl">
+    <h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-wide text-center md:text-left">
+      Our Impact
+    </h1>
+  </div>
 
-<div className="absolute -bottom-1 left-0 w-full overflow-hidden leading-none z-20">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-[50px] md:h-[100px] lg:h-[120px]" preserveAspectRatio="none">
-        <path className="fill-white" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
-      </svg>
-    </div>
-
-<div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-
-<div className="text-white text-3xl sm:text-4xl md:text-5xl font-bold font-['Lora'] tracking-widest">
-Our Impact
-</div>
-
-<div className="w-32 sm:w-40 md:w-48 h-1 mt-4 bg-white/80 rounded-full"></div>
-
-</div>
+  {/* The SVG Wave Divider (Fills to White) */}
+  <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 1440 120" 
+      className="w-full h-[50px] md:h-[100px] lg:h-[120px]" 
+      preserveAspectRatio="none"
+    >
+      <path 
+        className="fill-white" 
+        d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
+      ></path>
+    </svg>
+  </div>
 
 </section>
 

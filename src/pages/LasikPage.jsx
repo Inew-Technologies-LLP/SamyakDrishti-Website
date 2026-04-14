@@ -76,28 +76,39 @@ const lasikFAQs = [
 // 1. HERO SECTION (Updated to match Cataract sizing exactly)
 // ==========================================
 const LasikHero = () => (
-  <section className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center pt-10 md:pt-20 mt-20">
-    
-    <div 
-      className="absolute inset-0 bg-cover bg-[80%_top] md:bg-[center_top]" 
-      style={{ backgroundImage: "url('/lasik-hero-bg.JPG')" }}>
-    </div>
-    
-    <div className="absolute inset-0 bg-black/30"></div> 
-    
-    <div className="relative z-10 text-center px-4 w-full mx-auto pb-10 md:pb-16">
-      <h1 className="text-white drop-shadow-md text-4xl md:text-6xl lg:text-7xl font-serif font-semibold tracking-wide mb-6">
-        LASIK
-      </h1>
-      <div className="h-[2px] w-3/4 max-w-[300px] mx-auto bg-white"></div>
-    </div>
+  <section className="relative w-full h-[400px] md:h-[500px] lg:h-[550px] flex items-center mt-20">
+      
+  {/* Background Image */}
+  <div 
+    className="absolute inset-0 bg-cover bg-[position:80%_top] md:bg-[position:center_top]"
+    style={{ 
+      backgroundImage: "url('/lasik-hero-bg.JPG')"
+    }} 
+  ></div>
 
-    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-[40px] md:h-[100px] lg:h-[120px]" preserveAspectRatio="none">
-        <path className="fill-white" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
-      </svg>
-    </div>
-  </section>
+  {/* Text Content - Solid Blue Box */}
+  <div className="relative z-10 bg-[#1b2a4e] w-[80%] md:w-auto max-w-xl p-5 md:p-8 lg:p-10 ml-4 md:ml-12 lg:ml-24 mt-32 md:mt-40 lg:mt-48 shadow-2xl">
+    <h1 className="text-white text-3xl md:text-5xl font-['Lora'] font-bold tracking-wide text-center md:text-left leading-snug">
+      LASIK
+    </h1>
+  </div>
+
+  {/* The SVG Wave Divider (Fills to White) */}
+  <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 1440 120" 
+      className="w-full h-[50px] md:h-[100px] lg:h-[120px]" 
+      preserveAspectRatio="none"
+    >
+      <path 
+        className="fill-white" 
+        d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
+      ></path>
+    </svg>
+  </div>
+
+</section>
 );
 
 // ==========================================

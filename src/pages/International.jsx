@@ -83,44 +83,45 @@ export default function InternationalPatients() {
           </div>
 
 
-          {/* STATS */}
-          <div className="flex items-start pt-4 lg:pt-15 gap-6">
+         <div className="flex items-center justify-center pt-4 lg:pt-15 gap-4 sm:gap-6">
 
-            {/* ITEM 1 */}
-            <div className="flex flex-col items-center w-29 gap-1">
-              <h3 className="text-xl md:text-2xl font-semibold text-neutral-950 ">
-                15+
-              </h3>
-              <p className="text-sm text-gray-600 font-['Inter']">
-                Years of Experience
-              </p>
-            </div>
+  {/* ITEM 1 */}
+  <div className="flex flex-col items-center flex-1 min-w-0 px-2">
+    <h3 className="text-xl md:text-2xl font-semibold text-neutral-950">
+      15+
+    </h3>
+    <p className="text-xs sm:text-sm text-gray-600 text-center whitespace-normal lg:whitespace-nowrap">
+  Years of Experience
+</p>
+  </div>
 
-            <div className="w-px h-14 bg-gray-300"></div>
+  {/* DIVIDER */}
+  <div className="w-px h-10 sm:h-14 bg-gray-300"></div>
 
-            {/* ITEM 2 */}
-            <div className="flex flex-col items-center w-24 gap-1">
-              <h3 className="text-xl md:text-2xl font-semibold text-neutral-950 ">
-                10,000+
-              </h3>
-              <p className="text-sm text-gray-600 font-['Inter']">
-                Surgeries
-              </p>
-            </div>
+  {/* ITEM 2 */}
+  <div className="flex flex-col items-center flex-1 min-w-0 px-2">
+    <h3 className="text-xl md:text-2xl font-semibold text-neutral-950">
+      10,000+
+    </h3>
+    <p className="text-xs sm:text-sm text-gray-600 text-center">
+      Surgeries
+    </p>
+  </div>
 
-            <div className="w-px h-14 bg-gray-300"></div>
+  {/* DIVIDER */}
+  <div className="w-px h-10 sm:h-14 bg-gray-300"></div>
 
-            {/* ITEM 3 */}
-            <div className="flex flex-col items-center w-20 gap-1">
-              <h3 className="text-xl md:text-2xl font-semibold text-neutral-950 ">
-                40+
-              </h3>
-              <p className="text-sm text-gray-600 font-['Inter']">
-                Countries
-              </p>
-            </div>
+  {/* ITEM 3 */}
+  <div className="flex flex-col items-center flex-1 min-w-0 px-2">
+    <h3 className="text-xl md:text-2xl font-semibold text-neutral-950">
+      40+
+    </h3>
+    <p className="text-xs sm:text-sm text-gray-600 text-center">
+      Countries
+    </p>
+  </div>
 
-          </div>
+</div>
 
         </div>
 

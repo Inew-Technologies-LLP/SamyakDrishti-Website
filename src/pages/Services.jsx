@@ -951,7 +951,7 @@ const ServiceDetailView = ({ service, onBookClick }) => {
                   <li key={idx} className="flex items-start gap-3">
                     
                     {/* Bullet: outer ring + inner filled dot */}
-                    <div className="flex items-center justify-center w-5 h-5 rounded-full border-2 border-[#2c7a51] bg-[#A8D5BA] shrink-0 mt-[2px]">
+                    <div className="flex items-center justify-center w-5 h-5 rounded-full border-[#2c7a51] bg-[#A8D5BA] shrink-0 mt-[2px]">
                       <div className="w-2 h-2 rounded-full bg-[#11224A]"></div>
                     </div>
 

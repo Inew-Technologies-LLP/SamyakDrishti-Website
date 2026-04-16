@@ -103,9 +103,10 @@ export default function InternationalPatients() {
     <h3 className="text-xl md:text-2xl font-semibold text-neutral-950">
       10,000+
     </h3>
-    <p className="text-xs sm:text-sm text-gray-600 text-center">
-      Surgeries
-    </p>
+    <p className="text-xs sm:text-sm text-gray-600 text-center h-[32px] sm:h-auto flex items-start justify-center">
+  Surgeries
+</p>
+
   </div>
 
   {/* DIVIDER */}
@@ -116,9 +117,9 @@ export default function InternationalPatients() {
     <h3 className="text-xl md:text-2xl font-semibold text-neutral-950">
       40+
     </h3>
-    <p className="text-xs sm:text-sm text-gray-600 text-center">
-      Countries
-    </p>
+    <p className="text-xs sm:text-sm text-gray-600 text-center h-[32px] sm:h-auto flex items-start justify-center">
+  Countries
+</p>
   </div>
 
 </div>

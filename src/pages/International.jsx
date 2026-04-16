@@ -8,8 +8,7 @@ import hotel from "../assets/international/8.svg";
 import calendar1 from "../assets/international/6.svg";
 import calendar2 from "../assets/international/9.svg";
 import icon from "../assets/international/7.svg";
-import worldmap from "../assets/international/worldmap.png";
-
+import mapGif from "../assets/international/worldmap.gif";
 
 export default function InternationalPatients() {
   return (
@@ -125,79 +124,89 @@ export default function InternationalPatients() {
 
         </div>
 
-
-        {/* WORLD MAP */}
-
-        <div className="mt-16 relative overflow-x-auto md:overflow-visible">
-
-  <div className="relative min-w-[1200px] md:min-w-0 flex justify-start md:justify-center">
-
+       <div className="mt-16 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
   <img
-    src={worldmap}
-    className="w-[1200px] md:w-full max-w-none md:max-w-[1200px] opacity-70"
+    src={mapGif}
+    alt="World Map"
+    className="w-full h-auto"
   />
-
-  {/* INDIA */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[400px] left-[65%]" />
-
-  {/* UAE REGION */}
-<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[380px] left-[58%]" /> {/* Dubai */}
-<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[375px] left-[58.5%]" /> {/* Abu Dhabi */}
-<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[385px] left-[59%]" /> {/* Sharjah */}
-<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[375px] left-[59.5%]" /> {/* Qatar */}
-<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[365px] left-[58.5%]" /> {/* Bahrain */}
-<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[388px] left-[60%]" /> {/* Oman */}
-<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[383px] left-[57%]" /> {/* Saudi Arabia */}
-<div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[356px] left-[58%]" /> {/* Kuwait */}
-
-  {/* ASIA */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[385px] left-[73%]" /> {/* Hongkong */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[380px] left-[76.5%]" /> {/* Taiwan */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[395px] left-[71%]" /> {/* Thailand */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[440px] left-[71.5%]" /> {/* Singapore */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[447px] left-[74%]" /> {/* Indonesia */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[427px] left-[66%]" /> {/* Sri Lanka */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[373px] left-[66%]" /> {/* Nepal */}
-
-  {/* EUROPE */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[295px] left-[48%]" /> {/* Belgium */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[280px] left-[45.5%]" /> {/* United Kingdom */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[333px] left-[45%]" /> {/* Portugal */}
-
-  {/* AFRICA */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[420px] left-[52%]" /> {/* Nigeria */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[460px] left-[55%]" /> {/* Kenya */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[56%]" /> {/* Tanzania */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[54%]" /> {/* Zambia */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[520px] left-[55%]" /> {/* Zimbabwe */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[470px] left-[53%]" /> {/* Uganda */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[440px] left-[54%]" /> {/* Ethiopia */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[52%]" /> {/* Malawi */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[52%]" /> {/* Mozambique */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[530px] left-[57%]" /> {/* South Africa */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[510px] left-[58%]" /> {/* Mauritius */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[490px] left-[57%]" /> {/* Zanzibar */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[430px] left-[50%]" /> {/* Senegal */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[450px] left-[51%]" /> {/* Burundi */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[420px] left-[55%]" /> {/* Libya */}
-
-  {/* AMERICAS */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[310px] left-[25%]" /> {/* USA */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[220px] left-[18%]" /> {/* Canada */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[32%]" /> {/* Bolivia */}
-
-  {/* OCEANIA */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[85%]" /> {/* Australia */}
-
-  {/* MIDDLE EAST EXTRA */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[350px] left-[64%]" /> {/* Iraq */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[340px] left-[63%]" /> {/* Israel */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[345px] left-[66%]" /> {/* Syria */}
-  <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[360px] left-[67%]" /> {/* Yemen */}
-
 </div>
 
-</div>
+
+    {/*
+  WORLD MAP SECTION (COMMENTED OUT)
+
+  <div className="mt-16 relative overflow-x-auto md:overflow-visible"> 
+
+    <div className="relative min-w-[1200px] md:min-w-0 flex justify-start md:justify-center">
+
+      <img
+        src={worldmap}
+        className="w-[1200px] md:w-full max-w-none md:max-w-[1200px] opacity-70"
+      />
+
+      // INDIA
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[400px] left-[65%]" />
+
+      // UAE REGION
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[380px] left-[58%]" /> // Dubai
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[375px] left-[58.5%]" /> // Abu Dhabi
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[385px] left-[59%]" /> // Sharjah
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[375px] left-[59.5%]" /> // Qatar
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[365px] left-[58.5%]" /> // Bahrain
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[388px] left-[60%]" /> // Oman
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[383px] left-[57%]" /> // Saudi Arabia
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[356px] left-[58%]" /> // Kuwait
+
+      // ASIA
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[385px] left-[73%]" /> // Hongkong
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[380px] left-[76.5%]" /> // Taiwan
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[395px] left-[71%]" /> // Thailand
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[440px] left-[71.5%]" /> // Singapore
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[447px] left-[74%]" /> // Indonesia
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[427px] left-[66%]" /> // Sri Lanka
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[373px] left-[66%]" /> // Nepal
+
+      // EUROPE
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[295px] left-[48%]" /> // Belgium
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[280px] left-[45.5%]" /> // United Kingdom
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[333px] left-[45%]" /> // Portugal
+
+      // AFRICA
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[420px] left-[52%]" /> // Nigeria
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[460px] left-[55%]" /> // Kenya
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[56%]" /> // Tanzania
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[54%]" /> // Zambia
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[520px] left-[55%]" /> // Zimbabwe
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[470px] left-[53%]" /> // Uganda
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[440px] left-[54%]" /> // Ethiopia
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[52%]" /> // Malawi
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[52%]" /> // Mozambique
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[530px] left-[57%]" /> // South Africa
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[510px] left-[58%]" /> // Mauritius
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[490px] left-[57%]" /> // Zanzibar
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[430px] left-[50%]" /> // Senegal
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[450px] left-[51%]" /> // Burundi
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[420px] left-[55%]" /> // Libya
+
+      // AMERICAS
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[310px] left-[25%]" /> // USA
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[220px] left-[18%]" /> // Canada
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[480px] left-[32%]" /> // Bolivia
+
+      // OCEANIA
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[500px] left-[85%]" /> // Australia
+
+      // MIDDLE EAST EXTRA
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[350px] left-[64%]" /> // Iraq
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[340px] left-[63%]" /> // Israel
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[345px] left-[66%]" /> // Syria
+      <div className="absolute w-1.5 h-1.5 bg-black rounded-full patient-dot top-[360px] left-[67%]" /> // Yemen
+
+    </div>
+
+  </div>
+*/}
 
       </section>
 

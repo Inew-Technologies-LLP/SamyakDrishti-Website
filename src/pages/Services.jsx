@@ -299,7 +299,7 @@ const servicesData = [
     title: "Cornea Clinic", 
     desc: "Comprehensive care for corneal diseases, infections, and injuries.",
     detail: {
-      image: "/cornea-clinic.jpg", 
+      image: "/cornea-clinic.png", 
       whyChoose: [
         "Accurate diagnosis with detailed corneal imaging.",
         "Full range of treatments for infections, scars, and surface disease."
@@ -686,7 +686,7 @@ const servicesData = [
     title: "Retina and Diabetic Retinopathy", 
     desc: "Our Retina Clinic focuses on early detection and timely treatment to protect your vision.",
     detail: {
-      image: "/Retina and Diabetic retinopathy.png",
+      image: "/Retina and Diabetic retinopathy.jpeg",
       whyChoose: ["Early detection of silent retinal and diabetes-related changes.", "Advanced imaging and timely treatments that protect long-term vision."],
       bestFor: "Diabetic patients, those with family history of retinal disease, or anyone noticing vision changes.",
       howItWorks: [

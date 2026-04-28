@@ -686,7 +686,7 @@ const servicesData = [
     title: "Retina and Diabetic Retinopathy", 
     desc: "Our Retina Clinic focuses on early detection and timely treatment to protect your vision.",
     detail: {
-      image: "/Retina and Diabetic retinopathy.jpeg",
+      image: "/diabetic retinopathy.jpeg",
       whyChoose: ["Early detection of silent retinal and diabetes-related changes.", "Advanced imaging and timely treatments that protect long-term vision."],
       bestFor: "Diabetic patients, those with family history of retinal disease, or anyone noticing vision changes.",
       howItWorks: [
@@ -921,7 +921,7 @@ const ServiceDetailView = ({ service, onBookClick }) => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           
           {/* Left Side: Image with rounded corners and gap from border */}
-          <div className="lg:w-[35%] flex-shrink-0">
+          <div className="lg:w-[40%] flex-shrink-0">
             <img 
               src={service.detail.image} 
               alt={service.title} 

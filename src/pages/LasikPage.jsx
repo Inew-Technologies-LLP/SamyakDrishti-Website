@@ -192,9 +192,20 @@ const TreatmentCard = ({ t }) => {
 
   return (
     <div className="border border-gray-200 rounded-2xl p-6 md:p-8 bg-white shadow-sm hover:shadow-md transition-shadow">
-      <h2 className="text-2xl font-serif text-[#1b2a4e] font-[550] mb-6">
-        {t.id}. {t.title}
-      </h2>
+      
+      {/* ✅ FIX: Changed to a flex container so the title and badge sit side-by-side */}
+      <div className="flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-4 mb-6">
+        <h2 className="text-2xl font-serif text-[#1b2a4e] font-[550]">
+          {t.id}. {t.title}
+        </h2>
+        
+        {/* ✅ FIX: The new dark blue pill badge */}
+        {t.titleBadge && (
+          <span className="bg-[#1b2a4e] text-white text-xl md:text-sm px-4 py-2 rounded-md font-opensans font-medium w-fit shadow-sm">
+            {t.titleBadge}
+          </span>
+        )}
+      </div>
       
       <div className="space-y-6">
         <div>
@@ -253,6 +264,7 @@ const LasikTypesList = () => {
     {
       id: 2,
       title: "Standard LASIK",
+      titleBadge: "First in India to perform Wavefront-Optimised (WFO) LASIK",
       what: "A trusted, time-tested laser procedure that reshapes the cornea to correct nearsightedness, farsightedness, and astigmatism with fast recovery.",
       why: "Offers quick functional recovery and long lasting results with over 20 years of proven safety.",
       bestFor: "Most patients with suitable corneas looking to reduce or eliminate dependence on glasses.",
@@ -278,6 +290,7 @@ const LasikTypesList = () => {
     {
       id: 3,
       title: "SMILE (Small Incision Lenticule Extraction)",
+      titleBadge: "First in India to commercially launch SMILE — 6 months before global CZM launch",
       what: "A flapless, minimally invasive laser vision correction where a lenticule is created within the cornea and removed through a small incision.",
       why: "Promotes faster healing, maintains stronger corneal biomechanics, and presents a significantly lower risk of dry eye compared to flap-based procedures.",
       bestFor: "Appropriate cases of myopia (with or without astigmatism). Ideal for patients with active lifestyles or where the dry eye profile suggests a benefit over LASIK. Not everyone is a candidate.",
@@ -333,6 +346,7 @@ const LasikTypesList = () => {
     {
       id: 6,
       title: "PresbyOND",
+      titleBadge: "First in India to perform Presbyond LASIK (reading glasses)",
       what: "A specialised laser treatment for presbyopia (age-related near vision loss) that creates a blended vision zone to improve both near and distance vision.",
       why: "Reduces dependence on reading glasses by providing a wider, more continuous range of clear vision.",
       bestFor: "Individuals over 45 experiencing difficulty with near vision who wish to reduce their reliance on glasses."
@@ -446,6 +460,7 @@ const ServicesFAQ = ({ faqs }) => {
     </section>
   );
 };
+
 // ==========================================
 // MAIN PAGE COMPONENT
 // ==========================================
@@ -459,6 +474,21 @@ export default function LasikPage({ onBookClick }) {
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6">
         <LasikIntro />
         <LasikTypesList />
+        
+        <div className="flex justify-center md:justify-start mb-16">
+          <a 
+            href="/samyakdrishti lasik guide.pdf" // ⚠️ Change this to your actual PDF file name
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="cursor-pointer bg-[#b4dfc4] text-[#1b2a4e] font-medium px-8 py-3.5 rounded-full hover:bg-[#9cccae] transition-all duration-300 flex items-center text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5"
+          >
+            Read More
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+
         <LasikSurgeryGuide onBookClick={onBookClick} />
       </div>
 

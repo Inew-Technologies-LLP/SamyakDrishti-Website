@@ -108,7 +108,7 @@ const JourneySection = () => {
 
           <div className="space-y-12">
             <p>
-              Laser vision correction is safe, effective, and long-lasting when the right procedure is chosen and the evaluation is thorough. <br/>Between the two of us, we have experienced both PRK and Lasik firsthand. Dr Sujal underwent PRK in 1997 and has enjoyed clear distance vision ever since. Dr Manisha chose Lasik in June 2000, at the age of 30, after years of managing glasses and contact lenses and the constant planning they required.
+              Laser vision correction is safe, effective, and long-lasting when the right procedure is chosen and the evaluation is thorough. <br/>Between the two of us, we have experienced both PRK and Lasik firsthand. Dr Sujal underwent PRK in 1997 and has enjoyed clear distance vision ever since. Dr Manisha chose Lasik in June 2000, at the age of 30, after years of managing glasses and contact lenses and the constant planning they required. Operated on his parents, and brothers.
             </p>
             <p>
               What stands out most for both of us is how effortless life felt after surgery. Returning to work the very next day, seeing clearly without searching for glasses or thinking about lenses, and realizing that everyday moments had simply become easier. It was not one dramatic change, but many small freedoms adding up.

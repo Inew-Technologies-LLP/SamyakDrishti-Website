@@ -84,7 +84,7 @@ className="w-full max-w-[400px] h-[500px] md:h-[600px] object-cover rounded-[20p
 
 <div className="text-black text-justify text-sm md:text-base font-normal font-['Open_Sans'] leading-6 tracking-tight">
 
-India's leading vision correction specialist and pioneer in LASIK and SMILE procedures. 
+<strong>First fellowship-trained refractive surgeon in India</strong> and pioneer in LASIK and SMILE procedures. 
 Dr. Shah was the first surgeon in India to perform Wavefront-Optimized LASIK, Presbyond LASIK, and SMILE. 
 He has performed more than 60,000 such procedures and has contributed extensively to the field through 
 numerous published research papers. Patients trust Dr. Shah for his transparency, exceptional skill, 

@@ -115,6 +115,9 @@ const servicesData = [
     id: "dry-eye-clinic",
     title: "Dry Eye Clinic", 
     desc: "Dry eye is extremely common today because of long screen hours, air-conditioning, and reduced blinking. Our Dry Eye Clinic identifies the exact reason behind your symptoms.",
+    // ✅ ADDED PDF LINK FOR DRY EYE
+    pdfLink: "/Samyakdrishti Patient Guide_ Dry Eye.pdf", 
+    pdfText: "Read More About Dry Eye",
     detail: {
       image: "/Dry Eye .png",
       whyChoose: ["Expert screening to pinpoint the root cause of dryness.", "Targeted treatments that provide long-term relief."],
@@ -187,6 +190,9 @@ const servicesData = [
     id: "keratoconus-clinic",
     title: "Keratoconus Clinic", 
     desc: "Specialised treatment for keratoconus, a condition that causes the cornea to become thin and irregular in shape.",
+    // ✅ ADDED PDF LINK FOR KERATOCONUS
+    pdfLink: "/Keratoconus_Patient_Guide_SamyakDrishti.pdf", 
+    pdfText: "Read More About Keratoconus",
     detail: {
       image: "/Keratoconus.jpg",
       whyChoose: ["Specialised imaging to detect and track progression early.", "Customised treatments to improve vision with cross linking to stop progression."],
@@ -1022,13 +1028,28 @@ const ServiceDetailView = ({ service, onBookClick }) => {
       </div>
 
       {/* 2. Button OUTSIDE the main bordered box */}
-      <div className="mt-8">
-        <button onClick={onBookClick} className="cursor-pointer bg-[#b4dfc4] text-[#1b2a4e] font-medium px-8 py-3.5 rounded-full hover:bg-[#9cccae] transition-all duration-300 flex items-center font-normal text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+      <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+        <button onClick={onBookClick} className="cursor-pointer bg-[#b4dfc4] text-[#1b2a4e] font-medium px-8 py-3.5 rounded-full hover:bg-[#9cccae] transition-all duration-300 flex items-center font-normal text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto justify-center">
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
           </svg>
           Book Consultation
         </button>
+
+        {/* Dynamic PDF Link Button */}
+        {service.pdfLink && (
+          <a 
+            href={service.pdfLink}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="cursor-pointer bg-transparent border-2 border-[#1b2a4e] text-[#1b2a4e] font-medium px-8 py-3 rounded-full hover:bg-gray-50 transition-all duration-300 flex items-center justify-center font-normal text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
+          >
+            {service.pdfText}
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        )}
       </div>
       
     </div>

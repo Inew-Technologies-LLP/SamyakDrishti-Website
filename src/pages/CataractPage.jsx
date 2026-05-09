@@ -418,6 +418,19 @@ export default function CataractPage({ onBookClick }) {
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6">
         <CataractIntro />
         <CataractTypesList />
+        <div className="flex justify-center md:justify-start mb-16">
+          <a 
+            href="/Cataract Guide.pdf" // ⚠️ Change this to your actual PDF file name
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="cursor-pointer bg-[#b4dfc4] text-[#1b2a4e] font-medium px-8 py-3.5 rounded-full hover:bg-[#9cccae] transition-all duration-300 flex items-center text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5"
+          >
+            Read More
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
         <CataractSurgeryGuide onBookClick={onBookClick} />
       </div>
  

@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from "../components/Footer";
 
-
 // ==========================================
 // 1. HERO SECTION
 // ==========================================
@@ -47,26 +46,61 @@ const ContactHero = () => {
 // ==========================================
 const GetInTouchSection = () => {
   const [formData, setFormData] = React.useState({
+    visitDate: '',
     serviceUsed: '',
     overallExperience: '',
     waitingTime: '',
     staffInteraction: '',
-    concernExplained: ''
+    concernExplained: '',
+    whatWorkedWell: '',
+    whatToImprove: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
-  const handleRadioChange = (name, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [name.replace(/[^a-zA-Z0-9]/g, '').replace(/^\w/, c => c.toLowerCase())]: value
-    }));
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const radioGroup = (name, options) => {
-    const stateKey = name.replace(/[^a-zA-Z0-9]/g, '').replace(/^\w/, c => c.toLowerCase());
-    
+  // ✅ FIX: Directly use the exact database column name (stateKey)
+  const handleRadioChange = (stateKey, value) => {
+    setFormData(prev => ({ ...prev, [stateKey]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/feedback`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Thank you for your feedback!");
+        setFormData({
+          visitDate: '', serviceUsed: '', overallExperience: '', waitingTime: '',
+          staffInteraction: '', concernExplained: '', whatWorkedWell: '', whatToImprove: ''
+        });
+      } else {
+        alert("Failed to submit feedback. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Server error.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // ✅ FIX: Added stateKey parameter so it maps to the DB correctly
+  const radioGroup = (label, stateKey, options) => {
     return (
       <div>
-        <label className="block text-[#1b2a4e] font-semibold text-[13.5px] mb-1.5 font-opensans">{name}:</label>
+        <label className="block text-[#1b2a4e] font-semibold text-[13.5px] mb-1.5 font-opensans">{label}:</label>
         <div className="flex flex-wrap gap-x-5 gap-y-1.5">
           {options.map((opt, i) => {
             const isChecked = formData[stateKey] === opt;
@@ -77,10 +111,10 @@ const GetInTouchSection = () => {
                 </div>
                 <input 
                   type="radio" 
-                  name={name} 
+                  name={stateKey} 
                   value={opt}
                   className="hidden" 
-                  onChange={() => handleRadioChange(name, opt)}
+                  onChange={() => handleRadioChange(stateKey, opt)}
                   checked={isChecked}
                 />
                 <span className={isChecked ? 'text-gray-800 font-medium' : ''}>{opt}</span>
@@ -138,32 +172,57 @@ const GetInTouchSection = () => {
         </div>
       </div>
 
-      {/* Right Column: Feedback Form pinned to the right side */}
+      {/* Right Column: Feedback Form */}
       <div className="lg:col-span-6 flex justify-end">
         <div className="bg-white rounded-[20px] p-6 lg:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-[#E5E7EB] w-full max-w-[450px] h-max">
           <h3 className="text-[24px] font-serif text-[#16213e] font-medium mb-5">Patient Feedback Form</h3>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="block text-[#1b2a4e] font-semibold text-[13.5px] mb-1.5 font-opensans">Date of Visit:</label>
-              <input type="date" className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13.5px] focus:outline-none focus:border-[#1b2a4e] focus:ring-1 focus:ring-[#1b2a4e] font-opensans text-gray-500 transition-colors" />
+              <input 
+                type="date" 
+                name="visitDate"
+                value={formData.visitDate}
+                onChange={handleInputChange}
+                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13.5px] focus:outline-none focus:border-[#1b2a4e] focus:ring-1 focus:ring-[#1b2a4e] font-opensans text-gray-500 transition-colors" 
+              />
             </div>
             <div className="space-y-3">
-              {radioGroup("Service Used", ["Lasik", "Cataract", "General Eye Check", "Diagnostics", "Other"])}
-              {radioGroup("Overall Experience", ["Excellent", "Good", "Fair", "Poor"])}
-              {radioGroup("Waiting Time", ["Excellent", "Good", "Fair", "Poor"])}
-              {radioGroup("Staff Interaction", ["Excellent", "Good", "Fair", "Poor"])}
-              {radioGroup("Was your concern clearly explained?", ["Yes", "Somewhat", "No"])}
+              {/* ✅ FIX: Manually linking the labels to their exact database column names */}
+              {radioGroup("Service Used", "serviceUsed", ["Lasik", "Cataract", "General Eye Check", "Diagnostics", "Other"])}
+              {radioGroup("Overall Experience", "overallExperience", ["Excellent", "Good", "Fair", "Poor"])}
+              {radioGroup("Waiting Time", "waitingTime", ["Excellent", "Good", "Fair", "Poor"])}
+              {radioGroup("Staff Interaction", "staffInteraction", ["Excellent", "Good", "Fair", "Poor"])}
+              {radioGroup("Was your concern clearly explained?", "concernExplained", ["Yes", "Somewhat", "No"])}
             </div>
             <div>
               <label className="block text-[#1b2a4e] font-semibold text-[13.5px] mb-1.5 font-opensans">What worked well?</label>
-              <input type="text" placeholder="Share your positive experiences..." className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13.5px] focus:outline-none focus:border-[#1b2a4e] focus:ring-1 focus:ring-[#1b2a4e] font-opensans text-gray-500 transition-colors" />
+              <input 
+                type="text" 
+                name="whatWorkedWell"
+                value={formData.whatWorkedWell}
+                onChange={handleInputChange}
+                placeholder="Share your positive experiences..." 
+                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13.5px] focus:outline-none focus:border-[#1b2a4e] focus:ring-1 focus:ring-[#1b2a4e] font-opensans text-gray-500 transition-colors" 
+              />
             </div>
             <div>
               <label className="block text-[#1b2a4e] font-semibold text-[13.5px] mb-1.5 font-opensans">What can we improve?</label>
-              <textarea rows="2" placeholder="Help us serve you better..." className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13.5px] focus:outline-none focus:border-[#1b2a4e] focus:ring-1 focus:ring-[#1b2a4e] font-opensans text-gray-500 transition-colors resize-none"></textarea>
+              <textarea 
+                rows="2" 
+                name="whatToImprove"
+                value={formData.whatToImprove}
+                onChange={handleInputChange}
+                placeholder="Help us serve you better..." 
+                className="w-full border border-gray-200 rounded-lg px-3 py-2 text-[13.5px] focus:outline-none focus:border-[#1b2a4e] focus:ring-1 focus:ring-[#1b2a4e] font-opensans text-gray-500 transition-colors resize-none"
+              ></textarea>
             </div>
-            <button type="button" className="w-full bg-[#16213e] text-white font-medium py-2.5 rounded-lg hover:bg-[#111827] transition-colors shadow-sm mt-2 text-[14px] font-opensans">
-              Submit Feedback
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className={`w-full text-white font-medium py-2.5 rounded-lg transition-colors shadow-sm mt-2 text-[14px] font-opensans ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#16213e] hover:bg-[#111827]'}`}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Feedback'}
             </button>
           </form>
         </div>
@@ -174,85 +233,32 @@ const GetInTouchSection = () => {
 
 const SpecialityHours = () => {
   const doctors = [
-    { 
-      name: "Dr. Aashish Ahuja", 
-      role: "Retina Consultant",
-      qual: "MBBS, DNB (Retina)", 
-      time: "Monday, 4:00 PM – 6:00 PM",
-      icon: "/retina-icon.png" 
-    },
-    { 
-      name: "Dr. Kartik Panikar", 
-      role: "Glaucoma Consultant",
-      qual: "MBBS, DNB, FRCS (Edin)", 
-      time: "Friday, 3:00 PM – 5:00 PM",
-      icon: "/glaucoma-icon.png"
-    },
-    { 
-      name: "Dr. Akshay Nair", 
-      role: "Oculoplasty and Orbital Oncology Consultant",
-      qual: "DNB, Fellowship (LVPEI), International Council of Ophthalmology Fellow, New York Eye & Ear Infirmary of Mount Sinai, USA", 
-      time: "On Call Appointments",
-      icon: "/oculoplasty-icon.png"
-    },
-    { 
-      name: "Dr. Mitesh Jain", 
-      role: "Cornea Specialist",
-      qual: "MBBS, DNB", 
-      time: "Friday, 3:00 PM – 4:00 PM",
-      icon: "/cornea-icon.png"
-    },
-    { 
-      name: "Dr. Uppal Gandhi", 
-      role: "Squint & Pediatric Ophthalmology Specialist",
-      qual: "DNB, Fellowship in Pediatric Ophthalmology, Strabismus, and Neuro-Ophthalmology", 
-      time: "Thursday & Saturday, 3:00 PM – 5:00 PM",
-      icon: "/squint-icon.png",
-      //Added a specific scale class just for this icon to bypass the image padding
-      iconClass: "scale-160" 
-    },
-    { 
-      name: "Mr. Rajendra Pawar", 
-      role: "Ocularist & Optometrist",
-      qual: "Master of Optometry, Vision Therapist, and Specialist in Contact Lenses", 
-      time: "Tuesday, 3:00 PM – 5:00 PM",
-      icon: "/ocularist-icon.png"
-    },
+    { name: "Dr. Aashish Ahuja", role: "Retina Consultant", qual: "MBBS, DNB (Retina)", time: "Monday, 4:00 PM – 6:00 PM", icon: "/retina-icon.png" },
+    { name: "Dr. Kartik Panikar", role: "Glaucoma Consultant", qual: "MBBS, DNB, FRCS (Edin)", time: "Friday, 3:00 PM – 5:00 PM", icon: "/glaucoma-icon.png" },
+    { name: "Dr. Akshay Nair", role: "Oculoplasty and Orbital Oncology Consultant", qual: "DNB, Fellowship (LVPEI), International Council of Ophthalmology Fellow, New York Eye & Ear Infirmary of Mount Sinai, USA", time: "On Call Appointments", icon: "/oculoplasty-icon.png" },
+    { name: "Dr. Mitesh Jain", role: "Cornea Specialist", qual: "MBBS, DNB", time: "Friday, 3:00 PM – 4:00 PM", icon: "/cornea-icon.png" },
+    { name: "Dr. Uppal Gandhi", role: "Squint & Pediatric Ophthalmology Specialist", qual: "DNB, Fellowship in Pediatric Ophthalmology, Strabismus, and Neuro-Ophthalmology", time: "Thursday & Saturday, 3:00 PM – 5:00 PM", icon: "/squint-icon.png", iconClass: "scale-160" },
+    { name: "Mr. Rajendra Pawar", role: "Ocularist & Optometrist", qual: "Master of Optometry, Vision Therapist, and Specialist in Contact Lenses", time: "Tuesday, 3:00 PM – 5:00 PM", icon: "/ocularist-icon.png" },
   ];
 
   return (
     <div className="mb-24">
       <h2 className="text-3xl font-serif text-[#1b2a4e] font-semibold mb-10">Speciality Consultation Hours</h2>
-      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-18 gap-y-10">
         {doctors.map((doc, idx) => (
           <div key={idx} className="border border-gray-200 rounded-2xl p-7 bg-white shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex gap-4 h-full">
-            
-            {/* The Icon Container */}
             <div className="w-10 h-10 rounded-full bg-[#A8D5BA] flex items-center justify-center shrink-0 overflow-hidden">
-              {/* ✅ Applied the optional iconClass here */}
-              <img 
-                src={doc.icon} 
-                alt={doc.role} 
-                className={`w-6 h-6 object-contain ${doc.iconClass || ""}`} 
-              />
+              <img src={doc.icon} alt={doc.role} className={`w-6 h-6 object-contain ${doc.iconClass || ""}`} />
             </div>
-
-            {/* The Text Content */}
             <div className="flex flex-col h-full">
               <h4 className="font-bold text-[#1b2a4e] text-xl mb-0.5">{doc.name}</h4>
               <p className="text-[#A8D5BA] text-sm font-medium font-opensans mb-1">{doc.role}</p>
-              <p className="text-[#4A5565] text-[11px] font-opensans leading-relaxed mb-4 flex-grow">
-                {doc.qual}
-              </p>
+              <p className="text-[#4A5565] text-[11px] font-opensans leading-relaxed mb-4 flex-grow">{doc.qual}</p>
               <div className="flex items-center gap-2 text-gray-700 font-medium text-sm font-opensans">
-                <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
+                <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 {doc.time}
               </div>
             </div>
-            
           </div>
         ))}
       </div>
@@ -267,35 +273,21 @@ const ConsultationTimings = () => (
   <div className="mb-24">
     <h2 className="text-3xl font-serif text-[#1b2a4e] font-semibold mb-10">Consultation Timings</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      
-      {/* Regular Consultation Box */}
       <div className="rounded-2xl p-8 border border-[#E5E7EB] bg-white">
-        {/* Row 1: Icon and Title on the same line */}
         <div className="flex items-center gap-3 mb-5">
-          <svg className="w-5 h-5 text-[#A8D5BA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
+          <svg className="w-5 h-5 text-[#A8D5BA]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           <h3 className="text-[24px] font-serif font-normal text-[#1b2a4e]">Regular Consultation Hours</h3>
         </div>
-        
-        {/* Row 2: Content starts from the same left-point as the symbol above */}
         <div className="space-y-3 text-gray-700 font-opensans text-sm">
           <p><span className="font-bold mr-2 text-[#364153]">Monday – Saturday:</span> 10:00 AM – 7:00 PM</p>
           <p><span className="font-bold mr-2 text-[#364153]">Sunday:</span> Closed</p>
         </div>
       </div>
-
-      {/* Charity Clinic Box */}
       <div className="rounded-2xl p-8 border border-[#E5E7EB] bg-white">
-        {/* Row 1: Clock Icon and Title */}
         <div className="flex items-center gap-3 mb-1">
-          <svg className="w-5 h-5 text-[#A8D5BA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
+          <svg className="w-5 h-5 text-[#A8D5BA]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           <h3 className="text-[24px] font-serif font-normal text-[#1b2a4e]">Charity Eye Clinic Timings</h3>
         </div>
-        
-        {/* Row 2: Description and Times aligned to the icon above */}
         <div className="space-y-3 font-opensans text-sm">
           <p className="text-[#a5aab5] text-[13px] mb-4">Charitable services run by Dr. Manisha Shah</p>
           <div className="space-y-3 text-gray-700">
@@ -304,7 +296,6 @@ const ConsultationTimings = () => (
           </div>
         </div>
       </div>
-
     </div>
   </div>
 );
@@ -314,77 +305,33 @@ const ConsultationTimings = () => (
 // ==========================================
 const GetDirections = () => (
   <div className="mb-24">
-    {/* Heading with Pin Icon */}
     <div className="flex items-center gap-3 mb-10">
-      <svg className="w-8 h-8 text-[#e3342f]" fill="currentColor" viewBox="0 0 20 20">
-        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
-      </svg>
+      <svg className="w-8 h-8 text-[#e3342f]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
       <h2 className="text-3xl font-serif text-[#1b2a4e] font-semibold">Get Directions</h2>
     </div>
-
-    {/* Live Google Map Area */}
     <div className="w-full h-[450px] rounded-t-2xl overflow-hidden border-x border-t border-[#D1D5DC] shadow-inner relative">
-    <iframe
-        title="Samyak Drishti Location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.439614331923!2d72.81073697595627!3d18.95618285572157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cefa8350e16b%3A0x78d1c76d962a5adf!2sSamyak%20Drishti%20Eye%20Centre!5e0!3m2!1sen!2sin!4v1773137358579!5m2!1sen!2sin"
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-    ></iframe>
+      <iframe title="Samyak Drishti Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.439614331923!2d72.81073697595627!3d18.95618285572157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cefa8350e16b%3A0x78d1c76d962a5adf!2sSamyak%20Drishti%20Eye%20Centre!5e0!3m2!1sen!2sin!4v1773137358579!5m2!1sen!2sin" width="100%" height="100%" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
     </div>
-
-    {/* Landmarks & Transport Container - Matches Reference UI */}
     <div className="bg-[#EFF6FF] rounded-b-2xl p-8 lg:p-10 border-x border-b border-[#D1D5DC] grid grid-cols-1 md:grid-cols-2 gap-12">
-      
-      {/* Column 1: Nearest Landmarks */}
       <div>
         <h4 className="text-[#1b2a4e] font-bold text-lg mb-3 font-serif">Nearest Landmarks</h4>
         <ul className="space-y-2">
-          <li className="flex items-start gap-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#1b2a4e] mt-2.5 shrink-0"></div>
-            <span className="text-gray-700 font-opensans text-sm leading-relaxed">Girgaon Chowpatty Beach</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#1b2a4e] mt-2.5 shrink-0"></div>
-            <span className="text-gray-700 font-opensans text-sm leading-relaxed">Charni Road Railway Station (10-minute walk)</span>
-          </li>
+          <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[#1b2a4e] mt-2.5 shrink-0"></div><span className="text-gray-700 font-opensans text-sm leading-relaxed">Girgaon Chowpatty Beach</span></li>
+          <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 rounded-full bg-[#1b2a4e] mt-2.5 shrink-0"></div><span className="text-gray-700 font-opensans text-sm leading-relaxed">Charni Road Railway Station (10-minute walk)</span></li>
         </ul>
       </div>
-
-      {/* Column 2: Public Transport - Emoji formatting as per reference */}
       <div>
         <h4 className="text-[#1b2a4e] font-bold text-lg mb-3 font-serif">Public Transport</h4>
         <ul className="space-y-2">
-          <li className="flex items-start gap-3 text-sm">
-            <span className="text-lg leading-none shrink-0">🚆</span>
-            <span className="text-gray-700 font-opensans leading-relaxed">
-              <strong className="text-[#1b2a4e] font-bold">Local Train:</strong> Charni Road Station (Western Line)
-            </span>
-          </li>
-          <li className="flex items-start gap-3 text-sm">
-            <span className="text-lg leading-none shrink-0">🚌</span>
-            <span className="text-gray-700 font-opensans leading-relaxed">
-              <strong className="text-[#1b2a4e] font-bold">Bus:</strong> Multiple BEST bus routes serve Girgaon area
-            </span>
-          </li>
-          <li className="flex items-start gap-3 text-sm">
-            <span className="text-lg leading-none shrink-0">🚇</span>
-            <span className="text-gray-700 font-opensans leading-relaxed">
-              <strong className="text-[#1b2a4e] font-bold">Metro:</strong> Grant Road Metro Station (Aqua Line)
-            </span>
-          </li>
+          <li className="flex items-start gap-3 text-sm"><span className="text-lg leading-none shrink-0">🚆</span><span className="text-gray-700 font-opensans leading-relaxed"><strong className="text-[#1b2a4e] font-bold">Local Train:</strong> Charni Road Station (Western Line)</span></li>
+          <li className="flex items-start gap-3 text-sm"><span className="text-lg leading-none shrink-0">🚌</span><span className="text-gray-700 font-opensans leading-relaxed"><strong className="text-[#1b2a4e] font-bold">Bus:</strong> Multiple BEST bus routes serve Girgaon area</span></li>
+          <li className="flex items-start gap-3 text-sm"><span className="text-lg leading-none shrink-0">🚇</span><span className="text-gray-700 font-opensans leading-relaxed"><strong className="text-[#1b2a4e] font-bold">Metro:</strong> Grant Road Metro Station (Aqua Line)</span></li>
         </ul>
       </div>
     </div>
   </div>
 );
 
-// ==========================================
-// MAIN PAGE COMPONENT
-// ==========================================
 export default function ContactUsPage() {
   return (
     <main className="w-full bg-white ">
@@ -394,7 +341,6 @@ export default function ContactUsPage() {
         <SpecialityHours />
         <ConsultationTimings />
         <GetDirections />
-        
       </div>
     </main>
   );

@@ -41,7 +41,7 @@ export default function AdminDashboard() {
   const fetchAppointments = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/appointments`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments`);
       const data = await response.json();
       setAppointments(data);
     } catch (error) {
@@ -54,7 +54,7 @@ export default function AdminDashboard() {
   const fetchFeedback = async () => {
     setFeedbackLoading(true);
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/feedback`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/feedback`);
       const data = await response.json();
       setFeedbackData(data);
     } catch (error) {
@@ -118,7 +118,7 @@ export default function AdminDashboard() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}/status`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments/${id}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),

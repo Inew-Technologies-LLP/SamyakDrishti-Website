@@ -25,7 +25,7 @@ export default function BookingModal({ isOpen, onClose }) {
       // ✅ NEW: Fetch all appointments as soon as the modal opens
       const fetchBookedSlots = async () => {
         try {
-          const response = await fetch(`${import.meta.env.VITE_API_URL}/appointments`);
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments`);
           if (response.ok) {
             const data = await response.json();
             setBookedAppointments(data);
@@ -140,7 +140,7 @@ export default function BookingModal({ isOpen, onClose }) {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/appointments`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/appointments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(appointmentData),

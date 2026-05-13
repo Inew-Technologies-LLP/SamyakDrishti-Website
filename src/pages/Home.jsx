@@ -140,69 +140,89 @@ export default function HomePage({ onBookClick }) {
 
       </div>
 
-      {/* ✅ UNIQUE SECTION (STATIC LAYOUT: Image -> Title -> Cards) */}
-      <section className="w-full py-16 md:py-24 relative overflow-hidden bg-white">
-        
-        {/* 1. IMAGE FIRST */}
-        <div className="relative z-10 h-[280px] md:h-[500px] w-full mb-16 md:mb-24">
-          <img src={doctors} alt="Doctors" className="w-full h-full object-cover object-top"/>
-        </div>
+      {/* ✅ UNIQUE SECTION (MOBILE RESPONSIVE: Image -> Title -> Cards) */}
+<section className="w-full py-12 md:py-24 relative overflow-hidden bg-white">
+  
+  {/* 1. IMAGE SECTION */}
+  <div className="relative z-10 h-[240px] sm:h-[350px] md:h-[500px] w-full mb-12 md:mb-24">
+    <img 
+      src={doctors} 
+      alt="Doctors" 
+      className="w-full h-full object-cover object-top"
+    />
+  </div>
 
-        {/* 2. TITLE SECTION */}
-        <div className="w-full flex justify-center mb-16 z-20 relative px-4 text-center">
-          <h2 className="text-[36px] md:text-[50px] lg:text-[64px] font-bold font-['Lora'] text-[#132B55] flex flex-wrap justify-center gap-3 md:gap-4">
-            <span>WHAT</span>
-            <span>MAKES US UNIQUE</span>
-          </h2>
-        </div>
+  {/* 2. TITLE SECTION */}
+  <div className="w-full flex justify-center mb-10 md:mb-16 z-20 relative px-6 text-center">
+    <h2 className="text-[28px] sm:text-[40px] md:text-[50px] lg:text-[64px] font-bold font-['Lora'] text-[#132B55] flex flex-wrap justify-center gap-2 md:gap-4 uppercase tracking-tight">
+      <span>What</span>
+      <span>Makes Us Unique</span>
+    </h2>
+  </div>
 
-        {/* 3. CARDS GRID (Absolute positioning removed, but grid classes left EXACTLY as you designed them) */}
-        <div className="max-w-[1400px] mx-auto relative flex justify-center w-full px-6">
-          <div className="grid grid-cols-2 gap-x-20 gap-y-6 sm:gap-x-25 sm:gap-y-6 md:gap-x-30 md:gap-y-8 lg:gap-x-20 lg:gap-y-10 z-0">
+  {/* 3. CARDS GRID */}
+  <div className="max-w-[1200px] mx-auto relative w-full px-6">
+    {/* 
+        Mobile: 1 column (grid-cols-1)
+        Tablet+: 2 columns (md:grid-cols-2)
+    */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-12 md:gap-y-10">
 
-            {/* CARD 1 */}
-            <div ref={(el) => (cardsRef.current[0] = el)} className="text-white bg-[#162B55] ml-[-70px] md:ml-[-140px] sm:ml-0 w-[180px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px]  rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl transition-colors duration-500">
-              <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-                Pioneer in Advanced Technology
-              </h3>
-              <p className="text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-                We don’t just use the latest technology. We help shape it. 
-              </p>
-            </div>
+      {/* CARD 1 */}
+      <div 
+        ref={(el) => (cardsRef.current[0] = el)} 
+        className="text-white bg-[#162B55] w-full min-h-[140px] md:h-[180px] rounded-[20px] flex flex-col items-center justify-center text-center p-6 md:px-10 shadow-xl transition-all duration-500 hover:scale-[1.02]"
+      >
+        <h3 className="text-[#E6D097] text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2">
+          Pioneer in Advanced Technology
+        </h3>
+        <p className="text-[13px] md:text-[15px] font-['Open_Sans'] leading-relaxed opacity-90">
+          We don’t just use the latest technology. We help shape it.
+        </p>
+      </div>
 
-            {/* CARD 2 */}
-            <div ref={(el) => (cardsRef.current[1] = el)} className="text-white bg-[#162B55] ml-[-30px] md:mr-[-140px] sm:ml-0 w-[180px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px]  rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl transition-colors duration-500">
-              <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-                Personalised Precision Care
-              </h3>
-              <p className="text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-                No two eyes are alike. We use advanced diagnostics. 
-              </p>
-            </div>
+      {/* CARD 2 */}
+      <div 
+        ref={(el) => (cardsRef.current[1] = el)} 
+        className="text-white bg-[#162B55] w-full min-h-[140px] md:h-[180px] rounded-[20px] flex flex-col items-center justify-center text-center p-6 md:px-10 shadow-xl transition-all duration-500 hover:scale-[1.02]"
+      >
+        <h3 className="text-[#E6D097] text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2">
+          Personalised Precision Care
+        </h3>
+        <p className="text-[13px] md:text-[15px] font-['Open_Sans'] leading-relaxed opacity-90">
+          No two eyes are alike. We use advanced diagnostics for every patient.
+        </p>
+      </div>
 
-            {/* CARD 3 */}
-            <div ref={(el) => (cardsRef.current[2] = el)} className="text-white bg-[#162B55] ml-[-70px] md:ml-[-140px] sm:ml-0 w-[180px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px]  rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl transition-colors duration-500">
-              <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-                Trusted by Experts
-              </h3>
-              <p className="text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-                 Trains other surgeons and company trainers — a "doctor's doctor".
-              </p>
-            </div>
+      {/* CARD 3 */}
+      <div 
+        ref={(el) => (cardsRef.current[2] = el)} 
+        className="text-white bg-[#162B55] w-full min-h-[140px] md:h-[180px] rounded-[20px] flex flex-col items-center justify-center text-center p-6 md:px-10 shadow-xl transition-all duration-500 hover:scale-[1.02]"
+      >
+        <h3 className="text-[#E6D097] text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2">
+          Trusted by Experts
+        </h3>
+        <p className="text-[13px] md:text-[15px] font-['Open_Sans'] leading-relaxed opacity-90">
+           Trains other surgeons and company trainers — a "doctor's doctor".
+        </p>
+      </div>
 
-            {/* CARD 4 */}
-            <div ref={(el) => (cardsRef.current[3] = el)} className="text-white bg-[#162B55] ml-[-30px] md:mr-[-140px] sm:ml-0 w-[180px] sm:w-[180px] md:w-[360px] h-[120px] md:h-[170px]  rounded-[20px] flex flex-col items-center justify-center text-center px-3 sm:px-4 md:px-10 shadow-xl transition-colors duration-500">
-              <h3 className="text-[#E6D097] text-[14px] sm:text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2 md:mb-4">
-                Why Choose Us
-              </h3>
-              <p className="text-[11px] sm:text-[12px] md:text-[15px] font-['Open_Sans'] leading-5 md:leading-6">
-                First in India to commercially launch SMILE — 6 months before global CZM launch. 
-              </p>
-            </div>
+      {/* CARD 4 */}
+      <div 
+        ref={(el) => (cardsRef.current[3] = el)} 
+        className="text-white bg-[#162B55] w-full min-h-[140px] md:h-[180px] rounded-[20px] flex flex-col items-center justify-center text-center p-6 md:px-10 shadow-xl transition-all duration-500 hover:scale-[1.02]"
+      >
+        <h3 className="text-[#E6D097] text-[16px] md:text-[20px] font-bold font-['Lora'] mb-2">
+          Proven Track Record
+        </h3>
+        <p className="text-[13px] md:text-[15px] font-['Open_Sans'] leading-relaxed opacity-90">
+          First in India to commercially launch SMILE — 6 months before global CZM launch.
+        </p>
+      </div>
 
-          </div>
-        </div>
-      </section>
+    </div>
+  </div>
+</section>
 
       {/* VISIT GUIDE */}
       <section ref={visitRef} className="pt-20 md:pt-24 pb-24 md:pb-30">

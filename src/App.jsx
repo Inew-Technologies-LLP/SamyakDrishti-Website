@@ -23,23 +23,26 @@ import BookingModal from "./components/BookingModal";
 
 // ===== Admin Pages =====
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminLogin from "./pages/AdminLogin";
+import ProtectedRoute from "./components/ProtectedRoute"; // ✅ Import Guard
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   const location = useLocation();
+  // Check if we are on any page that starts with /admin
   const isAdminRoute = location.pathname.startsWith("/admin");
 
   return (
     <div className="min-h-screen">
       <ScrollToTop />
       
+      {/* Only show website-wide UI elements if NOT on an admin page */}
       {!isAdminRoute && <ScrollTopButton />}
-      
-      {/* ✅ FIX: We directly pass the state-changing function here */}
       {!isAdminRoute && <Navbar onBookClick={() => setIsModalOpen(true)} />}
 
       <Routes>
+        {/* Public Website Routes */}
         <Route path="/" element={<Home onBookClick={() => setIsModalOpen(true)} />} />
         <Route path="/our-impact" element={<OurImpact />} />
         <Route path="/our-team" element={<OurTeam />} />
@@ -50,9 +53,22 @@ function App() {
         <Route path="/cataract" element={<CataractPage onBookClick={() => setIsModalOpen(true)}/>} />
         <Route path="/lasik" element={<LasikPage onBookClick={() => setIsModalOpen(true)} />} />
         <Route path="/contact" element={<ContactUsPage />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} /> 
+
+        {/* Admin Login - Always accessible */}
+        <Route path="/admin" element={<AdminLogin />} />
+
+        {/* ✅ Admin Dashboard - PROTECTED 🔒 */}
+        <Route 
+          path="/admin/dashboard" 
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          } 
+        /> 
       </Routes>
 
+      {/* Only show footer/modal if NOT on an admin page */}
       {!isAdminRoute && <Footer onBookClick={() => setIsModalOpen(true)} />}
 
       {!isAdminRoute && (

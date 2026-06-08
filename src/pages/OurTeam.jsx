@@ -224,7 +224,7 @@ Our Team of Doctors
 
 <DoctorCard image={uppal} name="Dr. Uppal Gandhi" role="Squint & Pediatric Ophthalmology Specialist" degree="DNB, Fellowship in Pediatric Ophthalmology, Strabismus, and Neuro-Ophthalmology" description="Dr Uppal Gandhi focuses on the clinical evaluation and management of squint and paediatric eye conditions, with an emphasis on accurate diagnosis and long-term visual outcomes."/>
 
-<DoctorCard image={akshay} name="Dr. Akshay Nair" role="Cornea Specialist" degree="MBBS, DNB" description="An oculoplastic surgeon and ocular oncologist, Dr. Nair specialises in eyelid, orbit and tear-duct disorders and practices at top hospitals in Mumbai."/>
+<DoctorCard image={akshay} name="Dr. Akshay Nair" role="Oculoplastic Surgeon" degree="MBBS, DNB" description="An oculoplastic surgeon and ocular oncologist, Dr. Nair specialises in eyelid, orbit and tear-duct disorders and practices at top hospitals in Mumbai."/>
 
 </div>
 

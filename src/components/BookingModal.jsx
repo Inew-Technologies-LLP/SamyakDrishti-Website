@@ -61,7 +61,7 @@ export default function BookingModal({ isOpen, onClose }) {
     "Keratoconus Clinic", "Cornea Clinic", "Contact Lens & Optometry"
   ];
 
-  const timeSlots = ["5:30 PM", "6:30 PM", "7:30 PM", "8:30 PM", "9:30 PM"];
+  const timeSlots = ["10:00 AM", "6:30 PM", "7:30 PM", "8:30 PM", "5:30 PM"];
 
   const currentYear = viewDate.getFullYear();
   const currentMonth = viewDate.getMonth();

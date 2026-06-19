@@ -3,9 +3,9 @@ import { X, ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Clock, Globe, Arr
 import logoSymbol from "../assets/logo2.png";
 
 export default function BookingModal({ isOpen, onClose }) {
-  const [step, setStep] = useState(1); 
-  const [viewDate, setViewDate] = useState(new Date()); 
-  const [selectedDate, setSelectedDate] = useState(null); 
+  const [step, setStep] = useState(1);
+  const [viewDate, setViewDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedReason, setSelectedReason] = useState("Select reason");
@@ -20,8 +20,8 @@ export default function BookingModal({ isOpen, onClose }) {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'; 
-      
+      document.body.style.overflow = 'hidden';
+
       // ✅ NEW: Fetch all appointments as soon as the modal opens
       const fetchBookedSlots = async () => {
         try {
@@ -37,16 +37,16 @@ export default function BookingModal({ isOpen, onClose }) {
       fetchBookedSlots();
 
     } else {
-      document.body.style.overflow = 'unset';  
+      document.body.style.overflow = 'unset';
       setTimeout(() => {
         setStep(1);
-        setViewDate(new Date()); 
-        setSelectedDate(null);   
-        setSelectedTime(null);   
-        setSelectedReason("Select reason"); 
-        setIsDropdownOpen(false); 
+        setViewDate(new Date());
+        setSelectedDate(null);
+        setSelectedTime(null);
+        setSelectedReason("Select reason");
+        setIsDropdownOpen(false);
         setFormData({ fullName: '', email: '', notes: '', phone: '' });
-        setIsSubmitting(false); 
+        setIsSubmitting(false);
       }, 300);
     }
     return () => { document.body.style.overflow = 'unset'; };
@@ -57,16 +57,32 @@ export default function BookingModal({ isOpen, onClose }) {
   const reasons = [
     "LASIK", "Cataract", "Refractive Lens Exchange (RLE)", "Routine Eye Test",
     "Dry Eye Clinic", "Glaucoma Clinic", "Retina & Diabetic Retinopathy",
-    "Oculoplastic Clinic", "Squint Clinic", "Myopia Clinic", 
+    "Oculoplastic Clinic", "Squint Clinic", "Myopia Clinic",
     "Keratoconus Clinic", "Cornea Clinic", "Contact Lens & Optometry"
   ];
 
-  const timeSlots = ["10:00 AM", "6:30 PM", "7:30 PM", "8:30 PM", "5:30 PM"];
+  const timeSlots = [
+    "10:00 AM",
+    "10:30 AM",
+    "11:00 AM",
+    "11:30 AM",
+    "12:00 PM",
+    "12:30 PM",
+    "01:00 PM",
+    "01:30 PM",
+    "02:00 PM",
+    "02:30 PM",
+    "03:00 PM",
+    "03:30 PM",
+    "04:00 PM",
+    "04:30 PM",
+    "05:00 PM",
+  ];
 
   const currentYear = viewDate.getFullYear();
   const currentMonth = viewDate.getMonth();
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay(); 
+  const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -147,7 +163,7 @@ export default function BookingModal({ isOpen, onClose }) {
       });
 
       if (response.ok) {
-        setStep(3); 
+        setStep(3);
       } else {
         alert("Something went wrong saving the appointment. Please try again.");
       }
@@ -168,10 +184,9 @@ export default function BookingModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 py-8 sm:p-6">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" onClick={onClose}></div>
 
-      <div className={`relative bg-white w-full rounded-2xl flex shadow-2xl animate-in fade-in zoom-in duration-300 transition-all max-h-[90vh] overflow-y-auto md:overflow-hidden ${
-        step === 3 ? 'max-w-[600px] min-h-[400px] md:min-h-[500px] flex-col' : 'max-w-[1200px] min-h-[500px] md:min-h-[600px] flex-col md:flex-row'
-      }`}>
-        
+      <div className={`relative bg-white w-full rounded-2xl flex shadow-2xl animate-in fade-in zoom-in duration-300 transition-all max-h-[90vh] overflow-y-auto md:overflow-hidden ${step === 3 ? 'max-w-[600px] min-h-[400px] md:min-h-[500px] flex-col' : 'max-w-[1200px] min-h-[500px] md:min-h-[600px] flex-col md:flex-row'
+        }`}>
+
         <button onClick={onClose} className="cursor-pointer absolute top-4 right-4 md:top-6 md:right-6 bg-white/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-1.5 md:p-0 rounded-full text-gray-400 hover:text-gray-600 z-50 transition-colors shadow-sm md:shadow-none">
           <X size={24} />
         </button>
@@ -191,7 +206,7 @@ export default function BookingModal({ isOpen, onClose }) {
                   <>
                     <label className="block text-[13px] font-semibold text-gray-700 mb-3">Reason for the visit</label>
                     <div className="relative z-30">
-                      <button 
+                      <button
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         className="cursor-pointer w-full bg-white border border-gray-200 rounded-lg px-4 py-3 md:px-5 md:py-4 text-[13px] md:text-[14px] text-left text-gray-600 flex justify-between items-center shadow-sm hover:border-blue-300 transition-colors"
                       >
@@ -231,7 +246,7 @@ export default function BookingModal({ isOpen, onClose }) {
                     </div>
                     <div className="flex items-start gap-3">
                       <Clock size={18} className="text-gray-500 mt-0.5 flex-shrink-0" />
-                      <span className="font-medium leading-relaxed">{formatTimeRange(selectedTime)}, <br/>{getLongDateString()}</span>
+                      <span className="font-medium leading-relaxed">{formatTimeRange(selectedTime)}, <br />{getLongDateString()}</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <Globe size={18} className="text-gray-500 mt-0.5 flex-shrink-0" />
@@ -253,7 +268,7 @@ export default function BookingModal({ isOpen, onClose }) {
                       <span className="font-medium text-gray-700 text-[14px] md:text-[15px] w-28 md:w-32 text-center">{monthName} {currentYear}</span>
                       <button onClick={handleNextMonth} className="cursor-pointer p-1 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-sm"><ChevronRight size={20} /></button>
                     </div>
-                    
+
                     <div className="grid grid-cols-7 gap-y-2 md:gap-y-4 gap-x-1 text-center">
                       {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map(d => <div key={d} className="text-[9px] md:text-[10px] font-bold text-gray-400 mb-2">{d}</div>)}
                       {[...Array(firstDayOfMonth)].map((_, i) => <div key={`empty-${i}`} className="h-8 w-8 md:h-10 md:w-10 mx-auto"></div>)}
@@ -274,9 +289,9 @@ export default function BookingModal({ isOpen, onClose }) {
                       })}
                     </div>
                   </div>
-                  
+
                   <div className="hidden lg:block w-px bg-gray-100 my-4"></div>
-                  
+
                   <div className="w-full lg:w-56 flex flex-col gap-2.5 pt-4 lg:pt-[60px]">
                     {selectedDate ? (
                       <>
@@ -285,31 +300,30 @@ export default function BookingModal({ isOpen, onClose }) {
                           {timeSlots.map(time => {
                             const isThisTimeSelected = selectedTime === time;
                             const currentDateTimeStr = `${getLongDateString()} at ${time}`;
-                            
+
                             // ✅ NEW: The logic that checks if the slot is taken!
                             // It checks if the dateTime matches, if the reason matches, AND if the admin Accepted it.
-                            const isSlotBooked = bookedAppointments.some(app => 
-                              app.dateTime === currentDateTimeStr && 
-                              app.reason && app.reason.includes(selectedReason) && 
+                            const isSlotBooked = bookedAppointments.some(app =>
+                              app.dateTime === currentDateTimeStr &&
+                              app.reason && app.reason.includes(selectedReason) &&
                               app.status === 'Accepted'
                             );
 
                             return (
                               <div key={time} className="flex gap-2 w-full animate-in fade-in duration-200">
-                                <button 
-                                  onClick={() => !isSlotBooked && setSelectedTime(time)} 
+                                <button
+                                  onClick={() => !isSlotBooked && setSelectedTime(time)}
                                   disabled={isSlotBooked}
-                                  className={`py-2.5 md:py-3 px-3 md:px-4 rounded-lg text-[13px] md:text-[14px] font-medium transition-all ${
-                                    isSlotBooked 
-                                      ? 'bg-gray-100 text-gray-400 border border-gray-200 cursor-not-allowed' // Style for Booked
-                                      : isThisTimeSelected 
-                                        ? 'bg-white text-gray-600 border border-blue-400 w-1/2 shadow-sm cursor-pointer' 
-                                        : 'bg-white text-blue-600 border border-blue-200 hover:border-blue-400 w-full cursor-pointer'
-                                  }`}
+                                  className={`py-2.5 md:py-3 px-3 md:px-4 rounded-lg text-[13px] md:text-[14px] font-medium transition-all ${isSlotBooked
+                                    ? 'bg-gray-100 text-gray-400 border border-gray-200 cursor-not-allowed' // Style for Booked
+                                    : isThisTimeSelected
+                                      ? 'bg-white text-gray-600 border border-blue-400 w-1/2 shadow-sm cursor-pointer'
+                                      : 'bg-white text-blue-600 border border-blue-200 hover:border-blue-400 w-full cursor-pointer'
+                                    }`}
                                 >
                                   {isSlotBooked ? 'Booked' : time}
                                 </button>
-                                
+
                                 {isThisTimeSelected && !isSlotBooked && (
                                   <button onClick={handleProceedToForm} className="cursor-pointer bg-blue-600 text-white py-2.5 md:py-3 px-3 md:px-4 rounded-lg text-[13px] md:text-[14px] font-medium transition-all w-1/2 hover:bg-blue-700 shadow-md animate-in slide-in-from-right-4">
                                     Confirm
@@ -353,12 +367,11 @@ export default function BookingModal({ isOpen, onClose }) {
                     </div>
                   </div>
                   <div className="mt-6 md:mt-8 flex justify-end">
-                    <button 
-                      onClick={handleFinalSubmit} 
+                    <button
+                      onClick={handleFinalSubmit}
                       disabled={isSubmitting}
-                      className={`cursor-pointer text-white px-8 py-2.5 rounded-lg text-[13px] md:text-[14px] font-semibold transition-all shadow-md w-full md:w-auto ${
-                        isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
-                      }`}
+                      className={`cursor-pointer text-white px-8 py-2.5 rounded-lg text-[13px] md:text-[14px] font-semibold transition-all shadow-md w-full md:w-auto ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+                        }`}
                     >
                       {isSubmitting ? 'Submitting...' : 'Confirm'}
                     </button>
@@ -383,7 +396,7 @@ export default function BookingModal({ isOpen, onClose }) {
               </div>
               <div className="space-y-3 md:space-y-4 text-[12px] md:text-[13px] text-gray-600">
                 <div className="flex items-center gap-3"><Clock size={16} className="text-gray-500 md:w-[18px] md:h-[18px]" /><span className="font-medium">20 min</span></div>
-                <div className="flex items-start gap-3"><Clock size={16} className="text-gray-500 mt-0.5 md:w-[18px] md:h-[18px]" /><span className="font-medium leading-relaxed">{formatTimeRange(selectedTime)}, <br/>{getLongDateString()}</span></div>
+                <div className="flex items-start gap-3"><Clock size={16} className="text-gray-500 mt-0.5 md:w-[18px] md:h-[18px]" /><span className="font-medium leading-relaxed">{formatTimeRange(selectedTime)}, <br />{getLongDateString()}</span></div>
                 <div className="flex items-center gap-3"><Globe size={16} className="text-gray-500 md:w-[18px] md:h-[18px]" /><span className="font-medium">India Standard Time</span></div>
               </div>
             </div>

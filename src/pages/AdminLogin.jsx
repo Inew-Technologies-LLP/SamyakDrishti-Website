@@ -26,11 +26,11 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-3xl shadow-xl flex flex-col md:flex-row max-w-4xl w-full overflow-hidden min-h-[500px]">
-        
+
         {/* Left Side: Illustration Area */}
         <div className="md:w-[40%] bg-[#E1F3FF] p-10 flex flex-col items-center justify-center text-center">
           <div className="w-16 h-16 bg-[#1b2a4e] rounded-full flex items-center justify-center mb-6 shadow-lg">
-             <CalendarDays className="text-white" size={32} />
+            <CalendarDays className="text-white" size={32} />
           </div>
           <h2 className="text-[#1b2a4e] text-xl font-bold leading-tight">
             Your health, your time — see doctor schedules and book when it suits you.
@@ -47,11 +47,11 @@ export default function AdminLogin() {
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Example@email.com" 
+                placeholder="Example@email.com"
                 className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
@@ -59,11 +59,11 @@ export default function AdminLogin() {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
-              <input 
-                type="password" 
+              <input
+                type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="At least 8 characters" 
+                placeholder="At least 8 characters"
                 className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 required
               />
@@ -71,14 +71,8 @@ export default function AdminLogin() {
 
             {error && <p className="text-red-500 text-xs font-medium">{error}</p>}
 
-            <div className="text-right">
-              <button type="button" className="text-blue-600 text-sm font-semibold hover:underline">
-                Forgot Password?
-              </button>
-            </div>
-
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="w-full bg-[#1b2a4e] text-white py-4 rounded-xl font-bold text-lg hover:bg-[#162340] transition-colors shadow-lg"
             >
               Log In
